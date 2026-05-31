@@ -26,7 +26,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -38,7 +37,6 @@
     overflow-x: hidden;
   }
 
-  /* ── NOISE TEXTURE OVERLAY ── */
   body::before {
     content: '';
     position: fixed;
@@ -49,7 +47,7 @@
     opacity: 0.4;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -100,9 +98,9 @@
     transition: background 0.2s !important;
   }
 
-  .nav-cta:hover { background: #a50d25 !important; color: var(--white) !important; }
+  .nav-cta:hover { background: #a50d25 !important; }
 
-  /* ── HERO ── */
+  /* HERO */
   #hero {
     min-height: 100vh;
     display: grid;
@@ -151,10 +149,7 @@
     margin-bottom: 8px;
   }
 
-  .hero-name strong {
-    font-weight: 700;
-    display: block;
-  }
+  .hero-name strong { font-weight: 700; display: block; }
 
   .hero-credential {
     font-family: 'DM Mono', monospace;
@@ -216,54 +211,107 @@
     display: inline-block;
   }
 
-  .btn-secondary:hover {
-    border-color: var(--crimson);
-    color: var(--white);
-  }
+  .btn-secondary:hover { border-color: var(--crimson); color: var(--white); }
 
-  .hero-right {
+  /* PHOTO SECTION */
+  .hero-photo-block {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    align-items: center;
+  }
+
+  .photo-frame {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    flex-shrink: 0;
+  }
+
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid var(--crimson);
+    opacity: 0.4;
+    border-radius: 4px;
+  }
+
+  .photo-frame::after {
+    content: '';
+    position: absolute;
+    inset: -16px;
+    border: 1px solid rgba(200,16,46,0.15);
+    border-radius: 4px;
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    filter: grayscale(15%) contrast(1.05);
+  }
+
+  .photo-placeholder {
+    width: 280px;
+    height: 280px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--muted);
+  }
+
+  .photo-placeholder .icon { font-size: 3rem; opacity: 0.3; }
+
+  .photo-placeholder p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.6;
   }
 
   .hero-stat-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 20px 24px;
+    padding: 16px 20px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     transition: border-color 0.2s;
     animation: fadeSlideIn 0.6s ease both;
+    width: 100%;
   }
-
-  .hero-stat-card:nth-child(1) { animation-delay: 0.1s; }
-  .hero-stat-card:nth-child(2) { animation-delay: 0.2s; }
-  .hero-stat-card:nth-child(3) { animation-delay: 0.3s; }
-  .hero-stat-card:nth-child(4) { animation-delay: 0.4s; }
 
   .hero-stat-card:hover { border-color: var(--crimson); }
 
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--crimson);
     line-height: 1;
-    min-width: 60px;
+    min-width: 52px;
   }
 
   .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--light);
     line-height: 1.4;
   }
 
   .stat-sub {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: var(--muted);
     margin-top: 2px;
   }
@@ -273,11 +321,8 @@
     to { opacity: 1; transform: translateX(0); }
   }
 
-  /* ── SECTIONS ── */
-  section {
-    position: relative;
-    z-index: 1;
-  }
+  /* SECTIONS */
+  section { position: relative; z-index: 1; }
 
   .section-inner {
     max-width: 1100px;
@@ -314,19 +359,11 @@
     margin-bottom: 20px;
   }
 
-  .section-title em {
-    font-style: italic;
-    color: var(--light);
-  }
+  .section-title em { font-style: italic; color: var(--light); }
 
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 0 48px;
-  }
+  .divider { height: 1px; background: var(--border); margin: 0 48px; }
 
-  /* ── ABOUT ── */
+  /* ABOUT */
   #about { background: var(--deep); }
 
   .about-grid {
@@ -344,10 +381,7 @@
     line-height: 1.85;
   }
 
-  .about-text p strong {
-    color: var(--white);
-    font-weight: 500;
-  }
+  .about-text p strong { color: var(--white); font-weight: 500; }
 
   .pull-quote {
     font-family: 'Cormorant Garamond', serif;
@@ -361,11 +395,7 @@
     line-height: 1.5;
   }
 
-  .career-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .career-timeline { display: flex; flex-direction: column; gap: 0; }
 
   .timeline-item {
     display: flex;
@@ -377,16 +407,13 @@
   .timeline-item:not(:last-child)::before {
     content: '';
     position: absolute;
-    left: 11px;
-    top: 24px;
-    bottom: 0;
+    left: 11px; top: 24px; bottom: 0;
     width: 1px;
     background: var(--border);
   }
 
   .timeline-dot {
-    width: 24px;
-    height: 24px;
+    width: 24px; height: 24px;
     border-radius: 50%;
     border: 2px solid var(--crimson);
     background: var(--black);
@@ -399,8 +426,7 @@
 
   .timeline-dot::after {
     content: '';
-    width: 8px;
-    height: 8px;
+    width: 8px; height: 8px;
     border-radius: 50%;
     background: var(--crimson);
   }
@@ -420,10 +446,8 @@
     margin: 0;
   }
 
-  /* ── CLINICAL EYES ── */
-  #advantage {
-    background: var(--black);
-  }
+  /* ADVANTAGE */
+  #advantage { background: var(--black); }
 
   .advantage-hero {
     background: linear-gradient(135deg, var(--crimson) 0%, #8B0000 100%);
@@ -437,8 +461,7 @@
   .advantage-hero::before {
     content: '⚕';
     position: absolute;
-    right: 40px;
-    top: 50%;
+    right: 40px; top: 50%;
     transform: translateY(-50%);
     font-size: 10rem;
     opacity: 0.08;
@@ -476,15 +499,8 @@
     transition: border-color 0.2s, transform 0.2s;
   }
 
-  .adv-card:hover {
-    border-color: var(--crimson);
-    transform: translateY(-3px);
-  }
-
-  .adv-icon {
-    font-size: 1.4rem;
-    margin-bottom: 14px;
-  }
+  .adv-card:hover { border-color: var(--crimson); transform: translateY(-3px); }
+  .adv-icon { font-size: 1.4rem; margin-bottom: 14px; }
 
   .adv-card h4 {
     font-family: 'Cormorant Garamond', serif;
@@ -494,13 +510,9 @@
     margin-bottom: 10px;
   }
 
-  .adv-card p {
-    font-size: 0.8rem;
-    color: var(--muted);
-    line-height: 1.7;
-  }
+  .adv-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
 
-  /* ── SERVICES ── */
+  /* SERVICES */
   #services { background: var(--deep); }
 
   .services-grid {
@@ -531,24 +543,17 @@
     transition: transform 0.3s;
   }
 
-  .service-card:hover {
-    border-color: rgba(200,16,46,0.3);
-    transform: translateY(-4px);
-  }
-
+  .service-card:hover { border-color: rgba(200,16,46,0.3); transform: translateY(-4px); }
   .service-card:hover::before { transform: scaleX(1); }
 
   .service-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--crimson-dim);
-    line-height: 1;
-    margin-bottom: 16px;
     position: absolute;
     top: 20px; right: 24px;
     color: rgba(200,16,46,0.12);
     font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
   }
 
   .service-card h3 {
@@ -560,19 +565,9 @@
     line-height: 1.3;
   }
 
-  .service-card p {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.75;
-    margin-bottom: 20px;
-  }
+  .service-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.75; margin-bottom: 20px; }
 
-  .service-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .service-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 
   .service-bullets li {
     font-size: 0.78rem;
@@ -582,24 +577,12 @@
     line-height: 1.5;
   }
 
-  .service-bullets li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--crimson);
-    font-size: 0.7rem;
-  }
+  .service-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--crimson); font-size: 0.7rem; }
 
-  /* ── DOCUMENTARY ── */
-  #documentary {
-    background: var(--black);
-  }
+  /* DOCUMENTARY */
+  #documentary { background: var(--black); }
 
-  .doc-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 100px 48px;
-  }
+  .doc-inner { max-width: 1100px; margin: 0 auto; padding: 100px 48px; }
 
   .doc-feature {
     margin-top: 48px;
@@ -618,15 +601,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  .doc-left::after {
-    content: '🎬';
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    font-size: 4rem;
-    opacity: 0.15;
   }
 
   .doc-badge {
@@ -663,15 +637,10 @@
     margin-bottom: 24px;
   }
 
-  .doc-left p {
-    font-size: 0.85rem;
-    color: var(--light);
-    line-height: 1.8;
-    margin-bottom: 28px;
-  }
+  .doc-left p { font-size: 0.85rem; color: var(--light); line-height: 1.8; margin-bottom: 28px; }
 
   .doc-right {
-    padding: 56px 48px;
+    padding: 40px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -686,34 +655,39 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 8px;
+    margin-top: 16px;
   }
 
   .peer-item {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--border);
   }
 
-  .peer-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--crimson);
-    flex-shrink: 0;
+  .peer-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--crimson); flex-shrink: 0; }
+  .peer-item span { font-size: 0.82rem; color: var(--light); line-height: 1.4; }
+
+  /* VIDEO EMBED */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--border);
   }
 
-  .peer-item span {
-    font-size: 0.82rem;
-    color: var(--light);
-    line-height: 1.4;
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
   }
 
-  /* ── DFR FRAMEWORK ── */
-  #dfr {
-    background: var(--deep);
-  }
+  /* DFR */
+  #dfr { background: var(--deep); }
 
   .dfr-layout {
     display: grid;
@@ -735,18 +709,9 @@
     margin-bottom: 24px;
   }
 
-  .dfr-desc {
-    font-size: 0.88rem;
-    color: var(--light);
-    line-height: 1.85;
-    margin-bottom: 28px;
-  }
+  .dfr-desc { font-size: 0.88rem; color: var(--light); line-height: 1.85; margin-bottom: 28px; }
 
-  .dfr-phases {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+  .dfr-phases { display: flex; flex-direction: column; gap: 16px; }
 
   .dfr-phase {
     background: var(--card);
@@ -774,21 +739,62 @@
     margin-top: 2px;
   }
 
-  .phase-content h4 {
-    font-size: 0.88rem;
-    font-weight: 500;
+  .phase-content h4 { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 4px; }
+  .phase-content p { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+
+  /* LAB SECTION */
+  #lab { background: var(--black); }
+
+  .lab-feature {
+    margin-top: 48px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .lab-feature h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
     color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .lab-feature p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
+
+  .lab-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .lab-stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .lab-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--crimson);
+    line-height: 1;
     margin-bottom: 4px;
   }
 
-  .phase-content p {
-    font-size: 0.78rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
+  .lab-stat-label { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
 
-  /* ── RECOGNITION ── */
-  #recognition { background: var(--black); }
+  /* RECOGNITION */
+  #recognition { background: var(--deep); }
 
   .recognition-grid {
     display: grid;
@@ -809,26 +815,9 @@
   }
 
   .rec-card:hover { border-color: var(--crimson); }
-
-  .rec-icon {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .rec-card h4 {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 4px;
-    line-height: 1.4;
-  }
-
-  .rec-card p {
-    font-size: 0.78rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
+  .rec-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+  .rec-card h4 { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 4px; line-height: 1.4; }
+  .rec-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
 
   .community-strip {
     margin-top: 32px;
@@ -861,8 +850,8 @@
     border-radius: 20px;
   }
 
-  /* ── FEDERAL ── */
-  #federal { background: var(--deep); }
+  /* FEDERAL */
+  #federal { background: var(--black); }
 
   .federal-grid {
     display: grid;
@@ -872,12 +861,7 @@
     align-items: start;
   }
 
-  .credentials-block {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 36px;
-  }
+  .credentials-block { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 36px; }
 
   .cred-row {
     display: flex;
@@ -889,34 +873,12 @@
 
   .cred-row:last-child { border-bottom: none; }
 
-  .cred-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
+  .cred-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .cred-value { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--white); text-align: right; }
+  .cred-value.active { color: #4ade80; }
+  .cred-value.pending { color: var(--gold); }
 
-  .cred-value {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--white);
-    text-align: right;
-  }
-
-  .cred-value.active {
-    color: #4ade80;
-  }
-
-  .cred-value.pending {
-    color: var(--gold);
-  }
-
-  .naics-block {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+  .naics-block { display: flex; flex-direction: column; gap: 12px; }
 
   .naics-block h4 {
     font-family: 'DM Mono', monospace;
@@ -937,20 +899,11 @@
     align-items: center;
   }
 
-  .naics-code {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--crimson);
-  }
+  .naics-code { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--crimson); }
+  .naics-desc { font-size: 0.78rem; color: var(--muted); text-align: right; }
 
-  .naics-desc {
-    font-size: 0.78rem;
-    color: var(--muted);
-    text-align: right;
-  }
-
-  /* ── CONTACT ── */
-  #contact { background: var(--black); }
+  /* CONTACT */
+  #contact { background: var(--deep); }
 
   .contact-layout {
     display: grid;
@@ -969,18 +922,9 @@
     line-height: 1.3;
   }
 
-  .contact-info p {
-    font-size: 0.88rem;
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 28px;
-  }
+  .contact-info p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
 
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  .contact-links { display: flex; flex-direction: column; gap: 14px; }
 
   .contact-link {
     display: flex;
@@ -1006,12 +950,7 @@
     flex-shrink: 0;
   }
 
-  .booking-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 36px;
-  }
+  .booking-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 36px; }
 
   .booking-block h4 {
     font-family: 'Cormorant Garamond', serif;
@@ -1021,12 +960,7 @@
     margin-bottom: 8px;
   }
 
-  .booking-block p {
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin-bottom: 24px;
-    line-height: 1.7;
-  }
+  .booking-block p { font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; line-height: 1.7; }
 
   .optin-note {
     font-family: 'DM Mono', monospace;
@@ -1040,12 +974,9 @@
     gap: 8px;
   }
 
-  .optin-note::before {
-    content: '🔒';
-    font-size: 0.75rem;
-  }
+  .optin-note::before { content: '🔒'; font-size: 0.75rem; }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
     background: var(--deep);
     border-top: 1px solid var(--border);
@@ -1057,20 +988,10 @@
     gap: 20px;
   }
 
-  .footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--white);
-  }
-
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--white); }
   .footer-brand span { color: var(--crimson); }
 
-  .footer-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-  }
+  .footer-links { display: flex; gap: 28px; list-style: none; }
 
   .footer-links a {
     font-family: 'DM Mono', monospace;
@@ -1083,60 +1004,33 @@
   }
 
   .footer-links a:hover { color: var(--white); }
+  .footer-legal { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; }
 
-  .footer-legal {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-  }
-
-  /* ── MOBILE ── */
+  /* MOBILE */
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
     .nav-links { display: none; }
-
-    #hero {
-      grid-template-columns: 1fr;
-      padding: 100px 20px 60px;
-      gap: 40px;
-    }
-
+    #hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 40px; }
     .hero-bg-line { display: none; }
-
-    .about-grid,
-    .dfr-layout,
-    .doc-feature,
-    .federal-grid,
-    .contact-layout { grid-template-columns: 1fr; }
-
-    .services-grid,
-    .advantage-cards { grid-template-columns: 1fr; }
-
+    .about-grid, .dfr-layout, .doc-feature, .federal-grid, .contact-layout, .lab-feature { grid-template-columns: 1fr; }
+    .services-grid, .advantage-cards { grid-template-columns: 1fr; }
     .recognition-grid { grid-template-columns: 1fr; }
-
-    .section-inner,
-    .doc-inner { padding: 60px 20px; }
-
+    .section-inner, .doc-inner { padding: 60px 20px; }
     .doc-left, .doc-right { padding: 36px 24px; }
-
     footer { flex-direction: column; text-align: center; padding: 32px 20px; }
     .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
-
     .divider { margin: 0 20px; }
+    .photo-frame, .photo-placeholder { width: 220px; height: 220px; }
   }
 
-  /* ── SCROLL ANIMATIONS ── */
+  /* ANIMATIONS */
   .fade-up {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 
@@ -1150,6 +1044,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#documentary">Documentary</a></li>
     <li><a href="#dfr">DFR Framework</a></li>
+    <li><a href="#lab">DFR Lab</a></li>
     <li><a href="#federal">Federal</a></li>
     <li><a href="#contact" class="nav-cta">Book a Call</a></li>
   </ul>
@@ -1160,48 +1055,52 @@
   <div class="hero-bg-line"></div>
 
   <div class="hero-left">
-    <div class="hero-eyebrow">Healthcare Cybersecurity Strategist</div>
+    <div class="hero-eyebrow">Healthcare Professional & Cybersecurity Strategist</div>
     <h1 class="hero-name">
       Chaunda C.<br>
       <strong>Dallas</strong>
     </h1>
-    <div class="hero-credential">MSIT · IoMT & Medical Device Security · ATL</div>
+    <div class="hero-credential">MSIT · Digital Health, IoMT & Clinical AI Risk · Digital First Responder</div>
     <p class="hero-tagline">
-      I didn't change careers.<br>I changed the scale of who I protect.
+      I didn't leave healthcare.<br>I learned to defend it.
     </p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Book a Discovery Call</a>
-      <a href="#services" class="btn-secondary">View Services</a>
+      <a href="https://ccdallas.github.io/digital-first-responder-lab" class="btn-secondary" target="_blank">Explore DFR Lab →</a>
     </div>
   </div>
 
-  <div class="hero-right">
-    <div class="hero-stat-card">
+  <div class="hero-photo-block">
+    <div class="photo-frame">
+      <img src="chaunda-headshot.jpeg" alt="Chaunda C. Dallas — Healthcare Cybersecurity Strategist">
+    </div>
+
+    <div class="hero-stat-card" style="animation-delay:0.1s;">
       <div class="stat-num">28</div>
       <div>
-        <div class="stat-label">Years in Emergency &amp; Procedural Medicine</div>
+        <div class="stat-label">Years in Emergency & Procedural Medicine</div>
         <div class="stat-sub">CNA → Lead ER Tech → Clinical Coordinator</div>
       </div>
     </div>
-    <div class="hero-stat-card">
-      <div class="stat-num">50<span style="font-size:1.2rem">+</span></div>
+    <div class="hero-stat-card" style="animation-delay:0.2s;">
+      <div class="stat-num">50<span style="font-size:1rem">+</span></div>
       <div>
         <div class="stat-label">Global Defenders Featured Alongside</div>
         <div class="stat-sub">Midnight in the War Room · Black Hat USA 2026</div>
       </div>
     </div>
-    <div class="hero-stat-card">
-      <div class="stat-num">200<span style="font-size:1.2rem">+</span></div>
+    <div class="hero-stat-card" style="animation-delay:0.3s;">
+      <div class="stat-num">200<span style="font-size:1rem">+</span></div>
       <div>
-        <div class="stat-label">Clinicians Trained on Secure Epic Workflows</div>
-        <div class="stat-sub">Eliminating human-factor vulnerabilities at the bedside</div>
+        <div class="stat-label">Women Mentored Through WiCyS</div>
+        <div class="stat-sub">3rd Consecutive Year · 2026</div>
       </div>
     </div>
-    <div class="hero-stat-card">
-      <div class="stat-num">$30K<span style="font-size:1rem">+</span></div>
+    <div class="hero-stat-card" style="animation-delay:0.4s;">
+      <div class="stat-num">9</div>
       <div>
-        <div class="stat-label">Fraud Loss Prevention</div>
-        <div class="stat-sub">Active SIEM, dark web &amp; credential monitoring</div>
+        <div class="stat-label">IoMT Failure Scenarios — DFR Lab</div>
+        <div class="stat-sub">0 hypotheticals · All built from reality</div>
       </div>
     </div>
   </div>
@@ -1213,7 +1112,7 @@
 <section id="about">
   <div class="section-inner">
     <div class="section-label">Origin Story</div>
-    <h2 class="section-title">From the ER to<br><em>the threat landscape</em></h2>
+    <h2 class="section-title">A healthcare professional<br><em>who learned to fight back.</em></h2>
 
     <div class="about-grid">
       <div class="about-text fade-up">
@@ -1280,7 +1179,7 @@
 
 <div class="divider"></div>
 
-<!-- CLINICAL EYES ADVANTAGE -->
+<!-- ADVANTAGE -->
 <section id="advantage">
   <div class="section-inner">
     <div class="section-label">The Differentiator</div>
@@ -1300,7 +1199,7 @@
       <div class="adv-card fade-up">
         <div class="adv-icon">⚡</div>
         <h4>Triage-Speed Risk Assessment</h4>
-        <p>28 years of rapid assessment under pressure translates directly. Identify critical risks, prioritize by patient impact, and mobilize the right response — without slowing clinical operations.</p>
+        <p>Rapid assessment under pressure translates directly. Identify critical risks, prioritize by patient impact, and mobilize the right response — without slowing clinical operations.</p>
       </div>
       <div class="adv-card fade-up">
         <div class="adv-icon">🔐</div>
@@ -1358,7 +1257,7 @@
     <div style="margin-top:32px; background:var(--card); border:1px solid var(--border); border-radius:4px; padding:28px 32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;" class="fade-up">
       <div>
         <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--white); margin-bottom:6px;">Engagement Models</div>
-        <div style="font-size:0.8rem; color:var(--muted);">Subcontract support · Embedded advisor · Short-term assessments · Fractional clinical-security expertise</div>
+        <div style="font-size:0.8rem; color:var(--muted);">Subcontract support · Embedded advisor · Short-term assessments · Fractional clinical-security expertise · Remote-first with on-site availability</div>
       </div>
       <a href="#contact" class="btn-primary">Discuss Availability</a>
     </div>
@@ -1379,9 +1278,20 @@
         <div class="doc-title">Midnight in the War Room</div>
         <div class="doc-sub">Semperis · Premiering Black Hat USA · August 5, 2026</div>
         <p>Selected as one of 50+ global defenders in Semperis' groundbreaking cyberwar documentary — exploring what it truly means to defend critical infrastructure when nation-states attack.</p>
-        <a href="#" class="btn-primary" style="width:fit-content;">Watch the Trailer</a>
+        <a href="https://youtu.be/1iR2Xla8Mzc?si=qfGKV8JwBwcUYg9x" class="btn-primary" style="width:fit-content;" target="_blank">Watch the Trailer →</a>
       </div>
       <div class="doc-right">
+        <!-- TRAILER EMBED -->
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/1iR2Xla8Mzc?si=PHJUTmEOG5FdDDNA"
+            title="Midnight in the War Room — Official Trailer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
         <h4>Featured Alongside</h4>
         <div class="peer-item"><div class="peer-dot"></div><span><strong>Jen Easterly</strong> — Former CISA Director</span></div>
         <div class="peer-item"><div class="peer-dot"></div><span><strong>Gen. (Ret.) David Petraeus</strong> — Former CIA Director</span></div>
@@ -1407,8 +1317,8 @@
         <div class="dfr-anchor">
           "I call it the Digital First Responder Framework — because that's exactly what it is."
         </div>
-        <p class="dfr-desc">Born from 28 years of emergency triage, the DFR Framework maps clinical emergency response principles directly onto cybersecurity incident response. It's not a metaphor — it's a methodology. The same instincts that stabilize a crashing patient stabilize a compromised network.</p>
-        <a href="https://github.com" class="btn-secondary" target="_blank">Explore the Framework →</a>
+        <p class="dfr-desc">Born from emergency triage principles, the DFR Framework maps clinical emergency response directly onto cybersecurity incident response. It's not a metaphor — it's a methodology. The same instincts that stabilize a crashing patient stabilize a compromised network.</p>
+        <a href="https://ccdallas.github.io/digital-first-responder-lab" class="btn-secondary" target="_blank">Explore the Lab →</a>
       </div>
 
       <div class="dfr-phases fade-up">
@@ -1423,7 +1333,7 @@
           <div class="phase-label">Stabilize</div>
           <div class="phase-content">
             <h4>Contain & Control</h4>
-            <p>Stop the bleed. Isolate compromised systems without shutting down care delivery. Protect the living environment.</p>
+            <p>Stop the bleed. Isolate compromised systems without shutting down care delivery.</p>
           </div>
         </div>
         <div class="dfr-phase">
@@ -1447,6 +1357,42 @@
 
 <div class="divider"></div>
 
+<!-- DFR LAB -->
+<section id="lab">
+  <div class="section-inner">
+    <div class="section-label">Live Portfolio</div>
+    <h2 class="section-title">Digital First<br><em>Responder Lab</em></h2>
+
+    <div class="lab-feature fade-up">
+      <div>
+        <h3>Where connected medical systems actually fail.</h3>
+        <p>A live IoMT risk education platform built from clinical experience and lived device dependency. 9 real failure scenarios. A live Healthcare Ransomware Intelligence Tracker. Interactive Decision Mode. Professional and Student Mode. No hypotheticals — every scenario is built from reality.</p>
+        <a href="https://ccdallas.github.io/digital-first-responder-lab" class="btn-primary" target="_blank">Explore the Lab →</a>
+      </div>
+      <div class="lab-stats">
+        <div class="lab-stat">
+          <div class="lab-stat-num">9</div>
+          <div class="lab-stat-label">IoMT Failure Scenarios</div>
+        </div>
+        <div class="lab-stat">
+          <div class="lab-stat-num">30+</div>
+          <div class="lab-stat-label">Ransomware Incidents Tracked</div>
+        </div>
+        <div class="lab-stat">
+          <div class="lab-stat-num">0</div>
+          <div class="lab-stat-label">Hypothetical Scenarios</div>
+        </div>
+        <div class="lab-stat">
+          <div class="lab-stat-num">2</div>
+          <div class="lab-stat-label">Modes: Pro + Student</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- RECOGNITION -->
 <section id="recognition">
   <div class="section-inner">
@@ -1458,7 +1404,7 @@
         <div class="rec-icon">🎙️</div>
         <div>
           <h4>WiCyS 2026 Virtual Conference Panelist</h4>
-          <p>"Behind the Scenes of Midnight in the War Room" — April 2026, with co-panelist Krista Arndt, moderated by Heather M. Costa (Mayo Clinic)</p>
+          <p>"Behind the Scenes of Midnight in the War Room" — April 2026, with Krista Arndt, moderated by Heather M. Costa (Mayo Clinic)</p>
         </div>
       </div>
       <div class="rec-card fade-up">
@@ -1502,12 +1448,13 @@
       <h4>Community Roles</h4>
       <span class="comm-tag">WiCyS Technical Mentor</span>
       <span class="comm-tag">Lead DEF CON Badge Liaison</span>
-      <span class="comm-tag">WISP Booth Lead Volunteer</span>
+      <span class="comm-tag">WiSP Lead DEF CON Liaison</span>
       <span class="comm-tag">Google Tech Equity Collective Coach</span>
       <span class="comm-tag">People for Change Coalition Instructor</span>
       <span class="comm-tag">Hacker Summer Camp Scholar</span>
       <span class="comm-tag">The Diana Initiative</span>
       <span class="comm-tag">BlackGirlsHack</span>
+      <span class="comm-tag">Semperis HIP Nashville 2026</span>
     </div>
   </div>
 </section>
@@ -1555,20 +1502,20 @@
           <span class="naics-desc">Computer Systems Design</span>
         </div>
         <div class="naics-item">
-          <span class="naics-code">541511</span>
-          <span class="naics-desc">Custom Computer Programming</span>
-        </div>
-        <div class="naics-item">
-          <span class="naics-code">541519</span>
-          <span class="naics-desc">Other Computer Related Services</span>
-        </div>
-        <div class="naics-item">
           <span class="naics-code">541690</span>
-          <span class="naics-desc">Other Scientific & Technical Consulting</span>
+          <span class="naics-desc">Scientific & Technical Consulting</span>
+        </div>
+        <div class="naics-item">
+          <span class="naics-code">541610</span>
+          <span class="naics-desc">Management Consulting</span>
         </div>
         <div class="naics-item">
           <span class="naics-code">611420</span>
           <span class="naics-desc">Computer Training</span>
+        </div>
+        <div class="naics-item">
+          <span class="naics-code">541519</span>
+          <span class="naics-desc">Other Computer Related Services</span>
         </div>
         <div class="naics-item">
           <span class="naics-code">621999</span>
@@ -1590,16 +1537,16 @@
     <div class="contact-layout">
       <div class="contact-info fade-up">
         <h3>The question after every conversation is the same:<br><em>"Why haven't we hired her yet?"</em></h3>
-        <p>Senior healthcare cybersecurity expertise without the overhead of full-time staff. Engagements structured to integrate cleanly into existing delivery teams, meet client expectations, and protect clinical operations.</p>
+        <p>Senior healthcare cybersecurity expertise without the overhead of full-time staff. I never left healthcare — I learned to defend it. Remote-first with on-site availability. Engagements structured to integrate cleanly into existing delivery teams and protect clinical operations.</p>
 
         <div class="contact-links">
           <a href="mailto:connect@chaundacdallas.com" class="contact-link">
             <span class="contact-link-icon">Email</span>
             connect@chaundacdallas.com
           </a>
-          <a href="https://linkedin.com/in/chaundadallas" class="contact-link" target="_blank">
+          <a href="https://linkedin.com/in/chaundacdallas" class="contact-link" target="_blank">
             <span class="contact-link-icon">LinkedIn</span>
-            linkedin.com/in/chaundadallas
+            linkedin.com/in/chaundacdallas
           </a>
           <a href="https://instagram.com/techcybersis" class="contact-link" target="_blank">
             <span class="contact-link-icon">Instagram</span>
@@ -1614,18 +1561,19 @@
 
       <div class="booking-block fade-up">
         <h4>Book a Discovery Call</h4>
-        <p>Ready to discuss subcontract availability, advisory support, or a custom engagement? Schedule directly using the link below — powered by Google Workspace.</p>
-        <a href="https://calendar.google.com" class="btn-primary" target="_blank" style="width:100%; text-align:center; display:block;">
-          Schedule a Call →
+        <p>Ready to discuss subcontract availability, advisory support, or a custom engagement? Reach out directly — remote-first, available immediately.</p>
+        <a href="mailto:connect@chaundacdallas.com" class="btn-primary" style="width:100%; text-align:center; display:block;">
+          Send an Email →
         </a>
-        <div class="optin-note">OpSec by Design · No email required to browse</div>
+        <div class="optin-note">OpSec by Design · Remote-first · Available Now</div>
 
         <div style="margin-top:28px; padding-top:24px; border-top:1px solid var(--border);">
-          <div style="font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Also available via</div>
+          <div style="font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Available for</div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">Subcontract RFQ</span>
             <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">Speaking Inquiry</span>
             <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">Advisory Retainer</span>
+            <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">W2 Contract</span>
           </div>
         </div>
       </div>
@@ -1640,7 +1588,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#documentary">Documentary</a></li>
-    <li><a href="#dfr">DFR Framework</a></li>
+    <li><a href="#lab">DFR Lab</a></li>
     <li><a href="#federal">Federal</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1648,27 +1596,21 @@
 </footer>
 
 <script>
-  // Scroll animation observer
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-      }
+      if (el.isIntersecting) el.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Nav active state on scroll
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
-      if (window.scrollY >= section.offsetTop - 100) {
-        current = section.getAttribute('id');
-      }
+      if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
     });
     navLinks.forEach(link => {
       link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--white)' : '';
