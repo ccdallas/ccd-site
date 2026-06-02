@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chaunda C. Dallas, MSIT | Healthcare Cybersecurity Strategist</title>
-<meta name="description" content="Healthcare Cybersecurity Strategist specializing in IoMT, Medical Device Security, and Clinical Risk. Featured Defender — Midnight in the War Room, Black Hat USA 2026.">
+<meta name="description" content="Healthcare Cybersecurity Strategist specializing in IoMT, Medical Device Security, Clinical Risk, and Sports Technology Security. Featured Defender — Midnight in the War Room, Black Hat USA 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,6 +20,9 @@
     --crimson-dim: rgba(200,16,46,0.15);
     --crimson-glow: rgba(200,16,46,0.4);
     --gold: #c9a84c;
+    --sport: #00a86b;
+    --sport-dim: rgba(0,168,107,0.12);
+    --sport-glow: rgba(0,168,107,0.35);
     --white: #f5f3ef;
     --muted: #8a8d94;
     --light: #d4d2ce;
@@ -89,6 +92,8 @@
   }
 
   .nav-links a:hover { color: var(--white); }
+  .nav-links a.sport-link { color: var(--sport) !important; opacity: 0.85; }
+  .nav-links a.sport-link:hover { opacity: 1; }
 
   .nav-cta {
     background: var(--crimson);
@@ -157,6 +162,12 @@
     color: var(--muted);
     letter-spacing: 0.1em;
     margin-bottom: 28px;
+    line-height: 1.7;
+  }
+
+  .hero-credential .sport-cred {
+    color: var(--sport);
+    opacity: 0.9;
   }
 
   .hero-tagline {
@@ -213,6 +224,26 @@
 
   .btn-secondary:hover { border-color: var(--crimson); color: var(--white); }
 
+  .btn-sport {
+    background: var(--sport);
+    color: #fff;
+    padding: 14px 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-sport:hover {
+    background: #007a50;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px var(--sport-glow);
+  }
+
   /* PHOTO SECTION */
   .hero-photo-block {
     position: relative;
@@ -253,31 +284,6 @@
     border-radius: 4px;
     display: block;
     filter: grayscale(15%) contrast(1.05);
-  }
-
-  .photo-placeholder {
-    width: 280px;
-    height: 280px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: var(--muted);
-  }
-
-  .photo-placeholder .icon { font-size: 3rem; opacity: 0.3; }
-
-  .photo-placeholder p {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 1.6;
   }
 
   .hero-stat-card {
@@ -350,6 +356,8 @@
     background: var(--border);
     max-width: 80px;
   }
+
+  .section-label.sport-label { color: var(--sport); }
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
@@ -579,8 +587,199 @@
 
   .service-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--crimson); font-size: 0.7rem; }
 
+  /* SPORTS TECH SECTION */
+  #sportstech { background: var(--black); }
+
+  .sport-banner {
+    margin-top: 48px;
+    border-radius: 4px;
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a1a12 0%, #0d2018 50%, #0a1a12 100%);
+    border: 1px solid rgba(0,168,107,0.25);
+  }
+
+  .sport-banner::before {
+    content: '⌚';
+    position: absolute;
+    right: 48px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 11rem;
+    opacity: 0.07;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .sport-banner-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .sport-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--sport);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .sport-flag::before { content: '🏈'; font-size: 0.85rem; }
+
+  .sport-banner h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .sport-banner h3 em {
+    font-style: italic;
+    color: var(--sport);
+  }
+
+  .sport-banner > .sport-banner-inner > p {
+    font-size: 0.92rem;
+    color: var(--light);
+    max-width: 680px;
+    line-height: 1.9;
+    margin-bottom: 32px;
+  }
+
+  .sport-differentiator {
+    background: rgba(0,168,107,0.08);
+    border: 1px solid rgba(0,168,107,0.2);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    max-width: 680px;
+  }
+
+  .sport-differentiator p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .sport-differentiator p strong {
+    color: var(--sport);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .sport-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .sport-card {
+    background: var(--surface);
+    border: 1px solid rgba(0,168,107,0.15);
+    border-radius: 4px;
+    padding: 32px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sport-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--sport);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .sport-card:hover { border-color: rgba(0,168,107,0.4); transform: translateY(-4px); }
+  .sport-card:hover::before { transform: scaleX(1); }
+
+  .sport-card-icon { font-size: 1.6rem; margin-bottom: 16px; }
+
+  .sport-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .sport-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.75; margin-bottom: 16px; }
+
+  .sport-card-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+
+  .sport-card-bullets li {
+    font-size: 0.76rem;
+    color: var(--light);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .sport-card-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--sport); font-size: 0.7rem; }
+
+  .sport-salary-bar {
+    margin-top: 40px;
+    background: var(--surface);
+    border: 1px solid rgba(0,168,107,0.2);
+    border-radius: 4px;
+    padding: 32px 36px;
+  }
+
+  .sport-salary-bar h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sport);
+    margin-bottom: 20px;
+  }
+
+  .salary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .salary-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+  }
+
+  .salary-role { font-size: 0.72rem; color: var(--muted); margin-bottom: 6px; line-height: 1.4; }
+  .salary-range {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--sport);
+    line-height: 1;
+  }
+
+  .salary-where { font-size: 0.68rem; color: var(--muted); margin-top: 4px; font-family: 'DM Mono', monospace; }
+
   /* DOCUMENTARY */
-  #documentary { background: var(--black); }
+  #documentary { background: var(--deep); }
 
   .doc-inner { max-width: 1100px; margin: 0 auto; padding: 100px 48px; }
 
@@ -687,7 +886,7 @@
   }
 
   /* DFR */
-  #dfr { background: var(--deep); }
+  #dfr { background: var(--black); }
 
   .dfr-layout {
     display: grid;
@@ -743,7 +942,7 @@
   .phase-content p { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
 
   /* LAB SECTION */
-  #lab { background: var(--black); }
+  #lab { background: var(--deep); }
 
   .lab-feature {
     margin-top: 48px;
@@ -794,7 +993,7 @@
   .lab-stat-label { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
 
   /* RECOGNITION */
-  #recognition { background: var(--deep); }
+  #recognition { background: var(--black); }
 
   .recognition-grid {
     display: grid;
@@ -851,7 +1050,7 @@
   }
 
   /* FEDERAL */
-  #federal { background: var(--black); }
+  #federal { background: var(--deep); }
 
   .federal-grid {
     display: grid;
@@ -903,7 +1102,7 @@
   .naics-desc { font-size: 0.78rem; color: var(--muted); text-align: right; }
 
   /* CONTACT */
-  #contact { background: var(--deep); }
+  #contact { background: var(--black); }
 
   .contact-layout {
     display: grid;
@@ -1013,14 +1212,17 @@
     #hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 40px; }
     .hero-bg-line { display: none; }
     .about-grid, .dfr-layout, .doc-feature, .federal-grid, .contact-layout, .lab-feature { grid-template-columns: 1fr; }
-    .services-grid, .advantage-cards { grid-template-columns: 1fr; }
+    .services-grid, .advantage-cards, .sport-cards { grid-template-columns: 1fr; }
     .recognition-grid { grid-template-columns: 1fr; }
     .section-inner, .doc-inner { padding: 60px 20px; }
     .doc-left, .doc-right { padding: 36px 24px; }
     footer { flex-direction: column; text-align: center; padding: 32px 20px; }
     .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
     .divider { margin: 0 20px; }
-    .photo-frame, .photo-placeholder { width: 220px; height: 220px; }
+    .photo-frame { width: 220px; height: 220px; }
+    .sport-banner { padding: 40px 24px; }
+    .sport-banner::before { display: none; }
+    .salary-grid { grid-template-columns: 1fr 1fr; }
   }
 
   /* ANIMATIONS */
@@ -1042,6 +1244,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#sportstech" class="sport-link">Sports Tech ⌚</a></li>
     <li><a href="#documentary">Documentary</a></li>
     <li><a href="#dfr">DFR Framework</a></li>
     <li><a href="#lab">DFR Lab</a></li>
@@ -1060,12 +1263,13 @@
       Chaunda C.<br>
       <strong>Dallas</strong>
     </h1>
-    <div class="hero-credential">MSIT · Digital Health, IoMT & Clinical AI Risk · Digital First Responder</div>
+    <div class="hero-credential">MSIT · Digital Health, IoMT & Clinical AI Risk · Digital First Responder<br><span class="sport-cred">⌚ Sports Technology & Wearable Security</span></div>
     <p class="hero-tagline">
       I didn't leave healthcare.<br>I learned to defend it.
     </p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Book a Discovery Call</a>
+      <a href="#sportstech" class="btn-sport">Sports Tech Lane →</a>
       <a href="https://ccdallas.github.io/digital-first-responder-lab" class="btn-secondary" target="_blank">Explore DFR Lab →</a>
     </div>
   </div>
@@ -1126,7 +1330,7 @@
 
         <p>Patient data held hostage. Medical devices weaponized. Clinical workflows paralyzed at the exact moment lives depend on them. <strong>So I brought my triage instincts with me.</strong></p>
 
-        <p>Today I specialize in medical device and IoMT security, healthcare GRC, and cybersecurity strategy for organizations where the stakes aren't measured in data — they're measured in lives.</p>
+        <p>Today I help healthcare organizations secure medical devices, connected systems, and clinical operations — and I'm expanding that same methodology into sports technology, where biometric wearables and athlete performance data carry stakes no one is adequately protecting yet. The common thread: when the data is about a human body, the security has to be human-first.</p>
       </div>
 
       <div class="career-timeline fade-up">
@@ -1170,6 +1374,13 @@
           <div class="timeline-content">
             <h4>Featured Defender · Black Hat USA 2026</h4>
             <p>Midnight in the War Room. Semperis. Global stage.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="border-color:var(--sport);"></div>
+          <div class="timeline-content">
+            <h4 style="color:var(--sport);">Sports Technology & Wearable Security ⌚</h4>
+            <p>Expanding the DFR methodology into athlete biometrics, connected performance systems, and sports tech risk architecture.</p>
           </div>
         </div>
       </div>
@@ -1266,6 +1477,102 @@
 
 <div class="divider"></div>
 
+<!-- ============================================================ -->
+<!-- SPORTS TECH — THE BIG FLAG -->
+<!-- ============================================================ -->
+<section id="sportstech">
+  <div class="section-inner">
+    <div class="section-label sport-label">Emerging Lane · Sports Technology</div>
+    <h2 class="section-title">Where the Body<br><em>Becomes the Attack Surface.</em></h2>
+
+    <div class="sport-banner fade-up">
+      <div class="sport-banner-inner">
+        <div class="sport-flag">New Lane · Intentionally Claimed · 2026</div>
+
+        <h3>The same threat that endangers patients<br>in the ER <em>now follows athletes onto the field.</em></h3>
+
+        <p>Connected wearables. Biometric sensors. GPS trackers. Real-time performance analytics platforms. Sports leagues and teams are generating intimate physiological data on their athletes — and almost nobody is securing it with the rigor the data deserves.</p>
+
+        <div class="sport-differentiator">
+          <p>My entry point is the same as it was in healthcare: <strong>I follow the body.</strong> When a device touches human physiology, the security failure isn't a data problem — it's a human problem. A spoofed heart rate clears a compromised athlete for competition. Manipulated recovery metrics mask injury. Performance data leaked to a competitor isn't just a privacy violation — it's a physical safety catastrophe.</p>
+        </div>
+
+        <p>This is the intersection nobody owns yet — where clinical biometric standards meet athlete performance infrastructure, and where the regulatory gap is widest. <strong>I'm building here intentionally.</strong></p>
+
+        <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:8px;">
+          <a href="#contact" class="btn-sport">Let's Build This Together →</a>
+          <a href="https://ccdallas.github.io/digital-first-responder-lab#scenarios" class="btn-secondary" target="_blank">See Wearable Spoofing Scenario →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sport-cards">
+      <div class="sport-card fade-up">
+        <div class="sport-card-icon">⌚</div>
+        <h4>Wearable & Biometric Data Integrity</h4>
+        <p>Threat modeling for athlete-facing connected devices — from consumer wearables used in clinical decision-making to purpose-built performance sensors.</p>
+        <ul class="sport-card-bullets">
+          <li>Apple Watch, WHOOP, Garmin attack surface analysis</li>
+          <li>Data spoofing & manipulation scenarios</li>
+          <li>HealthKit / EHR pipeline integrity</li>
+          <li>Consumer device → clinical use boundary gaps</li>
+        </ul>
+      </div>
+      <div class="sport-card fade-up">
+        <div class="sport-card-icon">🏟️</div>
+        <h4>Sports Technology Risk Architecture</h4>
+        <p>Security strategy for leagues, teams, and sports tech vendors scaling connected infrastructure faster than their security posture can follow.</p>
+        <ul class="sport-card-bullets">
+          <li>Team analytics platform security posture</li>
+          <li>GPS & telemetry data governance</li>
+          <li>Athlete data privacy architecture</li>
+          <li>Vendor risk for sports tech ecosystems</li>
+        </ul>
+      </div>
+      <div class="sport-card fade-up">
+        <div class="sport-card-icon">🔬</div>
+        <h4>Clinical-to-Field Translation</h4>
+        <p>The same framework that maps ER triage to cyber incident response maps clinical biometric standards to athlete data governance.</p>
+        <ul class="sport-card-bullets">
+          <li>Medical device security rigor → athlete tech</li>
+          <li>Automated clearance decision risk modeling</li>
+          <li>Sports medicine technology gap analysis</li>
+          <li>Human-in-the-loop protocol design</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sport-salary-bar fade-up">
+      <h4>📊 Why This Lane Pays — 2026 Market Reality</h4>
+      <div class="salary-grid">
+        <div class="salary-item">
+          <div class="salary-role">Cloud / Cyber Engineer at Tech Company</div>
+          <div class="salary-range">$120–180K</div>
+          <div class="salary-where">Standard ceiling</div>
+        </div>
+        <div class="salary-item">
+          <div class="salary-role">Cyber / Cloud Engineer at Sports League or Team</div>
+          <div class="salary-range">$130–200K</div>
+          <div class="salary-where">Sports premium</div>
+        </div>
+        <div class="salary-item">
+          <div class="salary-role">Solutions Architect at Sports / Finance / Media Brand</div>
+          <div class="salary-range">$160–250K</div>
+          <div class="salary-where">Scarce skill set</div>
+        </div>
+        <div class="salary-item" style="border-color:rgba(0,168,107,0.3);">
+          <div class="salary-role">Healthcare × Sports Tech Security Strategist</div>
+          <div class="salary-range" style="color:var(--sport);">$200K+</div>
+          <div class="salary-where" style="color:var(--sport);">This lane. Nobody else has it.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- DOCUMENTARY -->
 <section id="documentary">
   <div class="doc-inner">
@@ -1281,7 +1588,6 @@
         <a href="https://youtu.be/1iR2Xla8Mzc?si=qfGKV8JwBwcUYg9x" class="btn-primary" style="width:fit-content;" target="_blank">Watch the Trailer →</a>
       </div>
       <div class="doc-right">
-        <!-- TRAILER EMBED -->
         <div class="video-wrapper">
           <iframe
             src="https://www.youtube.com/embed/1iR2Xla8Mzc?si=PHJUTmEOG5FdDDNA"
@@ -1366,7 +1672,7 @@
     <div class="lab-feature fade-up">
       <div>
         <h3>Where connected medical systems actually fail.</h3>
-        <p>A live IoMT risk education platform built from clinical experience and lived device dependency. 9 real failure scenarios. A live Healthcare Ransomware Intelligence Tracker. Interactive Decision Mode. Professional and Student Mode. No hypotheticals — every scenario is built from reality.</p>
+        <p>A live IoMT risk education platform built from clinical experience and lived device dependency. 9 real failure scenarios — including wearable data spoofing across both clinical and athlete contexts. A live Healthcare Ransomware Intelligence Tracker. Interactive Decision Mode. Professional and Student Mode. No hypotheticals — every scenario is built from reality.</p>
         <a href="https://ccdallas.github.io/digital-first-responder-lab" class="btn-primary" target="_blank">Explore the Lab →</a>
       </div>
       <div class="lab-stats">
@@ -1384,7 +1690,7 @@
         </div>
         <div class="lab-stat">
           <div class="lab-stat-num">2</div>
-          <div class="lab-stat-label">Modes: Pro + Student</div>
+          <div class="lab-stat-label">Sectors: Healthcare + Sports Tech</div>
         </div>
       </div>
     </div>
@@ -1450,7 +1756,6 @@
       <span class="comm-tag">Lead DEF CON Badge Liaison</span>
       <span class="comm-tag">WiSP Lead DEF CON Liaison</span>
       <span class="comm-tag">Google Tech Equity Collective Coach</span>
-      <span class="comm-tag">People for Change Coalition Instructor</span>
       <span class="comm-tag">Hacker Summer Camp Scholar</span>
       <span class="comm-tag">The Diana Initiative</span>
       <span class="comm-tag">BlackGirlsHack</span>
@@ -1532,12 +1837,12 @@
 <section id="contact">
   <div class="section-inner">
     <div class="section-label">Get In Touch</div>
-    <h2 class="section-title">If your infrastructure<br><em>touches patients — let's talk.</em></h2>
+    <h2 class="section-title">If it touches a human body,<br><em>it's in my lane — let's talk.</em></h2>
 
     <div class="contact-layout">
       <div class="contact-info fade-up">
-        <h3>Healthcare cybersecurity expertise grounded in nearly three decades of clinical experience.</h3>
-        <p>Senior healthcare cybersecurity expertise without the overhead of full-time staff. I never left healthcare — I learned to defend it. Remote-first with on-site availability. Engagements structured to integrate cleanly into existing delivery teams and protect clinical operations.</p>
+        <h3>Healthcare cybersecurity expertise grounded in nearly three decades of clinical experience — now extending into sports technology and wearable security.</h3>
+        <p>Senior expertise without the overhead of full-time staff. I never left healthcare — I learned to defend it. And now I'm bringing that same clinical rigor to the sports technology space. Remote-first with on-site availability. Engagements structured to integrate cleanly into existing delivery teams.</p>
 
         <div class="contact-links">
           <a href="mailto:connect@chaundacdallas.com" class="contact-link">
@@ -1574,6 +1879,7 @@
             <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">Speaking Inquiry</span>
             <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">Advisory Retainer</span>
             <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">W2 Contract</span>
+            <span style="background:var(--sport-dim); border:1px solid rgba(0,168,107,0.3); color:var(--sport); font-size:0.75rem; padding:6px 12px; border-radius:2px;">Sports Tech Consulting ⌚</span>
           </div>
         </div>
       </div>
@@ -1587,6 +1893,7 @@
   <ul class="footer-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#sportstech">Sports Tech</a></li>
     <li><a href="#documentary">Documentary</a></li>
     <li><a href="#lab">DFR Lab</a></li>
     <li><a href="#federal">Federal</a></li>
