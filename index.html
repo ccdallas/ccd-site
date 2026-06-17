@@ -3,627 +3,1170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WiCyS Mentoring — Chaunda C. Dallas</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Chaunda C. Dallas, MSIT | Healthcare Cybersecurity Strategist</title>
+<meta name="description" content="Healthcare Cybersecurity Strategist specializing in IoMT, Medical Device Security, and Clinical Risk. Featured Defender — Midnight in the War Room, Black Hat USA 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
   :root {
-    --crimson: #C8102E;
-    --crimson-dim: rgba(200,16,46,0.10);
-    --crimson-glow: rgba(200,16,46,0.05);
     --black: #0a0a0a;
     --deep: #111318;
-    --surface: #181b22;
-    --white: #f5f3ef;
-    --white-dim: rgba(245,243,239,0.6);
-    --white-faint: rgba(245,243,239,0.12);
+    --surface: #16191f;
+    --card: #1c2028;
+    --border: rgba(255,255,255,0.07);
+    --crimson: #C8102E;
+    --crimson-dim: rgba(200,16,46,0.15);
+    --crimson-glow: rgba(200,16,46,0.4);
     --gold: #c9a84c;
-    --gold-dim: rgba(201,168,76,0.14);
-    --border: rgba(245,243,239,0.08);
-    --border-accent: rgba(200,16,46,0.25);
+    --white: #f5f3ef;
+    --muted: #8a8d94;
+    --light: #d4d2ce;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
   body {
     background: var(--black);
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
   }
 
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background: radial-gradient(ellipse 60% 40% at 20% 10%, rgba(200,16,46,0.06) 0%, transparent 55%);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
+    opacity: 0.4;
   }
 
-  /* ── UNIVERSAL NAV ── */
-  .ccd-nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:14px 28px;background:rgba(10,10,10,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,16,46,0.25);font-family:'DM Mono',ui-monospace,monospace;}
-  .ccd-nav-brand{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:600;letter-spacing:0.01em;color:#f5f3ef;text-decoration:none;white-space:nowrap;}
-  .ccd-nav-dot{color:#C8102E;}
-  .ccd-nav-links{display:flex;gap:24px;flex-wrap:wrap;}
-  .ccd-nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,243,239,0.6);text-decoration:none;padding:4px 0;position:relative;transition:color .2s ease;}
-  .ccd-nav-links a:hover{color:#f5f3ef;}
-  .ccd-nav-links a.active{color:#C8102E;}
-  .ccd-nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:#C8102E;}
-  @media (max-width:600px){.ccd-nav{padding:12px 18px;gap:10px;}.ccd-nav-brand{font-size:16px;}.ccd-nav-links{gap:16px;width:100%;}.ccd-nav-links a{font-size:10px;letter-spacing:0.12em;}}
-
-  .ecg-bar {
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, var(--crimson), transparent 50%);
-    opacity: 0;
-    animation: fadeIn 1s ease 0.1s forwards;
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
   }
 
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 28px 100px;
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    text-decoration: none;
   }
 
-  /* ── HEADER ── */
-  .header {
-    padding: 56px 0 44px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.2s forwards;
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    align-items: center;
   }
 
-  .eyebrow {
+  .nav-links a {
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.3em;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: transparent !important;
+    color: var(--muted) !important;
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 2px;
+    transition: all 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    border-color: rgba(255,255,255,0.2) !important;
+    color: var(--white) !important;
+  }
+
+  /* ── NEW: nav book session button ── */
+  .nav-book {
+    background: var(--crimson) !important;
+    color: var(--white) !important;
+    padding: 8px 18px;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-book:hover { background: #a50d25 !important; color: var(--white) !important; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    gap: 60px;
+  }
+
+  .hero-bg-line {
+    position: absolute;
+    top: 0; right: 42%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--crimson) 30%, var(--crimson) 70%, transparent);
+    opacity: 0.2;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--crimson);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 12px;
   }
 
-  .eyebrow::after {
+  .hero-eyebrow::before {
     content: '';
-    width: 40px;
+    display: block;
+    width: 32px;
     height: 1px;
     background: var(--crimson);
-    opacity: 0.4;
   }
 
-  .header h1 {
+  .hero-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 5.5vw, 3.2rem);
+    font-size: clamp(3rem, 6vw, 5.5rem);
     font-weight: 300;
-    line-height: 1.12;
-    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
   }
 
-  .header h1 .accent {
-    color: var(--crimson);
-    font-style: italic;
-  }
+  .hero-name strong { font-weight: 700; display: block; }
 
-  .header-sub {
+  .hero-credential {
     font-family: 'DM Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.12em;
-    color: var(--white-dim);
-    text-transform: uppercase;
-    margin-top: 14px;
-    opacity: 0.55;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 28px;
   }
 
-  /* ── WELCOME ── */
-  .welcome {
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--light);
+    line-height: 1.5;
+    margin-bottom: 40px;
     border-left: 2px solid var(--crimson);
-    padding: 28px 32px;
-    margin-bottom: 48px;
-    background: var(--crimson-glow);
-    border-top: 1px solid var(--border-accent);
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.35s forwards;
+    padding-left: 20px;
   }
 
-  .welcome-greeting {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.4rem, 3.5vw, 1.9rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--white);
-    margin-bottom: 18px;
-    line-height: 1.3;
-  }
-
-  .welcome-greeting strong { font-style: normal; font-weight: 600; }
-
-  .welcome p {
-    font-size: 14.5px;
-    font-weight: 300;
-    line-height: 1.85;
-    color: var(--white-dim);
-    margin-bottom: 14px;
-  }
-
-  .welcome p:last-of-type { margin-bottom: 0; }
-  .welcome p strong { color: var(--white); font-weight: 500; }
-
-  .welcome-sig {
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: var(--gold);
-  }
-
-  /* ── SECTION LABEL ── */
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--white-dim);
-    opacity: 0.45;
-    margin-bottom: 20px;
-  }
-
-  /* ── SESSION CARDS ── */
-  .sessions { margin-bottom: 48px; }
-
-  .session-card {
-    border: 1px solid var(--border);
-    padding: 32px 36px;
-    margin-bottom: 2px;
-    background: var(--deep);
-    position: relative;
-    transition: border-color 0.25s ease;
-    opacity: 0;
-  }
-
-  .session-card:first-child { border-radius: 2px 2px 0 0; }
-  .session-card:last-child  { border-radius: 0 0 2px 2px; margin-bottom: 0; }
-  .session-card:nth-child(1) { animation: fadeUp 0.8s ease 0.5s forwards; }
-  .session-card:nth-child(2) { animation: fadeUp 0.8s ease 0.62s forwards; }
-  .session-card:nth-child(3) { animation: fadeUp 0.8s ease 0.74s forwards; }
-  .session-card:hover { border-color: var(--border-accent); }
-
-  .session-card.saturday {
-    border-color: rgba(201,168,76,0.2);
-    background: linear-gradient(135deg, rgba(201,168,76,0.03) 0%, var(--deep) 70%);
-  }
-
-  .session-card.saturday::after {
-    content: 'NO BOOKING NEEDED';
-    position: absolute;
-    top: 18px; right: 22px;
-    font-family: 'DM Mono', monospace;
-    font-size: 8.5px;
-    letter-spacing: 0.22em;
-    color: var(--gold);
-    opacity: 0.5;
-  }
-
-  /* ── CARD HEADER ── */
-  .session-top {
+  .hero-actions {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 14px;
-    margin-bottom: 10px;
+    gap: 12px;
     flex-wrap: wrap;
-  }
-
-  .session-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--white);
-  }
-
-  .badges { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
-
-  .badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    padding: 3px 9px;
-    text-transform: uppercase;
-    border-radius: 1px;
-  }
-
-  .badge-red     { background: var(--crimson-dim); color: #e85070; border: 1px solid var(--border-accent); }
-  .badge-neutral { background: var(--white-faint); color: var(--white-dim); border: 1px solid var(--border); }
-  .badge-gold    { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
-
-  /* ── AVAILABILITY PILLS ── */
-  .availability {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin: 14px 0 18px;
-  }
-
-  .avail-pill {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 1px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--white-dim);
-    display: flex;
     align-items: center;
-    gap: 7px;
   }
 
-  .avail-pill .dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
+  .btn-primary {
     background: var(--crimson);
+    color: var(--white);
+    padding: 14px 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #a50d25;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px var(--crimson-glow);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--light);
+    padding: 14px 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover { border-color: var(--crimson); color: var(--white); }
+
+  /* ── NEW: ghost gold button for hero ── */
+  .btn-ghost-gold {
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+    padding: 14px 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost-gold:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* PHOTO SECTION */
+  .hero-photo-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .photo-frame {
+    position: relative;
+    width: 280px;
+    height: 280px;
     flex-shrink: 0;
   }
 
-  .avail-pill.saturday-pill .dot { background: #4caf6e; }
-
-  /* ── DESC + TAGS ── */
-  .session-desc {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.82;
-    color: var(--white-dim);
-    margin-bottom: 18px;
-    max-width: 520px;
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid var(--crimson);
+    opacity: 0.4;
+    border-radius: 4px;
   }
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 22px;
+  .photo-frame::after {
+    content: '';
+    position: absolute;
+    inset: -16px;
+    border: 1px solid rgba(200,16,46,0.15);
+    border-radius: 4px;
   }
 
-  .tag {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
-    font-style: italic;
-    color: var(--white-dim);
-    padding: 3px 10px;
-    border: 1px solid var(--border);
-    border-radius: 1px;
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    filter: grayscale(15%) contrast(1.05);
   }
 
-  /* ── MEET BLOCK ── */
-  .meet-block {
+  .hero-stat-card {
     background: var(--surface);
-    border: 1px solid rgba(201,168,76,0.18);
-    padding: 18px 22px;
-    margin-top: 14px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
     display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.2s;
+    animation: fadeSlideIn 0.6s ease both;
+    width: 100%;
+  }
+
+  .hero-stat-card:hover { border-color: var(--crimson); }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--crimson);
+    line-height: 1;
+    min-width: 52px;
+  }
+
+  .stat-label { font-size: 0.78rem; color: var(--light); line-height: 1.4; }
+  .stat-sub { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* SECTIONS */
+  section { position: relative; z-index: 1; }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 48px;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 80px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .section-title em { font-style: italic; color: var(--light); }
+  .divider { height: 1px; background: var(--border); margin: 0 48px; }
+
+  /* ABOUT */
+  #about { background: var(--deep); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 48px;
+  }
+
+  .about-text p { color: var(--light); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.85; }
+  .about-text p strong { color: var(--white); font-weight: 500; }
+
+  .pull-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--white);
+    border-left: 3px solid var(--crimson);
+    padding: 24px 0 24px 28px;
+    margin: 32px 0;
+    line-height: 1.5;
+  }
+
+  .career-timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 28px;
+    position: relative;
+  }
+
+  .timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 11px; top: 24px; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline-dot {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--crimson);
+    background: var(--black);
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .timeline-dot::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--crimson); }
+  .timeline-content h4 { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.88rem; color: var(--white); margin-bottom: 4px; }
+  .timeline-content p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; margin: 0; }
+
+  /* ADVANTAGE */
+  #advantage { background: var(--black); }
+
+  .advantage-hero {
+    background: linear-gradient(135deg, var(--crimson) 0%, #8B0000 100%);
+    border-radius: 4px;
+    padding: 56px 48px;
+    margin-top: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .advantage-hero::before {
+    content: '⚕';
+    position: absolute;
+    right: 40px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 10rem;
+    opacity: 0.08;
+    line-height: 1;
+  }
+
+  .advantage-hero h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 600; color: #fff; margin-bottom: 16px; line-height: 1.3; }
+  .advantage-hero p { color: rgba(255,255,255,0.85); font-size: 0.92rem; max-width: 600px; line-height: 1.8; }
+
+  .advantage-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+
+  .adv-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .adv-card:hover { border-color: var(--crimson); transform: translateY(-3px); }
+  .adv-icon { font-size: 1.4rem; margin-bottom: 14px; }
+  .adv-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+  .adv-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+
+  /* SERVICES */
+  #services { background: var(--deep); }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--crimson);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover { border-color: rgba(200,16,46,0.3); transform: translateY(-4px); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-num { font-family: 'Cormorant Garamond', serif; position: absolute; top: 20px; right: 24px; color: rgba(200,16,46,0.12); font-size: 4rem; font-weight: 700; line-height: 1; }
+  .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
+  .service-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.75; margin-bottom: 20px; }
+  .service-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .service-bullets li { font-size: 0.78rem; color: var(--light); padding-left: 16px; position: relative; line-height: 1.5; }
+  .service-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--crimson); font-size: 0.7rem; }
+
+  /* DOCUMENTARY */
+  #documentary { background: var(--black); }
+  .doc-inner { max-width: 1100px; margin: 0 auto; padding: 100px 48px; }
+
+  .doc-feature {
+    margin-top: 48px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .doc-left {
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a0a0a 100%);
+    padding: 56px 48px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .doc-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--crimson); color: #fff; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; margin-bottom: 24px; width: fit-content; }
+  .doc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; font-style: italic; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
+  .doc-sub { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 24px; }
+  .doc-left p { font-size: 0.85rem; color: var(--light); line-height: 1.8; margin-bottom: 28px; }
+
+  .doc-right { padding: 40px 40px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+  .doc-right h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; margin-top: 16px; }
+
+  .peer-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .peer-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--crimson); flex-shrink: 0; }
+  .peer-item span { font-size: 0.82rem; color: var(--light); line-height: 1.4; }
+
+  .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px; border: 1px solid var(--border); }
+  .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+  /* DFR */
+  #dfr { background: var(--deep); }
+
+  .dfr-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 48px; }
+
+  .dfr-anchor { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-style: italic; font-weight: 300; color: var(--white); border-left: 3px solid var(--crimson); padding: 24px 0 24px 28px; line-height: 1.5; margin-bottom: 24px; }
+  .dfr-desc { font-size: 0.88rem; color: var(--light); line-height: 1.85; margin-bottom: 28px; }
+  .dfr-phases { display: flex; flex-direction: column; gap: 16px; }
+
+  .dfr-phase { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; transition: border-color 0.2s; }
+  .dfr-phase:hover { border-color: var(--crimson); }
+  .phase-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--crimson); background: var(--crimson-dim); padding: 4px 8px; border-radius: 2px; white-space: nowrap; margin-top: 2px; }
+  .phase-content h4 { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 4px; }
+  .phase-content p { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+
+  /* LAB */
+  #lab { background: var(--black); }
+
+  .lab-feature { margin-top: 48px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .lab-feature h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+  .lab-feature p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
+
+  .lab-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .lab-stat { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 16px; text-align: center; }
+  .lab-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--crimson); line-height: 1; margin-bottom: 4px; }
+  .lab-stat-label { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+
+  /* RECOGNITION */
+  #recognition { background: var(--deep); }
+
+  .recognition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
+
+  .rec-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 28px 24px; display: flex; gap: 16px; align-items: flex-start; transition: border-color 0.2s; }
+  .rec-card:hover { border-color: var(--crimson); }
+  .rec-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+  .rec-card h4 { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 4px; line-height: 1.4; }
+  .rec-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+
+  .community-strip { margin-top: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 28px 32px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .community-strip h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); width: 100%; margin-bottom: 4px; }
+  .comm-tag { background: var(--card); border: 1px solid var(--border); color: var(--light); font-size: 0.78rem; padding: 6px 14px; border-radius: 20px; }
+
+  /* FEDERAL */
+  #federal { background: var(--black); }
+
+  .federal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; align-items: start; }
+  .credentials-block { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 36px; }
+
+  .cred-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .cred-row:last-child { border-bottom: none; }
+  .cred-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .cred-value { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--white); text-align: right; }
+  .cred-value.active { color: #4ade80; }
+  .cred-value.pending { color: var(--gold); }
+
+  .naics-block { display: flex; flex-direction: column; gap: 12px; }
+  .naics-block h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .naics-item { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; }
+  .naics-code { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--crimson); }
+  .naics-desc { font-size: 0.78rem; color: var(--muted); text-align: right; }
+
+  /* CONTACT */
+  #contact { background: var(--deep); }
+
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; align-items: start; }
+
+  .contact-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--white); margin-bottom: 16px; line-height: 1.3; }
+  .contact-info p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+
+  .contact-links { display: flex; flex-direction: column; gap: 14px; }
+
+  .contact-link { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--light); font-size: 0.88rem; transition: color 0.2s; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .contact-link:hover { color: var(--crimson); }
+  .contact-link-icon { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); width: 60px; flex-shrink: 0; }
+
+  /* ── UPDATED: contact right column stacks two cards ── */
+  .contact-right { display: flex; flex-direction: column; gap: 20px; }
+
+  .booking-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 32px; }
+  .booking-block h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+  .booking-block p { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; line-height: 1.7; }
+
+  /* ── NEW: mentoring card in contact ── */
+  .mentoring-block {
+    background: var(--surface);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 32px;
+    position: relative;
+  }
+
+  .mentoring-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    border-radius: 4px 4px 0 0;
+  }
+
+  .mentoring-block h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .mentoring-block .mentoring-sub { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; opacity: 0.8; }
+  .mentoring-block p { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; line-height: 1.7; }
+
+  .mentoring-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+
+  .mentoring-link-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 2px; text-decoration: none; transition: border-color 0.2s; }
+  .mentoring-link-row:hover { border-color: rgba(201,168,76,0.4); }
+  .mentoring-link-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .mentoring-link-action { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--gold); }
+
+  .optin-note { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); margin-top: 16px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+  .optin-note::before { content: '🔒'; font-size: 0.75rem; }
+
+  /* ── NEW: mentoring section ── */
+  #mentoring { background: var(--black); }
+
+  .mentoring-feature {
+    margin-top: 48px;
+    background: var(--surface);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 4px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mentoring-feature::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent 60%);
+  }
+
+  .mentoring-feature h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
+  .mentoring-cohort { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .mentoring-feature p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
+
+  .mentoring-sessions { display: flex; flex-direction: column; gap: 12px; }
+
+  .mentoring-session-row {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
-  }
-
-  .meet-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #4caf6e;
-    flex-shrink: 0;
-    box-shadow: 0 0 7px rgba(76,175,110,0.5);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  .meet-info { flex: 1; min-width: 160px; }
-
-  .meet-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 3px;
-  }
-
-  .meet-url {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--white-dim);
-  }
-
-  /* ── BUTTONS ── */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 12px 24px;
     text-decoration: none;
-    border-radius: 1px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    border: none;
+    transition: border-color 0.2s;
   }
 
-  .btn-primary { background: var(--crimson); color: var(--white); }
-  .btn-primary:hover { background: #a50d26; }
+  .mentoring-session-row:hover { border-color: rgba(201,168,76,0.35); }
 
-  .btn-gold {
-    background: transparent;
-    color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.35);
-  }
-  .btn-gold:hover { background: var(--gold-dim); border-color: var(--gold); }
+  .session-row-left h5 { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 3px; }
+  .session-row-left p { font-size: 0.75rem; color: var(--muted); }
+  .session-row-badge { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 1px; white-space: nowrap; }
+  .badge-crimson { background: var(--crimson-dim); color: #e85070; border: 1px solid rgba(200,16,46,0.25); }
+  .badge-gold { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
 
-  /* ── RESOURCES ── */
-  .resources {
-    border: 1px solid var(--border);
-    padding: 28px 32px;
+  /* FOOTER */
+  footer {
     background: var(--deep);
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.85s forwards;
-  }
-
-  .resources-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--white-dim);
-    opacity: 0.45;
-    margin-bottom: 20px;
-  }
-
-  .resource-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-  .resource-item { display: flex; gap: 16px; align-items: flex-start; }
-
-  .resource-item::before {
-    content: '→';
-    color: var(--crimson);
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .resource-name { font-size: 13.5px; font-weight: 500; color: var(--white); margin-bottom: 2px; }
-  .resource-desc { font-size: 12.5px; font-weight: 300; color: var(--white-dim); line-height: 1.6; }
-
-  /* ── FOOTER ── */
-  .footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 48px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.95s forwards;
   }
 
-  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-  .footer-role { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.1em; color: var(--white-dim); text-transform: uppercase; opacity: 0.45; }
-  .footer-links { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
-  .footer-links a { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--white-dim); text-decoration: none; opacity: 0.55; transition: all 0.2s ease; }
-  .footer-links a:hover { color: var(--crimson); opacity: 1; }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--white); }
+  .footer-brand span { color: var(--crimson); }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.4; transform: scale(0.75); }
+  .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-links a.footer-highlight { color: var(--gold); }
+  .footer-links a.footer-highlight:hover { color: #e8c96a; }
+
+  .footer-legal { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 40px; }
+    .hero-bg-line { display: none; }
+    .about-grid, .dfr-layout, .doc-feature, .federal-grid, .contact-layout, .lab-feature, .mentoring-feature { grid-template-columns: 1fr; }
+    .services-grid, .advantage-cards { grid-template-columns: 1fr; }
+    .recognition-grid { grid-template-columns: 1fr; }
+    .section-inner, .doc-inner { padding: 60px 20px; }
+    .doc-left, .doc-right { padding: 36px 24px; }
+    footer { flex-direction: column; text-align: center; padding: 32px 20px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .divider { margin: 0 20px; }
+    .photo-frame { width: 220px; height: 220px; }
+    .contact-right { gap: 16px; }
   }
 
-  @media (max-width: 580px) {
-    .container { padding: 0 18px 70px; }
-    .header { padding: 40px 0 34px; }
-    .welcome { padding: 22px 20px; }
-    .session-card { padding: 24px 20px; }
-    .resources { padding: 22px 18px; }
-    .footer { flex-direction: column; align-items: flex-start; }
-    .footer-links { align-items: flex-start; }
-    .session-card.saturday::after { display: none; }
-  }
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
+
 <body>
 
-<!-- ===== CCD UNIVERSAL NAV BAR ===== -->
-<nav class="ccd-nav">
-  <a class="ccd-nav-brand" href="https://chaundacdallas.com">Chaunda C. Dallas<span class="ccd-nav-dot">.</span></a>
-  <div class="ccd-nav-links">
-    <a href="https://chaundacdallas.com">Home</a>
-    <a href="https://chaundacdallas.com/book">Book</a>
-    <a class="active" href="https://chaundacdallas.com/wicys">WiCyS</a>
-    <a href="https://lab.chaundacdallas.com/">Lab</a>
-  </div>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Chaunda C<span>.</span> Dallas</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#documentary">Documentary</a></li>
+    <li><a href="#dfr">DFR Framework</a></li>
+    <li><a href="#lab">DFR Lab</a></li>
+    <li><a href="#federal">Federal</a></li>
+    <li><a href="#mentoring">Mentoring</a></li>
+    <li><a href="/wicys" class="nav-cta">WiCyS Sessions</a></li>
+    <li><a href="/book" class="nav-book">Book a Session</a></li>
+  </ul>
 </nav>
-<!-- ===== END CCD NAV BAR ===== -->
 
-<div class="ecg-bar"></div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-line"></div>
 
-<div class="container">
-
-  <!-- HEADER -->
-  <div class="header">
-    <div class="eyebrow">WiCyS Technical Mentoring · Cohort 3</div>
-    <h1>I'm so glad<br>you're <span class="accent">here.</span></h1>
-    <p class="header-sub">Chaunda C. Dallas, MSIT · Healthcare Cybersecurity Strategist · Digital First Responder</p>
-  </div>
-
-  <!-- WELCOME -->
-  <div class="welcome">
-    <div class="welcome-greeting">Welcome to Cohort 3 — <strong>let's get to work.</strong></div>
-    <p>I'm Chaunda, your WiCyS Technical Mentor. I spent <strong>28 years in clinical emergency medicine</strong> before pivoting into cybersecurity — so I know what it feels like to walk into a field where you don't see yourself reflected yet. That's exactly why I'm here.</p>
-    <p>Whether you have questions about the coursework, want help mapping your cert path, need someone to talk through your goals, or just want to show up on a Saturday and study alongside someone who's still in it with you — <strong>you're in the right place.</strong></p>
-    <p>My approach is simple: I meet you where you are. We assess, stabilize, and build a plan that fits your real life — not a template.</p>
-    <div class="welcome-sig">"I didn't leave healthcare. I learned to defend it." — Chaunda</div>
-  </div>
-
-  <!-- SESSIONS -->
-  <div class="section-label">Schedule a Session</div>
-
-  <div class="sessions">
-
-    <!-- WICYS OFFICE HOURS -->
-    <div class="session-card">
-      <div class="session-top">
-        <div class="session-title">WiCyS Office Hours</div>
-        <div class="badges">
-          <span class="badge badge-red">30 Min</span>
-        </div>
-      </div>
-
-      <div class="availability">
-        <div class="avail-pill"><span class="dot"></span>Tuesdays</div>
-        <div class="avail-pill"><span class="dot"></span>Thursdays</div>
-      </div>
-
-      <p class="session-desc">Reserved time for WiCyS mentees. Select a day, pick an open slot, fill in your info — and you're on the calendar. Bring your coursework questions, cert path questions, or anything on your mind.</p>
-
-      <div class="tags">
-        <span class="tag">Coursework questions</span>
-        <span class="tag">Cert roadmap</span>
-        <span class="tag">Career direction</span>
-        <span class="tag">Blockers &amp; wins</span>
-      </div>
-
-      <a href="https://calendar.app.google/rLkybr44KZTK1faYA" class="btn btn-primary" target="_blank">Select a Date &amp; Time ↗</a>
-    </div>
-
-    <!-- 1:1 MENTOR SESSION -->
-    <div class="session-card">
-      <div class="session-top">
-        <div class="session-title">1:1 Mentor Session</div>
-        <div class="badges">
-          <span class="badge badge-red">30 Min</span>
-        </div>
-      </div>
-
-      <div class="availability">
-        <div class="avail-pill"><span class="dot"></span>Tuesdays</div>
-        <div class="avail-pill"><span class="dot"></span>Thursdays</div>
-      </div>
-
-      <p class="session-desc">A focused 30 minutes built around you. Select any available day, choose a time that works, and come ready to work. Bring your resume, job search blockers, cert questions, or your goals — we'll leave with a clear next step.</p>
-
-      <div class="tags">
-        <span class="tag">Resume &amp; positioning</span>
-        <span class="tag">Job search strategy</span>
-        <span class="tag">Healthcare cyber path</span>
-        <span class="tag">Technical deep dive</span>
-        <span class="tag">Cert strategy</span>
-      </div>
-
-      <a href="https://calendar.app.google/eNZSUVRUBTXZms1H6" class="btn btn-primary" target="_blank">Select a Date &amp; Time ↗</a>
-    </div>
-
-    <!-- SATURDAY STUDY HALL -->
-    <div class="session-card saturday">
-      <div class="session-top">
-        <div class="session-title">Saturday Study Hall</div>
-        <div class="badges">
-          <span class="badge badge-neutral">Every Saturday</span>
-          <span class="badge badge-gold">1:00 – 2:00 PM EST</span>
-        </div>
-      </div>
-
-      <div class="availability">
-        <div class="avail-pill saturday-pill"><span class="dot"></span>No booking needed — just show up</div>
-      </div>
-
-      <p class="session-desc">Drop in every Saturday using the standing link below. Bring your TryHackMe questions, cert prep, resume, or just come to study alongside others. This is your open accountability hour. Multiple mentees welcome every week.</p>
-
-      <div class="tags">
-        <span class="tag">TryHackMe / HackTheBox</span>
-        <span class="tag">Cert prep</span>
-        <span class="tag">Ask me anything</span>
-        <span class="tag">Accountability</span>
-        <span class="tag">Study together</span>
-      </div>
-
-      <div class="meet-block">
-        <div class="meet-dot"></div>
-        <div class="meet-info">
-          <div class="meet-label">Standing Link · Every Saturday 1:00 – 2:00 PM EST</div>
-          <div class="meet-url">https://meet.google.com/jey-dwbf-hvr</div>
-        </div>
-        <a href="https://meet.google.com/jey-dwbf-hvr" class="btn btn-gold" target="_blank">Join the Room ↗</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- RESOURCES -->
-  <div class="resources">
-    <div class="resources-label">Recommended Starting Points</div>
-    <ul class="resource-list">
-      <li class="resource-item">
-        <div>
-          <div class="resource-name">TryHackMe</div>
-          <div class="resource-desc">Best starting point — guided, beginner-friendly, structured learning paths. Start here before HackTheBox.</div>
-        </div>
-      </li>
-      <li class="resource-item">
-        <div>
-          <div class="resource-name">HackTheBox Academy</div>
-          <div class="resource-desc">Next level after TryHackMe. More challenging, closer to real-world scenarios.</div>
-        </div>
-      </li>
-      <li class="resource-item">
-        <div>
-          <div class="resource-name">eJPT — eLearnSecurity Junior Penetration Tester</div>
-          <div class="resource-desc">Entry-level cert with real weight. Great first offensive security credential without years of experience required.</div>
-        </div>
-      </li>
-      <li class="resource-item">
-        <div>
-          <div class="resource-name">CompTIA Security+ / PenTest+</div>
-          <div class="resource-desc">Industry-standard baseline (Security+) and a strong next step toward penetration testing (PenTest+).</div>
-        </div>
-      </li>
-      <li class="resource-item">
-        <div>
-          <div class="resource-name">Digital First Responder Lab</div>
-          <div class="resource-desc">My IoMT threat intelligence lab — real healthcare cybersecurity scenarios showing what defending clinical environments actually looks like.</div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <div>
-      <div class="footer-name">Chaunda C. Dallas, MSIT</div>
-      <div class="footer-role">Healthcare Cybersecurity Strategist · WiCyS Technical Mentor · Digital First Responder</div>
-    </div>
-    <div class="footer-links">
-      <a href="https://chaundacdallas.com" target="_blank">chaundacdallas.com</a>
-      <a href="https://chaundacdallas.com/book" target="_blank">Book a Session</a>
-      <a href="https://lab.chaundacdallas.com" target="_blank">lab.chaundacdallas.com</a>
-      <a href="mailto:connect@chaundacdallas.com">connect@chaundacdallas.com</a>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Healthcare Professional & Cybersecurity Strategist</div>
+    <h1 class="hero-name">
+      Chaunda C.<br>
+      <strong>Dallas</strong>
+    </h1>
+    <div class="hero-credential">MSIT · Digital Health, IoMT & Clinical AI Risk · Digital First Responder</div>
+    <p class="hero-tagline">
+      I didn't leave healthcare.<br>I learned to defend it.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Discovery Call</a>
+      <a href="/book" class="btn-ghost-gold">Book a Session →</a>
+      <a href="https://lab.chaundacdallas.com/" class="btn-secondary" target="_blank">Explore DFR Lab →</a>
     </div>
   </div>
 
-</div>
+  <div class="hero-photo-block">
+    <div class="photo-frame">
+      <img src="chaunda-headshot.jpeg" alt="Chaunda C. Dallas — Healthcare Cybersecurity Strategist">
+    </div>
+    <div class="hero-stat-card" style="animation-delay:0.1s;">
+      <div class="stat-num">28</div>
+      <div>
+        <div class="stat-label">Years in Emergency & Procedural Medicine</div>
+        <div class="stat-sub">CNA → Lead ER Tech → Clinical Coordinator</div>
+      </div>
+    </div>
+    <div class="hero-stat-card" style="animation-delay:0.2s;">
+      <div class="stat-num">50<span style="font-size:1rem">+</span></div>
+      <div>
+        <div class="stat-label">Global Defenders Featured Alongside</div>
+        <div class="stat-sub">Midnight in the War Room · Black Hat USA 2026</div>
+      </div>
+    </div>
+    <div class="hero-stat-card" style="animation-delay:0.3s;">
+      <div class="stat-num">200<span style="font-size:1rem">+</span></div>
+      <div>
+        <div class="stat-label">Women Mentored Through WiCyS</div>
+        <div class="stat-sub">3rd Consecutive Year · 2026</div>
+      </div>
+    </div>
+    <div class="hero-stat-card" style="animation-delay:0.4s;">
+      <div class="stat-num">9</div>
+      <div>
+        <div class="stat-label">IoMT Failure Scenarios — DFR Lab</div>
+        <div class="stat-sub">0 hypotheticals · All built from reality</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Origin Story</div>
+    <h2 class="section-title">A healthcare professional<br><em>who learned to fight back.</em></h2>
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p>I started on the floor as a <strong>CNA and registration clerk</strong>, working my way up to Lead ER Tech, Epic Super User, and Clinical Preceptor. Ultimately I served as Clinical Coordinator and Lead Clinical Coordinator — managing nursing staff, physicians, and administrative workflows across ERs and outpatient surgical centers.</p>
+        <p>Physicians trusted my judgment. I understood how clinical teams think, how hospitals actually operate under pressure, and <strong>exactly where the risk lives.</strong></p>
+        <div class="pull-quote">"Then I looked at what ransomware was doing to hospitals — to <em>my</em> hospitals — and I realized the fight had moved."</div>
+        <p>Patient data held hostage. Medical devices weaponized. Clinical workflows paralyzed at the exact moment lives depend on them. <strong>So I brought my triage instincts with me.</strong></p>
+        <p>Today I specialize in medical device and IoMT security, healthcare GRC, and cybersecurity strategy for organizations where the stakes aren't measured in data — they're measured in lives.</p>
+      </div>
+      <div class="career-timeline fade-up">
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h4>CNA & Registration Clerk</h4><p>Started on the floor. Learned the system from the ground up.</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h4>Lead ER Tech & Epic Super User</h4><p>Clinical decision-making under pressure. Zero margin for error.</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h4>Clinical Coordinator & Preceptor</h4><p>Managing physicians, nursing staff, and administrative workflows.</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h4>MSIT · Healthcare Cybersecurity</h4><p>Kennesaw State University. Medical device security concentration.</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h4>Healthcare Cybersecurity Strategist</h4><p>IoMT security, GRC, clinical risk — at enterprise scale.</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h4>Featured Defender · Black Hat USA 2026</h4><p>Midnight in the War Room. Semperis. Global stage.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ADVANTAGE -->
+<section id="advantage">
+  <div class="section-inner">
+    <div class="section-label">The Differentiator</div>
+    <h2 class="section-title">The Clinical Eyes<br><em>Advantage</em></h2>
+    <div class="advantage-hero fade-up">
+      <h3>Because in healthcare, "system down"<br>is a patient safety crisis.</h3>
+      <p>In the ER and OR, there is no "IT ticket" for a life-critical system failure. You need security that understands the velocity of care. We bridge the gap between technical defense and clinical reality — approaching cyber risk like trauma triage: prioritize what harms patients first, stabilize fast, build defenses that hold under extreme pressure.</p>
+    </div>
+    <div class="advantage-cards">
+      <div class="adv-card fade-up"><div class="adv-icon">🏥</div><h4>Clinical Workflow Intelligence</h4><p>Understanding how nurses, techs, and physicians actually interact with connected systems — where workarounds create vulnerabilities, and where security controls must bend to care delivery.</p></div>
+      <div class="adv-card fade-up"><div class="adv-icon">⚡</div><h4>Triage-Speed Risk Assessment</h4><p>Rapid assessment under pressure translates directly. Identify critical risks, prioritize by patient impact, and mobilize the right response — without slowing clinical operations.</p></div>
+      <div class="adv-card fade-up"><div class="adv-icon">🔐</div><h4>OpSec by Design</h4><p>Security architecture built with the end user in mind. Controls clinicians actually follow. Policies that survive the pace of real care environments — not just audit checklists.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-label">How We Engage</div>
+    <h2 class="section-title">Core<br><em>Delivery Areas</em></h2>
+    <div class="services-grid">
+      <div class="service-card fade-up"><div class="service-num">01</div><h3>IoMT & Clinical AI Risk</h3><p>Device and system threat modeling in live clinical environments. AI governance for FDA- and audit-facing products.</p><ul class="service-bullets"><li>Threat modeling in clinical settings</li><li>AI governance & FDA-facing documentation</li><li>Risk assessments respecting bedside workflows</li><li>Connected device inventory & vulnerability mapping</li></ul></div>
+      <div class="service-card fade-up"><div class="service-num">02</div><h3>Healthcare GRC & Audit Readiness</h3><p>HIPAA, NIST, SOC 2 alignment without operational disruption. Policy clinicians actually follow.</p><ul class="service-bullets"><li>HIPAA Security Rule compliance</li><li>NIST CSF & SOC 2 framework alignment</li><li>Policy & control development</li><li>Federal healthcare subcontract support</li></ul></div>
+      <div class="service-card fade-up"><div class="service-num">03</div><h3>Incident Readiness & Clinical Resilience</h3><p>Ransomware and downtime planning for EHR and device environments. Tabletops that prepare real clinical teams.</p><ul class="service-bullets"><li>EHR & device downtime planning</li><li>Executive & clinical tabletop exercises</li><li>Ransomware response playbooks</li><li>Nation-state & hacktivist threat briefings</li></ul></div>
+    </div>
+    <div style="margin-top:32px; background:var(--card); border:1px solid var(--border); border-radius:4px; padding:28px 32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;" class="fade-up">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--white); margin-bottom:6px;">Engagement Models</div>
+        <div style="font-size:0.8rem; color:var(--muted);">Subcontract support · Embedded advisor · Short-term assessments · Fractional clinical-security expertise · Remote-first with on-site availability</div>
+      </div>
+      <a href="#contact" class="btn-primary">Discuss Availability</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DOCUMENTARY -->
+<section id="documentary">
+  <div class="doc-inner">
+    <div class="section-label">External Validation</div>
+    <h2 class="section-title">The work came first.<br><em>The recognition followed.</em></h2>
+    <div class="doc-feature fade-up">
+      <div class="doc-left">
+        <div class="doc-badge">★ Featured Defender</div>
+        <div class="doc-title">Midnight in the War Room</div>
+        <div class="doc-sub">Semperis · Premiering Black Hat USA · August 5, 2026</div>
+        <p>The work of defending healthcare systems from ransomware, protecting connected medical devices, and bridging clinical reality with cybersecurity strategy was already underway. Semperis recognized it. Selected as one of 50+ global defenders in their groundbreaking cyberwar documentary — exploring what it truly means to defend critical infrastructure when nation-states attack.</p>
+        <a href="https://youtu.be/1iR2Xla8Mzc?si=qfGKV8JwBwcUYg9x" class="btn-primary" style="width:fit-content;" target="_blank">Watch the Trailer →</a>
+      </div>
+      <div class="doc-right">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/1iR2Xla8Mzc?si=PHJUTmEOG5FdDDNA" title="Midnight in the War Room — Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <h4>Featured Alongside</h4>
+        <div class="peer-item"><div class="peer-dot"></div><span><strong>Jen Easterly</strong> — Former CISA Director</span></div>
+        <div class="peer-item"><div class="peer-dot"></div><span><strong>Gen. (Ret.) David Petraeus</strong> — Former CIA Director</span></div>
+        <div class="peer-item"><div class="peer-dot"></div><span><strong>Chris Inglis</strong> — Former National Cyber Director</span></div>
+        <div class="peer-item"><div class="peer-dot"></div><span><strong>Dr. Mary Aiken</strong> — Cyberpsychologist, INTERPOL Advisor</span></div>
+        <div class="peer-item"><div class="peer-dot"></div><span><strong>Marcus Hutchins</strong> — WannaCry Hero</span></div>
+        <div class="peer-item" style="border:none;"><div class="peer-dot"></div><span>50+ Global CISOs &amp; Cyber Leaders</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DFR FRAMEWORK -->
+<section id="dfr">
+  <div class="section-inner">
+    <div class="section-label">Proprietary Methodology</div>
+    <h2 class="section-title">The Digital First<br><em>Responder Framework</em></h2>
+    <div class="dfr-layout">
+      <div class="fade-up">
+        <div class="dfr-anchor">"I call it the Digital First Responder Framework — because that's exactly what it is."</div>
+        <p class="dfr-desc">Born from emergency triage principles, the DFR Framework maps clinical emergency response directly onto cybersecurity incident response. It's not a metaphor — it's a methodology. The same instincts that stabilize a crashing patient stabilize a compromised network.</p>
+        <a href="https://lab.chaundacdallas.com" class="btn-secondary" target="_blank">Explore the Lab →</a>
+      </div>
+      <div class="dfr-phases fade-up">
+        <div class="dfr-phase"><div class="phase-label">Triage</div><div class="phase-content"><h4>Rapid Threat Assessment</h4><p>Identify what's critical, what's stable, what's failing. Prioritize by patient — and patient safety — impact first.</p></div></div>
+        <div class="dfr-phase"><div class="phase-label">Stabilize</div><div class="phase-content"><h4>Contain & Control</h4><p>Stop the bleed. Isolate compromised systems without shutting down care delivery.</p></div></div>
+        <div class="dfr-phase"><div class="phase-label">Treat</div><div class="phase-content"><h4>Remediate with Precision</h4><p>Targeted intervention. Evidence-based controls. No unnecessary disruption to clinical operations.</p></div></div>
+        <div class="dfr-phase"><div class="phase-label">Recover</div><div class="phase-content"><h4>Restore & Rebuild Resilience</h4><p>Return to full operation. Build stronger defenses. Document for the next incident.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DFR LAB -->
+<section id="lab">
+  <div class="section-inner">
+    <div class="section-label">Live Portfolio</div>
+    <h2 class="section-title">Digital First<br><em>Responder Lab</em></h2>
+    <div class="lab-feature fade-up">
+      <div>
+        <h3>Where connected medical systems actually fail.</h3>
+        <p>A live IoMT risk education platform built from clinical experience and lived device dependency. 9 real failure scenarios. A live Healthcare Ransomware Intelligence Tracker. Interactive Decision Mode. Professional and Student Mode. No hypotheticals — every scenario is built from reality.</p>
+        <a href="https://lab.chaundacdallas.com" class="btn-primary" target="_blank">Explore the Lab →</a>
+      </div>
+      <div class="lab-stats">
+        <div class="lab-stat"><div class="lab-stat-num">9</div><div class="lab-stat-label">IoMT Failure Scenarios</div></div>
+        <div class="lab-stat"><div class="lab-stat-num">30+</div><div class="lab-stat-label">Ransomware Incidents Tracked</div></div>
+        <div class="lab-stat"><div class="lab-stat-num">0</div><div class="lab-stat-label">Hypothetical Scenarios</div></div>
+        <div class="lab-stat"><div class="lab-stat-num">2</div><div class="lab-stat-label">Modes: Pro + Student</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECOGNITION -->
+<section id="recognition">
+  <div class="section-inner">
+    <div class="section-label">Selected Recognition</div>
+    <h2 class="section-title">Industry &<br><em>Community Leadership</em></h2>
+    <div class="recognition-grid">
+      <div class="rec-card fade-up"><div class="rec-icon">🎙️</div><div><h4>WiCyS 2026 Virtual Conference Panelist</h4><p>"Behind the Scenes of Midnight in the War Room" — April 2026, with Krista Arndt, moderated by Heather M. Costa (Mayo Clinic)</p></div></div>
+      <div class="rec-card fade-up"><div class="rec-icon">🎧</div><div><h4>Guest Expert — Halcyon Podcast</h4><p>Last Month in Security · 2024. Healthcare ransomware threat landscape and clinical impact analysis.</p></div></div>
+      <div class="rec-card fade-up"><div class="rec-icon">🏅</div><div><h4>Lead DEF CON Badge Liaison</h4><p>2025. Volunteer leadership coordinating scholar badge access across Hacker Summer Camp.</p></div></div>
+      <div class="rec-card fade-up"><div class="rec-icon">🎓</div><div><h4>RSA Conference Scholar</h4><p>Diana Initiative / BlackGirlsHack · 2025. Selected for professional development recognition.</p></div></div>
+      <div class="rec-card fade-up"><div class="rec-icon">☁️</div><div><h4>AWS re:Invent Grant Recipient</h4><p>2024. Selected through competitive grant program for cloud and technology leaders.</p></div></div>
+      <div class="rec-card fade-up"><div class="rec-icon">🔬</div><div><h4>DEF CON Biohacking Village Volunteer</h4><p>Active contributor to medical device and healthcare security research at the annual event.</p></div></div>
+    </div>
+    <div class="community-strip fade-up">
+      <h4>Community Roles</h4>
+      <span class="comm-tag">WiCyS Technical Mentor</span><span class="comm-tag">Lead DEF CON Badge Liaison</span><span class="comm-tag">WiSP Lead DEF CON Liaison</span><span class="comm-tag">Google Tech Equity Collective Coach</span><span class="comm-tag">People for Change Coalition Instructor</span><span class="comm-tag">Hacker Summer Camp Scholar</span><span class="comm-tag">The Diana Initiative</span><span class="comm-tag">BlackGirlsHack</span><span class="comm-tag">Semperis HIP Nashville 2026</span>
+    </div>
+    <div class="community-strip fade-up" style="margin-top:16px; background: linear-gradient(135deg, rgba(200,16,46,0.06) 0%, rgba(200,16,46,0.02) 100%); border-color: rgba(200,16,46,0.2);">
+      <h4 style="color: var(--crimson);">6 Consecutive Years of Competitive Scholarships — 2020 through 2025</h4>
+      <p style="font-size:0.82rem; color:var(--light); line-height:1.7; width:100%; margin-bottom:12px;">Selected annually by WiCyS, The Diana Initiative, BlackGirlsHack, WISP, AWS, Women in Cloud, and Dream.org. Each scholarship opened a door. Each room changed the trajectory.</p>
+      <span class="comm-tag">WiCyS 2020 + 2021</span><span class="comm-tag">Diana Initiative 2023 + 2025</span><span class="comm-tag">BlackGirlsHack/SquadCon 2023 + 2024 + 2025</span><span class="comm-tag">Black Hat/WISP 2023 + 2025</span><span class="comm-tag">DEF CON/WISP 2023 + 2024 + 2025</span><span class="comm-tag">Hacker Summer Camp 2023 + 2024 + 2025</span><span class="comm-tag">AWS re:Invent Builder Grant 2024</span><span class="comm-tag">Women in Cloud 2024</span><span class="comm-tag">Dream.org 2023</span><span class="comm-tag">CybSafe / Coding Black Females 2022</span><span class="comm-tag">Golden Key Honor Society 2021</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FEDERAL -->
+<section id="federal">
+  <div class="section-inner">
+    <div class="section-label">Subcontract & Federal</div>
+    <h2 class="section-title">Federal<br><em>Credentials</em></h2>
+    <div class="federal-grid">
+      <div class="credentials-block fade-up">
+        <div class="cred-row"><span class="cred-label">Entity</span><span class="cred-value">Chaunda C. Dallas LLC</span></div>
+        <div class="cred-row"><span class="cred-label">SAM.gov Status</span><span class="cred-value active">● Active</span></div>
+        <div class="cred-row"><span class="cred-label">UEI</span><span class="cred-value">KV2BR8QU36J7</span></div>
+        <div class="cred-row"><span class="cred-label">CAGE Code</span><span class="cred-value">18D81</span></div>
+        <div class="cred-row"><span class="cred-label">WOSB Certification</span><span class="cred-value pending">⏳ Pending</span></div>
+        <div class="cred-row"><span class="cred-label">Clearance Eligible</span><span class="cred-value">Available Upon Sponsorship</span></div>
+      </div>
+      <div class="naics-block fade-up">
+        <h4>Core NAICS Codes</h4>
+        <div class="naics-item"><span class="naics-code">541512</span><span class="naics-desc">Computer Systems Design</span></div>
+        <div class="naics-item"><span class="naics-code">541690</span><span class="naics-desc">Scientific & Technical Consulting</span></div>
+        <div class="naics-item"><span class="naics-code">541610</span><span class="naics-desc">Management Consulting</span></div>
+        <div class="naics-item"><span class="naics-code">611420</span><span class="naics-desc">Computer Training</span></div>
+        <div class="naics-item"><span class="naics-code">541519</span><span class="naics-desc">Other Computer Related Services</span></div>
+        <div class="naics-item"><span class="naics-code">621999</span><span class="naics-desc">Other Ambulatory Health Care</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── MENTORING SECTION ── -->
+<section id="mentoring">
+  <div class="section-inner">
+    <div class="section-label">WiCyS Mentoring</div>
+    <h2 class="section-title">Third consecutive year.<br><em>Still in it with you.</em></h2>
+    <div class="mentoring-feature fade-up">
+      <div>
+        <h3>WiCyS Technical Mentor</h3>
+        <div class="mentoring-cohort">Cohort 3 · Now Active · 2026</div>
+        <p>I meet mentees where they are — the same way I triaged patients. Assess, stabilize, treat, recover. Whether you're mapping your first cert path, navigating a job search, or just need someone who's been in a field that didn't look like them: you're in the right place.</p>
+        <p style="font-size:0.82rem; color:var(--muted); margin-bottom:24px; line-height:1.7;">Three session types available: WiCyS Office Hours (Tue & Thu), 1:1 Mentor Sessions (Tue & Thu), and Saturday Study Hall — open drop-in, no booking needed.</p>
+        <a href="/wicys" class="btn-primary" style="margin-right:12px;">Visit Mentoring Page →</a>
+        <a href="https://calendar.app.google/eNZSUVRUBTXZms1H6" class="btn-secondary" target="_blank">Book a Session →</a>
+      </div>
+      <div class="mentoring-sessions">
+        <a href="https://calendar.app.google/rLkybr44KZTK1faYA" class="mentoring-session-row" target="_blank">
+          <div class="session-row-left">
+            <h5>WiCyS Office Hours</h5>
+            <p>Tuesdays & Thursdays · 30 min · Book your slot</p>
+          </div>
+          <span class="session-row-badge badge-crimson">Book →</span>
+        </a>
+        <a href="https://calendar.app.google/eNZSUVRUBTXZms1H6" class="mentoring-session-row" target="_blank">
+          <div class="session-row-left">
+            <h5>1:1 Mentor Session</h5>
+            <p>Tuesday & Thursday · 30 min · Open availability</p>
+          </div>
+          <span class="session-row-badge badge-crimson">Book →</span>
+        </a>
+        <a href="https://meet.google.com/jey-dwbf-hvr" class="mentoring-session-row" target="_blank">
+          <div class="session-row-left">
+            <h5>Saturday Study Hall</h5>
+            <p>Every Saturday · 1:00–2:00 PM EST · No booking needed</p>
+          </div>
+          <span class="session-row-badge badge-gold">Join →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">If your infrastructure<br><em>touches patients — let's talk.</em></h2>
+    <div class="contact-layout">
+      <div class="contact-info fade-up">
+        <h3>Healthcare cybersecurity expertise grounded in nearly three decades of clinical experience.</h3>
+        <p>Senior healthcare cybersecurity expertise without the overhead of full-time staff. I never left healthcare — I learned to defend it. Remote-first with on-site availability. Engagements structured to integrate cleanly into existing delivery teams and protect clinical operations.</p>
+        <div class="contact-links">
+          <a href="mailto:connect@chaundacdallas.com" class="contact-link"><span class="contact-link-icon">Email</span>connect@chaundacdallas.com</a>
+          <a href="https://linkedin.com/in/chaundacdallas" class="contact-link" target="_blank"><span class="contact-link-icon">LinkedIn</span>linkedin.com/in/chaundacdallas</a>
+          <a href="https://www.instagram.com/chaundadalllas/" class="contact-link" target="_blank"><span class="contact-link-icon">Instagram</span>@chaundadalllas</a>
+          <a href="https://www.tiktok.com/@chaundadallas" class="contact-link" target="_blank"><span class="contact-link-icon">TikTok</span>@chaundadallas</a>
+        </div>
+      </div>
+
+      <div class="contact-right fade-up">
+        <!-- Discovery Call -->
+        <div class="booking-block">
+          <h4>Book a Discovery Call</h4>
+          <p>Ready to discuss subcontract availability, advisory support, or a custom engagement? Reach out directly — remote-first, available immediately.</p>
+          <a href="mailto:connect@chaundacdallas.com" class="btn-primary" style="width:100%; text-align:center; display:block;">Send an Email →</a>
+          <div class="optin-note">OpSec by Design · Remote-first · Available Now</div>
+          <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--border);">
+            <div style="font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Available for</div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">Subcontract RFQ</span>
+              <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">Speaking Inquiry</span>
+              <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">Advisory Retainer</span>
+              <span style="background:var(--card); border:1px solid var(--border); color:var(--light); font-size:0.75rem; padding:6px 12px; border-radius:2px;">W2 Contract</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WiCyS Mentoring Card -->
+        <div class="mentoring-block">
+          <h4>WiCyS Mentoring Sessions</h4>
+          <div class="mentoring-sub">Cohort 3 · Now Active</div>
+          <p>Three ways to connect — office hours, 1:1 sessions, or drop into Saturday Study Hall. No gatekeeping. Just show up.</p>
+          <div class="mentoring-links">
+            <a href="https://calendar.app.google/rLkybr44KZTK1faYA" class="mentoring-link-row" target="_blank">
+              <span class="mentoring-link-label">WiCyS Office Hours — Tue & Thu</span>
+              <span class="mentoring-link-action">Book →</span>
+            </a>
+            <a href="https://calendar.app.google/eNZSUVRUBTXZms1H6" class="mentoring-link-row" target="_blank">
+              <span class="mentoring-link-label">1:1 Mentor Session — Tue & Thu</span>
+              <span class="mentoring-link-action">Book →</span>
+            </a>
+            <a href="https://meet.google.com/jey-dwbf-hvr" class="mentoring-link-row" target="_blank">
+              <span class="mentoring-link-label">Saturday Study Hall — 1–2 PM EST</span>
+              <span class="mentoring-link-action">Join →</span>
+            </a>
+          </div>
+          <a href="/wicys" class="btn-ghost-gold" style="width:100%; text-align:center; display:block;">View Full Mentoring Page →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Chaunda C<span>.</span> Dallas LLC</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#documentary">Documentary</a></li>
+    <li><a href="#lab">DFR Lab</a></li>
+    <li><a href="#federal">Federal</a></li>
+    <li><a href="#mentoring">Mentoring</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="/book" class="footer-highlight">Book a Session</a></li>
+    <li><a href="/wicys" class="footer-highlight">WiCyS</a></li>
+  </ul>
+  <div class="footer-legal">© 2026 Chaunda C. Dallas LLC · SAM.gov Active · CAGE 18D81</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => { if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id'); });
+    navLinks.forEach(link => { link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--white)' : ''; });
+  });
+</script>
+
 </body>
 </html>
