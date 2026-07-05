@@ -3,26 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chaunda C. Dallas, MSIT — Healthcare Cybersecurity Strategist</title>
-<meta name="description" content="Healthcare cybersecurity strategy, clinical AI risk, IoMT security, and executive advisory support from Chaunda C. Dallas, MSIT">
+<title>Chaunda C. Dallas, MSIT | Healthcare Cybersecurity Strategist</title>
+<meta name="description" content="Healthcare Cybersecurity Strategist specializing in IoMT, Medical Device Security, and Clinical Risk. Featured Defender — Midnight in the War Room, Black Hat USA 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --black: #0a0a0a;
-    --deep: #111318;
-    --surface: #16191f;
-    --card: #1c2028;
-    --border: rgba(255,255,255,0.07);
-    --crimson: #C8102E;
-    --crimson-dim: rgba(200,16,46,0.15);
-    --crimson-glow: rgba(200,16,46,0.4);
-    --gold: #c9a84c;
-    --white: #f5f3ef;
-    --muted: #8a8d94;
-    --light: #d4d2ce;
+    --black: #F3ECDD;
+    --deep: #EAE0C8;
+    --surface: #FFFFFF;
+    --card: #FFFFFF;
+    --border: rgba(61,65,66,0.14);
+    --crimson: #1E5040;
+    --crimson-dim: rgba(30,80,64,0.12);
+    --crimson-glow: rgba(224,168,62,0.35);
+    --pulse: #8B1E24;
+    --gold: #E0A83E;
+    --white: #3D4142;
+    --muted: #6B6E70;
+    --light: #55585A;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,65 +57,52 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(10,10,10,0.85);
+    background: rgba(243,236,221,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-logo {
+  .ccd-nav-brand {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     color: var(--white);
     text-decoration: none;
+    white-space: nowrap;
   }
 
-  .nav-logo span { color: var(--crimson); }
+  .ccd-nav-dot { color: var(--crimson); }
 
-  .nav-links {
+  .ccd-nav-links {
     display: flex;
-    gap: 28px;
-    list-style: none;
+    gap: 22px;
+    flex-wrap: wrap;
     align-items: center;
   }
 
-  .nav-links a {
+  .ccd-nav-links a {
     font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
     text-decoration: none;
     transition: color 0.2s;
   }
 
-  .nav-links a:hover { color: var(--white); }
-
-  .nav-cta {
-    background: transparent !important;
-    color: var(--muted) !important;
-    border: 1px solid var(--border);
-    padding: 8px 18px;
-    border-radius: 2px;
-    transition: all 0.2s !important;
-  }
-
-  .nav-cta:hover {
-    border-color: rgba(255,255,255,0.2) !important;
-    color: var(--white) !important;
-  }
+  .ccd-nav-links a:hover { color: var(--white); }
 
   /* ── NEW: nav book session button ── */
   .nav-book {
-    background: var(--crimson) !important;
+    background: var(--gold) !important;
     color: var(--white) !important;
     padding: 8px 18px;
     border-radius: 2px;
     transition: background 0.2s !important;
   }
 
-  .nav-book:hover { background: #a50d25 !important; color: var(--white) !important; }
+  .nav-book:hover { background: #C48F2E !important; color: var(--white) !important; }
 
   /* HERO */
   #hero {
@@ -132,7 +120,7 @@
     top: 0; right: 42%;
     width: 1px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, var(--crimson) 30%, var(--crimson) 70%, transparent);
+    background: linear-gradient(180deg, transparent, var(--pulse) 30%, var(--pulse) 70%, transparent);
     opacity: 0.2;
   }
 
@@ -195,7 +183,7 @@
   }
 
   .btn-primary {
-    background: var(--crimson);
+    background: var(--gold);
     color: var(--white);
     padding: 14px 28px;
     font-family: 'DM Mono', monospace;
@@ -209,7 +197,7 @@
   }
 
   .btn-primary:hover {
-    background: #a50d25;
+    background: #C48F2E;
     transform: translateY(-1px);
     box-shadow: 0 8px 24px var(--crimson-glow);
   }
@@ -232,7 +220,7 @@
 
   /* ── NEW: ghost gold button for hero ── */
   .btn-ghost-gold {
-    border: 1px solid rgba(201,168,76,0.35);
+    border: 1px solid rgba(224,168,62,0.35);
     color: var(--gold);
     padding: 14px 28px;
     font-family: 'DM Mono', monospace;
@@ -246,7 +234,7 @@
   }
 
   .btn-ghost-gold:hover {
-    background: rgba(201,168,76,0.1);
+    background: rgba(224,168,62,0.1);
     border-color: var(--gold);
     color: var(--gold);
   }
@@ -280,7 +268,7 @@
     content: '';
     position: absolute;
     inset: -16px;
-    border: 1px solid rgba(200,16,46,0.15);
+    border: 1px solid rgba(30,80,64,0.15);
     border-radius: 4px;
   }
 
@@ -429,7 +417,7 @@
   #advantage { background: var(--black); }
 
   .advantage-hero {
-    background: linear-gradient(135deg, var(--crimson) 0%, #8B0000 100%);
+    background: linear-gradient(135deg, var(--crimson) 0%, #123024 100%);
     border-radius: 4px;
     padding: 56px 48px;
     margin-top: 48px;
@@ -491,10 +479,10 @@
     transition: transform 0.3s;
   }
 
-  .service-card:hover { border-color: rgba(200,16,46,0.3); transform: translateY(-4px); }
+  .service-card:hover { border-color: rgba(30,80,64,0.3); transform: translateY(-4px); }
   .service-card:hover::before { transform: scaleX(1); }
 
-  .service-num { font-family: 'Cormorant Garamond', serif; position: absolute; top: 20px; right: 24px; color: rgba(200,16,46,0.12); font-size: 4rem; font-weight: 700; line-height: 1; }
+  .service-num { font-family: 'Cormorant Garamond', serif; position: absolute; top: 20px; right: 24px; color: rgba(30,80,64,0.12); font-size: 4rem; font-weight: 700; line-height: 1; }
   .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
   .service-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.75; margin-bottom: 20px; }
   .service-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
@@ -516,7 +504,7 @@
   }
 
   .doc-left {
-    background: linear-gradient(135deg, #0d0d0d 0%, #1a0a0a 100%);
+    background: linear-gradient(135deg, #163A2F 0%, #0F241D 100%);
     padding: 56px 48px;
     position: relative;
     display: flex;
@@ -524,10 +512,10 @@
     justify-content: center;
   }
 
-  .doc-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--crimson); color: #fff; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; margin-bottom: 24px; width: fit-content; }
-  .doc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; font-style: italic; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
-  .doc-sub { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 24px; }
-  .doc-left p { font-size: 0.85rem; color: var(--light); line-height: 1.8; margin-bottom: 28px; }
+  .doc-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--white); font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; margin-bottom: 24px; width: fit-content; }
+  .doc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; font-style: italic; color: #F3ECDD; margin-bottom: 12px; line-height: 1.2; }
+  .doc-sub { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(243,236,221,0.6); letter-spacing: 0.1em; margin-bottom: 24px; }
+  .doc-left p { font-size: 0.85rem; color: rgba(243,236,221,0.8); line-height: 1.8; margin-bottom: 28px; }
 
   .doc-right { padding: 40px 40px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
   .doc-right h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; margin-top: 16px; }
@@ -624,7 +612,7 @@
   /* ── NEW: mentoring card in contact ── */
   .mentoring-block {
     background: var(--surface);
-    border: 1px solid rgba(201,168,76,0.2);
+    border: 1px solid rgba(224,168,62,0.2);
     border-radius: 4px;
     padding: 32px;
     position: relative;
@@ -646,7 +634,7 @@
   .mentoring-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
 
   .mentoring-link-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 2px; text-decoration: none; transition: border-color 0.2s; }
-  .mentoring-link-row:hover { border-color: rgba(201,168,76,0.4); }
+  .mentoring-link-row:hover { border-color: rgba(224,168,62,0.4); }
   .mentoring-link-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
   .mentoring-link-action { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--gold); }
 
@@ -659,7 +647,7 @@
   .mentoring-feature {
     margin-top: 48px;
     background: var(--surface);
-    border: 1px solid rgba(201,168,76,0.15);
+    border: 1px solid rgba(224,168,62,0.15);
     border-radius: 4px;
     padding: 48px;
     display: grid;
@@ -698,13 +686,13 @@
     transition: border-color 0.2s;
   }
 
-  .mentoring-session-row:hover { border-color: rgba(201,168,76,0.35); }
+  .mentoring-session-row:hover { border-color: rgba(224,168,62,0.35); }
 
   .session-row-left h5 { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 3px; }
   .session-row-left p { font-size: 0.75rem; color: var(--muted); }
   .session-row-badge { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 1px; white-space: nowrap; }
-  .badge-crimson { background: var(--crimson-dim); color: #e85070; border: 1px solid rgba(200,16,46,0.25); }
-  .badge-gold { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+  .badge-crimson { background: var(--crimson-dim); color: #2C6B54; border: 1px solid rgba(30,80,64,0.25); }
+  .badge-gold { background: rgba(224,168,62,0.1); color: var(--gold); border: 1px solid rgba(224,168,62,0.2); }
 
   /* FOOTER */
   footer {
@@ -713,26 +701,42 @@
     padding: 40px 48px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 24px;
   }
 
-  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--white); }
-  .footer-brand span { color: var(--crimson); }
+  .ccd-footer-col { display: flex; flex-direction: column; gap: 9px; min-width: 140px; }
 
-  .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
-  .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--white); }
-  .footer-links a.footer-highlight { color: var(--gold); }
-  .footer-links a.footer-highlight:hover { color: #e8c96a; }
+  .ccd-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--white); }
+  .ccd-footer-brand span { color: var(--crimson); }
 
-  .footer-legal { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; }
+  .ccd-footer-meta { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; }
+
+  .ccd-footer-heading { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+
+  .ccd-footer-col a { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.06em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .ccd-footer-col a:hover { color: var(--white); }
+
+  .ccd-footer-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
 
   /* MOBILE */
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
-    .nav-links { display: none; }
+    .ccd-nav-links { display: none; }
     #hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 40px; }
     .hero-bg-line { display: none; }
     .about-grid, .dfr-layout, .doc-feature, .federal-grid, .contact-layout, .lab-feature, .mentoring-feature { grid-template-columns: 1fr; }
@@ -741,7 +745,8 @@
     .section-inner, .doc-inner { padding: 60px 20px; }
     .doc-left, .doc-right { padding: 36px 24px; }
     footer { flex-direction: column; text-align: center; padding: 32px 20px; }
-    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .ccd-footer-col { align-items: center; }
+    .ccd-footer-bottom { flex-direction: column; align-items: center; }
     .divider { margin: 0 20px; }
     .photo-frame { width: 220px; height: 220px; }
     .contact-right { gap: 16px; }
@@ -756,28 +761,41 @@
 <body>
 
 <!-- NAV -->
-<nav class="ccd-nav">  <a class="ccd-nav-brand" href="https://chaundacdallas.com">Chaunda C. Dallas<span class="ccd-nav-dot">.</span></a>  <div class="ccd-nav-links">    <a href="https://chaundacdallas.com">Home</a>    <a href="https://chaundacdallas.com/#about">About</a>    <a href="https://chaundacdallas.com/expertise">Expertise</a>    <a href="https://chaundacdallas.com/services">Services</a>    <a href="https://chaundacdallas.com/dfr-framework">DFR Framework</a>    <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>    <a href="https://chaundacdallas.com/playbook">Playbook</a>    <a href="https://chaundacdallas.com/documentary">Documentary</a>    <a href="https://chaundacdallas.com/resources">Resources</a>    <a href="https://chaundacdallas.com/contact">Contact</a>    <a href="https://chaundacdallas.com/wicys">WiCyS</a>    <a href="https://chaundacdallas.com/book" class="nav-book">Book a Session</a>  </div></nav>
+<nav class="ccd-nav">
+  <a class="ccd-nav-brand" href="https://chaundacdallas.com">Chaunda C. Dallas<span class="ccd-nav-dot">.</span></a>
+  <div class="ccd-nav-links">
+    <a href="https://chaundacdallas.com">Home</a>
+    <a href="https://chaundacdallas.com/#about">About</a>
+    <a href="https://chaundacdallas.com/expertise">Expertise</a>
+    <a href="https://chaundacdallas.com/services">Services</a>
+    <a href="https://chaundacdallas.com/dfr-framework">DFR Framework</a>
+    <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>
+    <a href="https://chaundacdallas.com/playbook">Playbook</a>
+    <a href="https://chaundacdallas.com/documentary">Documentary</a>
+    <a href="https://chaundacdallas.com/resources">Resources</a>
+    <a href="https://chaundacdallas.com/contact">Contact</a>
+    <a href="https://chaundacdallas.com/book" class="nav-book">Book a Session</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg-line"></div>
 
   <div class="hero-left">
-    <!-- ===== UPDATED EXECUTIVE ALIGNMENT COPY ===== -->
-    <div class="hero-eyebrow">Healthcare Cybersecurity Strategist · Digital First Responder</div>
-    <h1 class="hero-name" style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px;">
-      I help healthcare teams<br>
-      <strong>defend what matters.</strong>
+    <div class="hero-eyebrow">Healthcare Professional & Cybersecurity Strategist</div>
+    <h1 class="hero-name">
+      Chaunda C.<br>
+      <strong>Dallas</strong>
     </h1>
-    <p class="hero-tagline" style="font-size: 15px; max-width: 540px; line-height: 1.8; opacity: 0.85;">
-      Strategy, clinical AI risk, IoMT security, and executive advisory support for clinicians, leaders, and organizations. If you need practical guidance built around patient safety and real-world operations, you are in the right place.
+    <div class="hero-credential">MSIT · Digital Health, IoMT & Clinical AI Risk · Digital First Responder</div>
+    <p class="hero-tagline">
+      I didn't leave healthcare.<br>I learned to defend it.
     </p>
-    <!-- ============================================ -->
-    
-    <div class="hero-actions" style="margin-top: 24px;">
+    <div class="hero-actions">
       <a href="/book" class="btn-primary">Book a Session →</a>
       <a href="#contact" class="btn-ghost-gold">Work With Me →</a>
-      <a href="https://lab.chaundacdallas.com/" class="btn-secondary" target="_blank" rel="noopener">Explore DFR Lab →</a>
+      <a href="https://lab.chaundacdallas.com/" class="btn-secondary" target="_blank">Explore DFR Lab →</a>
     </div>
   </div>
 
@@ -817,7 +835,7 @@
 </section>
 
 <div class="divider"></div>
-  
+
 <!-- ABOUT -->
 <section id="about">
   <div class="section-inner">
@@ -980,10 +998,10 @@
       <h4>Community Roles</h4>
       <span class="comm-tag">WiCyS Technical Mentor</span><span class="comm-tag">Lead DEF CON Badge Liaison</span><span class="comm-tag">WiSP Lead DEF CON Liaison</span><span class="comm-tag">Google Tech Equity Collective Coach</span><span class="comm-tag">People for Change Coalition Instructor</span><span class="comm-tag">Hacker Summer Camp Scholar</span><span class="comm-tag">The Diana Initiative</span><span class="comm-tag">BlackGirlsHack</span><span class="comm-tag">Semperis HIP Nashville 2026</span>
     </div>
-    <div class="community-strip fade-up" style="margin-top:16px; background: linear-gradient(135deg, rgba(200,16,46,0.06) 0%, rgba(200,16,46,0.02) 100%); border-color: rgba(200,16,46,0.2);">
-      <h4 style="color: var(--crimson);">7 Consecutive Years — Competitive Scholarships &amp; Comped Access · 2020 through 2026</h4>
-      <p style="font-size:0.82rem; color:var(--light); line-height:1.7; width:100%; margin-bottom:12px;">Selected annually by WiCyS, The Diana Initiative, BlackGirlsHack, WISP, AWS, Women in Cloud, and Dream.org. Each scholarship opened a door. Each room changed the trajectory. In 2026, the rooms started covering my seat — Black Hat and Semperis comp my access as a Featured Defender, and WISP brought me back to lead at DEF CON.</p>
-      <span class="comm-tag" style="border-color: rgba(201,168,76,0.45); color: var(--gold);">Black Hat USA 2026 · Featured Defender — comped</span><span class="comm-tag" style="border-color: rgba(201,168,76,0.45); color: var(--gold);">WISP · Lead DEF CON Volunteer 2026 — badge comped</span><span class="comm-tag" style="border-color: rgba(201,168,76,0.45); color: var(--gold);">Semperis HIP Nashville 2026 — comped</span><span class="comm-tag">WiCyS 2020 + 2021</span><span class="comm-tag">Diana Initiative 2023 + 2025</span><span class="comm-tag">BlackGirlsHack/SquadCon 2023 + 2024 + 2025</span><span class="comm-tag">Black Hat/WISP 2023 + 2025</span><span class="comm-tag">DEF CON/WISP 2023 + 2024 + 2025 + 2026</span><span class="comm-tag">Hacker Summer Camp 2023 + 2024 + 2025</span><span class="comm-tag">AWS re:Invent Builder Grant 2024</span><span class="comm-tag">Women in Cloud 2024</span><span class="comm-tag">Dream.org 2023</span><span class="comm-tag">CybSafe / Coding Black Females 2022</span><span class="comm-tag">Golden Key Honor Society 2021</span>
+    <div class="community-strip fade-up" style="margin-top:16px; background: linear-gradient(135deg, rgba(30,80,64,0.06) 0%, rgba(30,80,64,0.02) 100%); border-color: rgba(30,80,64,0.2);">
+      <h4 style="color: var(--crimson);">7 Consecutive Years — Competitive Scholarships &amp; Selected Access · 2020 through 2026</h4>
+      <p style="font-size:0.82rem; color:var(--light); line-height:1.7; width:100%; margin-bottom:12px;">Selected annually by WiCyS, The Diana Initiative, BlackGirlsHack, WISP, AWS, Women in Cloud, and Dream.org. Each scholarship opened a door. Each room changed the trajectory. In 2026, the rooms started making space for my seat — Black Hat and Semperis credentialed my access as a Featured Defender, and WISP brought me back to lead at DEF CON.</p>
+      <span class="comm-tag" style="border-color: rgba(224,168,62,0.45); color: var(--gold);">Black Hat USA 2026 · Featured Defender</span><span class="comm-tag" style="border-color: rgba(224,168,62,0.45); color: var(--gold);">WISP · Lead DEF CON Volunteer 2026</span><span class="comm-tag" style="border-color: rgba(224,168,62,0.45); color: var(--gold);">Semperis HIP Nashville 2026</span><span class="comm-tag">WiCyS 2020 + 2021</span><span class="comm-tag">Diana Initiative 2023 + 2025</span><span class="comm-tag">BlackGirlsHack/SquadCon 2023 + 2024 + 2025</span><span class="comm-tag">Black Hat/WISP 2023 + 2025</span><span class="comm-tag">DEF CON/WISP 2023 + 2024 + 2025 + 2026</span><span class="comm-tag">Hacker Summer Camp 2023 + 2024 + 2025</span><span class="comm-tag">AWS re:Invent Builder Grant 2024</span><span class="comm-tag">Women in Cloud 2024</span><span class="comm-tag">Dream.org 2023</span><span class="comm-tag">CybSafe / Coding Black Females 2022</span><span class="comm-tag">Golden Key Honor Society 2021</span>
     </div>
   </div>
 </section>
@@ -1124,8 +1142,40 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="ccd-footer">  <div class="ccd-footer-col">    <div class="ccd-footer-brand">Chaunda C<span>.</span> Dallas LLC</div>    <div class="ccd-footer-meta">Healthcare Cybersecurity Strategist · Digital First Responder</div>  </div>  <div class="ccd-footer-col">    <div class="ccd-footer-heading">Work With Me</div>    <a href="https://chaundacdallas.com/book">Book a Session</a>    <a href="https://chaundacdallas.com/contact">Contact</a>    <a href="https://chaundacdallas.com/services">Services</a>  </div>  <div class="ccd-footer-col">    <div class="ccd-footer-heading">Learn More</div>    <a href="https://chaundacdallas.com/#about">About</a>    <a href="https://chaundacdallas.com/expertise">Expertise</a>    <a href="https://chaundacdallas.com/dfr-framework">DFR Framework</a>  </div>  <div class="ccd-footer-col">    <div class="ccd-footer-heading">Resources</div>    <a href="https://chaundacdallas.com/resources">Resources</a>    <a href="https://chaundacdallas.com/playbook">Playbook</a>    <a href="https://chaundacdallas.com/documentary">Documentary</a>  </div>  <div class="ccd-footer-col">    <div class="ccd-footer-heading">Community & Tools</div>    <a href="https://chaundacdallas.com/wicys">WiCyS</a>    <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>  </div>  <div class="ccd-footer-bottom">    <span>© 2026 Chaunda C. Dallas LLC</span>    <span>Healthcare Cybersecurity Strategist · Digital First Responder</span>  </div></footer>
-  
+<footer class="ccd-footer">
+  <div class="ccd-footer-col">
+    <div class="ccd-footer-brand">Chaunda C<span>.</span> Dallas LLC</div>
+    <div class="ccd-footer-meta">Healthcare Cybersecurity Strategist · Digital First Responder</div>
+  </div>
+  <div class="ccd-footer-col">
+    <div class="ccd-footer-heading">Work With Me</div>
+    <a href="https://chaundacdallas.com/book">Book a Session</a>
+    <a href="https://chaundacdallas.com/contact">Contact</a>
+    <a href="https://chaundacdallas.com/services">Services</a>
+  </div>
+  <div class="ccd-footer-col">
+    <div class="ccd-footer-heading">Learn More</div>
+    <a href="https://chaundacdallas.com/#about">About</a>
+    <a href="https://chaundacdallas.com/expertise">Expertise</a>
+    <a href="https://chaundacdallas.com/dfr-framework">DFR Framework</a>
+  </div>
+  <div class="ccd-footer-col">
+    <div class="ccd-footer-heading">Resources</div>
+    <a href="https://chaundacdallas.com/resources">Resources</a>
+    <a href="https://chaundacdallas.com/playbook">Playbook</a>
+    <a href="https://chaundacdallas.com/documentary">Documentary</a>
+  </div>
+  <div class="ccd-footer-col">
+    <div class="ccd-footer-heading">Community &amp; Tools</div>
+    <a href="https://chaundacdallas.com/wicys">WiCyS</a>
+    <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>
+  </div>
+  <div class="ccd-footer-bottom">
+    <span>© 2026 Chaunda C. Dallas LLC</span>
+    <span>Resume removed · Service hub updated</span>
+  </div>
+</footer>
+
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
@@ -1134,7 +1184,7 @@
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinks = document.querySelectorAll('.ccd-nav-links a');
 
   window.addEventListener('scroll', () => {
     let current = '';
