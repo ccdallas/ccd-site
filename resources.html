@@ -4,24 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Resource Hub — Chaunda C. Dallas</title>
-<meta name="description" content="Free healthcare cybersecurity resources, cert roadmaps, clinical-to-cyber guides, and practical tools from Chaunda C. Dallas.">
+<meta name="description" content="Free healthcare cybersecurity resources — cert roadmaps, clinical-to-cyber positioning guides, IoMT risk self-checks, and interactive tools. Built by Chaunda C. Dallas, MSIT, Healthcare Cybersecurity Strategist.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --crimson: #C8102E;
-    --crimson-dim: rgba(200,16,46,0.12);
-    --crimson-glow: rgba(200,16,46,0.06);
-    --black: #0a0a0a;
-    --deep: #111318;
-    --surface: #181b22;
-    --surface-raised: #1e2128;
-    --white: #f5f3ef;
-    --white-dim: rgba(245,243,239,0.6);
-    --white-faint: rgba(245,243,239,0.15);
-    --gold: #c9a84c;
-    --gold-dim: rgba(201,168,76,0.15);
-    --border: rgba(245,243,239,0.08);
-    --border-accent: rgba(200,16,46,0.3);
+    --crimson: #1E5040;
+    --crimson-dim: rgba(30,80,64,0.12);
+    --crimson-glow: rgba(224,168,62,0.2);
+    --pulse: #8B1E24;
+    --black: #F3ECDD;
+    --deep: #EAE0C8;
+    --surface: #FFFFFF;
+    --surface-raised: #FFFFFF;
+    --white: #3D4142;
+    --white-dim: rgba(61,65,66,0.6);
+    --white-faint: rgba(61,65,66,0.15);
+    --gold: #E0A83E;
+    --gold-dim: rgba(224,168,62,0.15);
+    --border: rgba(61,65,66,0.14);
+    --border-accent: rgba(30,80,64,0.3);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,68 +40,29 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 70% 50% at 15% 12%, rgba(200,16,46,0.07) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 70% at 85% 88%, rgba(201,168,76,0.04) 0%, transparent 50%);
+      radial-gradient(ellipse 70% 50% at 15% 12%, rgba(30,80,64,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 70% at 85% 88%, rgba(224,168,62,0.04) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
   }
 
-  /* ===== UNIVERSAL NAV BAR ===== */
-  .ccd-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 18px 32px;
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .ccd-nav-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--white);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .ccd-nav-dot { color: var(--crimson); }
-  .ccd-nav-links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .ccd-nav-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--white-dim);
-    text-decoration: none;
-    transition: color .2s ease;
-  }
-  .ccd-nav-links a:hover { color: var(--white); }
-  .ccd-nav-links a.active { color: var(--crimson); font-weight: 500; }
-  .ccd-nav-links a.nav-book {
-    border: 1px solid var(--crimson);
-    padding: 6px 14px;
-    color: var(--white);
-    background: rgba(200, 16, 46, 0.1);
-    transition: all 0.2s ease;
-  }
-  .ccd-nav-links a.nav-book:hover {
-    background: var(--crimson);
-  }
+  /* ===== CCD UNIVERSAL NAV BAR ===== */
+  .ccd-nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:14px 28px;background:rgba(243,236,221,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,80,64,0.18);font-family:'DM Mono',ui-monospace,monospace;}
+  .ccd-nav-brand{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:600;letter-spacing:0.01em;color:#3D4142;text-decoration:none;white-space:nowrap;}
+  .ccd-nav-dot{color:#1E5040;}
+  .ccd-nav-links{display:flex;gap:24px;flex-wrap:wrap;}
+  .ccd-nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(61,65,66,0.6);text-decoration:none;padding:4px 0;position:relative;transition:color .2s ease;}
+  .ccd-nav-links a:hover{color:#3D4142;}
+  .ccd-nav-links a.active{color:#1E5040;}
+  .ccd-nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:#1E5040;}
+  .nav-book{background:#E0A83E;color:#3D4142!important;padding:8px 14px;border-radius:2px;transition:background .2s ease;}
+  .nav-book:hover{background:#C48F2E;color:#3D4142!important;}
+  @media (max-width:600px){.ccd-nav{padding:12px 18px;gap:10px;}.ccd-nav-brand{font-size:16px;}.ccd-nav-links{gap:16px;width:100%;}.ccd-nav-links a{font-size:10px;letter-spacing:0.12em;}}
 
   .ecg-bar {
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, var(--crimson), transparent 60%);
+    background: linear-gradient(to right, var(--pulse), transparent 60%);
     opacity: 0;
     animation: fadeIn 1s ease 0.1s forwards;
   }
@@ -108,7 +70,7 @@
   .container {
     position: relative;
     z-index: 1;
-    max-width: 1100px; /* Expanded slightly to account for elegant spacing */
+    max-width: 880px;
     margin: 0 auto;
     padding: 0 28px 100px;
   }
@@ -181,7 +143,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--crimson);
+    background: var(--gold);
     color: var(--white);
     font-family: 'DM Mono', monospace;
     font-size: 10.5px;
@@ -195,7 +157,7 @@
     cursor: pointer;
   }
 
-  .btn-primary:hover { background: #a50d26; }
+  .btn-primary:hover { background: #C48F2E; }
 
   .btn-secondary {
     display: inline-flex;
@@ -215,7 +177,7 @@
     cursor: pointer;
   }
 
-  .btn-secondary:hover { border-color: rgba(245,243,239,0.3); color: var(--white); }
+  .btn-secondary:hover { border-color: rgba(61,65,66,0.3); color: var(--white); }
 
   /* ===== PROFILE / CREDIBILITY STRIP ===== */
   .profile {
@@ -283,7 +245,7 @@
 
   .feat-card {
     border: 1px solid var(--border);
-    background: linear-gradient(150deg, rgba(200,16,46,0.05) 0%, var(--deep) 55%);
+    background: linear-gradient(150deg, rgba(30,80,64,0.05) 0%, var(--deep) 55%);
     padding: 28px 24px;
     display: flex;
     flex-direction: column;
@@ -381,7 +343,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.25);
+    border: 1px solid rgba(224,168,62,0.25);
     background: var(--gold-dim);
     padding: 4px 8px;
     border-radius: 1px;
@@ -400,9 +362,9 @@
   /* ===== CLOSING CTA ===== */
   .closing {
     margin-top: 64px;
-    border: 1px solid rgba(200,16,46,0.25);
+    border: 1px solid rgba(30,80,64,0.25);
     border-left: 2px solid var(--crimson);
-    background: linear-gradient(135deg, rgba(200,16,46,0.05) 0%, var(--deep) 60%);
+    background: linear-gradient(135deg, rgba(30,80,64,0.05) 0%, var(--deep) 60%);
     padding: 44px 40px;
     opacity: 0;
     animation: fadeUp 0.8s ease 0.7s forwards;
@@ -413,66 +375,30 @@
   .closing p { font-size: 14px; font-weight: 300; color: var(--white-dim); line-height: 1.8; max-width: 540px; margin-bottom: 28px; }
   .closing-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
-  /* ===== NEW GRID COLUMN FOOTER STYLES ===== */
+  /* ===== FOOTER ===== */
   .ccd-footer {
-    display: grid;
-    grid-template-columns: 2fr repeat(4, 1fr);
-    gap: 32px;
-    margin-top: 80px;
-    padding-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 60px;
+    padding-top: 36px;
     border-top: 1px solid var(--border);
     opacity: 0;
     animation: fadeUp 0.8s ease 0.8s forwards;
   }
-  .ccd-footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
+  .ccd-footer-col { display: flex; flex-direction: column; gap: 9px; min-width: 140px; }
+  .ccd-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
   .ccd-footer-brand span { color: var(--crimson); }
-  .ccd-footer-meta {
-    font-size: 12px;
-    line-height: 1.6;
-    color: var(--white-dim);
-    opacity: 0.7;
-  }
-  .ccd-footer-heading {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 16px;
-    opacity: 0.4;
-  }
-  .ccd-footer-col {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .ccd-footer-col a {
-    font-size: 13px;
-    color: var(--white-dim);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .ccd-footer-col a:hover {
-    color: var(--crimson);
-  }
+  .ccd-footer-meta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--white-dim); text-transform: uppercase; opacity: 0.5; }
+  .ccd-footer-heading { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+  .ccd-footer-col a { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--white-dim); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s ease; opacity: 0.7; }
+  .ccd-footer-col a:hover { color: var(--crimson); opacity: 1; }
   .ccd-footer-bottom {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid var(--border);
-    padding-top: 20px;
-    margin-top: 20px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--white-dim);
-    opacity: 0.5;
+    width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--border);
+    font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--white-dim); opacity: 0.55;
   }
 
   /* ===== ANIMATIONS ===== */
@@ -481,24 +407,17 @@
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; opacity: 1 !important; } }
 
   /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px) {
-    .ccd-footer { grid-template-columns: 1fr 1fr; gap: 24px; }
-    .ccd-footer-col:first-child { grid-column: 1 / -1; margin-bottom: 12px; }
-  }
   @media (max-width: 720px) {
     .featured-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
-    .ccd-nav { padding: 14px 20px; }
-    .ccd-nav-links { gap: 12px; }
     .container { padding: 0 18px 70px; }
     .header { padding: 44px 0 36px; }
     .profile { flex-direction: column; align-items: flex-start; }
     .closing { padding: 32px 24px; }
+    .ccd-footer { flex-direction: column; align-items: flex-start; }
     .res-row { flex-direction: column; align-items: flex-start; gap: 14px; }
     .res-get { align-self: flex-end; }
-    .ccd-footer { grid-template-columns: 1fr; }
-    .ccd-footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
   }
 </style>
 </head>
@@ -516,9 +435,8 @@
     <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>
     <a href="https://chaundacdallas.com/playbook">Playbook</a>
     <a href="https://chaundacdallas.com/documentary">Documentary</a>
-    <a href="https://chaundacdallas.com/resources" class="active">Resources</a>
+    <a class="active" href="https://chaundacdallas.com/resources">Resources</a>
     <a href="https://chaundacdallas.com/contact">Contact</a>
-    <a href="https://chaundacdallas.com/wicys">WiCyS</a>
     <a href="https://chaundacdallas.com/book" class="nav-book">Book a Session</a>
   </div>
 </nav>
@@ -528,12 +446,16 @@
 
 <div class="container">
 
- <!-- ===== RESOURCES HERO ===== -->
+  <!-- HEADER -->
   <div class="header">
-    <div class="header-eyebrow">Free Resource Hub · Index 001</div>
+    <div class="header-eyebrow">Free Resource Hub <span class="idx">· Index 001</span></div>
     <h1>Free tools for the people <em>defending healthcare.</em></h1>
-    <p class="header-intro">Cheat sheets, cert roadmaps, and self-checks to help you translate clinical experience into cyber language, understand your options, and move with confidence.</p>
-  </div>
+    <p class="header-intro">Cheat sheets, cert roadmaps, and self-checks to help you map your path, translate clinical experience into cyber language, and understand where connected medical devices actually fail. No fluff, no gatekeeping — every resource is built from real clinical and security work. Grab one, then book a session when you're ready to build your plan.</p>
+    <div class="header-byline">Built by Chaunda C. Dallas, MSIT · Healthcare Cybersecurity Strategist · Digital First Responder</div>
+    <div class="header-ctas">
+      <a href="#library" class="btn-primary">Browse all resources ↓</a>
+      <a href="https://chaundacdallas.com/book" class="btn-secondary">Book a Session ↗</a>
+    </div>
   </div>
 
   <!-- PROFILE / CREDIBILITY STRIP -->
@@ -803,13 +725,13 @@
       <a href="https://chaundacdallas.com/documentary">Documentary</a>
     </div>
     <div class="ccd-footer-col">
-      <div class="ccd-footer-heading">Community & Tools</div>
+      <div class="ccd-footer-heading">Community &amp; Tools</div>
       <a href="https://chaundacdallas.com/wicys">WiCyS</a>
       <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>
     </div>
     <div class="ccd-footer-bottom">
       <span>© 2026 Chaunda C. Dallas LLC</span>
-      <span>Healthcare Cybersecurity Strategist · Digital First Responder</span>
+      <span>Resume removed · Service hub updated</span>
     </div>
   </footer>
 
