@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book a Session — Chaunda C. Dallas</title>
+<title>Scope Your Engagement — Chaunda C. Dallas</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -14,7 +14,6 @@
     --black: #F3ECDD;
     --deep: #EAE0C8;
     --surface: #FFFFFF;
-    --surface-raised: #FFFFFF;
     --white: #3D4142;
     --white-dim: rgba(61,65,66,0.6);
     --white-faint: rgba(61,65,66,0.15);
@@ -45,27 +44,38 @@
     z-index: 0;
   }
 
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 28px 100px;
-  }
+  /* ── UNIVERSAL NAV ── */
+  .ccd-nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:14px 28px;background:rgba(243,236,221,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,80,64,0.18);font-family:'DM Mono',ui-monospace,monospace;}
+  .ccd-nav-brand{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:600;letter-spacing:0.01em;color:#3D4142;text-decoration:none;white-space:nowrap;}
+  .ccd-nav-dot{color:#1E5040;}
+  .ccd-nav-links{display:flex;gap:24px;flex-wrap:wrap;}
+  .ccd-nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(61,65,66,0.6);text-decoration:none;padding:4px 0;position:relative;transition:color .2s ease;}
+  .ccd-nav-links a:hover{color:#3D4142;}
+  .ccd-nav-links a.active{color:#1E5040;}
+  .ccd-nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:#1E5040;}
+  .nav-book{background:#E0A83E;color:#3D4142!important;padding:8px 14px;border-radius:2px;transition:background .2s ease;}
+  .nav-book:hover{background:#C48F2E;color:#3D4142!important;}
+  @media (max-width:600px){.ccd-nav{padding:12px 18px;gap:10px;}.ccd-nav-brand{font-size:16px;}.ccd-nav-links{gap:16px;width:100%;}.ccd-nav-links a{font-size:10px;letter-spacing:0.12em;}}
 
-  /* ── ECG LINE HEADER DECORATION ── */
   .ecg-bar {
     width: 100%;
     height: 2px;
     background: linear-gradient(to right, var(--pulse), transparent 60%);
-    margin-bottom: 0;
     opacity: 0;
     animation: fadeIn 1s ease 0.1s forwards;
   }
 
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px 100px;
+  }
+
   /* ── HEADER ── */
   .header {
-    padding: 60px 0 52px;
+    padding: 56px 0 40px;
     opacity: 0;
     animation: fadeUp 0.8s ease 0.2s forwards;
   }
@@ -93,33 +103,22 @@
 
   .header h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-size: clamp(2.2rem, 5.5vw, 3.2rem);
     font-weight: 300;
-    line-height: 1.1;
+    line-height: 1.12;
     color: var(--white);
-    margin-bottom: 10px;
     letter-spacing: -0.01em;
   }
 
-  .header h1 em {
-    font-style: italic;
-    font-weight: 600;
-    color: var(--white);
-  }
-
-  .header h1 .accent {
-    color: var(--crimson);
-    font-style: italic;
-  }
+  .header h1 .accent { color: var(--crimson); font-style: italic; }
 
   .header-sub {
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 300;
     color: var(--white-dim);
-    letter-spacing: 0.02em;
-    line-height: 1.7;
-    margin-top: 14px;
-    max-width: 480px;
+    line-height: 1.75;
+    margin-top: 16px;
+    max-width: 520px;
   }
 
   /* ── STATUS BANNER ── */
@@ -130,407 +129,285 @@
     border: 1px solid rgba(30,80,64,0.2);
     border-left: 2px solid var(--crimson);
     padding: 14px 20px;
-    margin-bottom: 52px;
+    margin-bottom: 48px;
     background: var(--crimson-glow);
     opacity: 0;
     animation: fadeUp 0.8s ease 0.35s forwards;
   }
 
   .pulse-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--pulse);
-    flex-shrink: 0;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--pulse); flex-shrink: 0;
     animation: pulse 2s ease-in-out infinite;
   }
 
   .status-text {
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--crimson);
-    letter-spacing: 0.06em;
+    font-size: 11px; color: var(--crimson); letter-spacing: 0.06em;
   }
+  .status-text span { color: var(--white-dim); }
 
-  .status-text span {
-    color: var(--white-dim);
+  /* ── FORM SHELL ── */
+  form { opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards; }
+
+  fieldset { border: none; margin-bottom: 12px; }
+
+  .section {
+    border: 1px solid var(--border);
+    background: var(--deep);
+    padding: 30px 34px;
+    margin-bottom: 2px;
   }
+  .section:first-of-type { border-radius: 2px 2px 0 0; }
 
-  /* ── BIO ── */
-  .bio {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 36px 0;
-    margin-bottom: 56px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.45s forwards;
-  }
-
-  .bio p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(17px, 2.5vw, 20px);
-    font-weight: 300;
-    line-height: 1.75;
-    color: var(--white-dim);
-    max-width: 640px;
-  }
-
-  .bio p strong {
-    color: var(--white);
-    font-weight: 600;
-  }
-
-  .bio-signature {
-    margin-top: 22px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 17px;
-    color: var(--gold);
-    letter-spacing: 0.01em;
-  }
-
-  /* ── SECTION LABEL ── */
-  .section-label {
+  .section-num {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--white-dim);
-    margin-bottom: 24px;
-    opacity: 0.5;
-  }
-
-  .section-label.zone {
-    opacity: 1;
     color: var(--crimson);
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-top: 8px;
+    gap: 12px;
+    margin-bottom: 6px;
   }
+  .section-num::after { content:''; flex:1; height:1px; background: var(--border); }
 
-  .section-label.zone::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .section-label.zone.free { color: var(--gold); }
-
-  /* ── SESSION CARDS ── */
-  .sessions { margin-bottom: 40px; }
-
-  .session-card {
-    border: 1px solid var(--border);
-    padding: 32px 36px;
-    margin-bottom: 2px;
-    background: var(--deep);
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.25s ease;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.5s forwards;
-  }
-
-  .session-card:hover { border-color: var(--border-accent); }
-
-  .session-card.featured {
-    border-color: rgba(30,80,64,0.25);
-    background: linear-gradient(135deg, rgba(30,80,64,0.04) 0%, var(--deep) 60%);
-  }
-
-  .session-card.featured::before {
-    content: 'PRE-BLACK HAT';
-    position: absolute;
-    top: 20px; right: 24px;
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    color: var(--crimson);
-    opacity: 0.6;
-  }
-
-  .session-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 14px;
-    flex-wrap: wrap;
-  }
-
-  .session-title {
+  .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 600;
     color: var(--white);
-    letter-spacing: -0.01em;
-    max-width: 60%;
+    margin-bottom: 4px;
+  }
+  .section-hint {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: var(--white-dim);
+    line-height: 1.6;
+    margin-bottom: 24px;
   }
 
-  .session-badges {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-  }
+  /* ── FIELDS ── */
+  .field { margin-bottom: 20px; }
+  .field:last-child { margin-bottom: 0; }
 
-  .badge {
+  .field label.q {
+    display: block;
     font-family: 'DM Mono', monospace;
-    font-size: 9.5px;
-    letter-spacing: 0.1em;
-    padding: 4px 10px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 9px;
+  }
+  .field label.q .req { color: var(--pulse); margin-left: 4px; }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 1px;
+    padding: 12px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--white);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--crimson);
+    box-shadow: 0 0 0 3px rgba(30,80,64,0.10);
+  }
+  textarea { resize: vertical; min-height: 96px; line-height: 1.6; }
+  input::placeholder, textarea::placeholder { color: rgba(61,65,66,0.4); }
+
+  select {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1px;
+    padding: 12px 40px 12px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--white);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%233D4142' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  select:focus {
+    outline: none;
+    border-color: var(--crimson);
+    box-shadow: 0 0 0 3px rgba(30,80,64,0.10);
+  }
+  select:invalid { color: rgba(61,65,66,0.4); }
+
+  /* ── CHOICE GROUPS ── */
+  .choices { display: flex; flex-direction: column; gap: 8px; }
+
+  .choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 1px;
+    padding: 13px 16px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .choice:hover { border-color: var(--border-accent); }
+  .choice input { margin-top: 2px; accent-color: var(--crimson); flex-shrink: 0; width: 15px; height: 15px; cursor: pointer; }
+  .choice input:checked ~ .choice-body .choice-label { color: var(--crimson); }
+  .choice:has(input:checked) { border-color: var(--border-accent); background: rgba(30,80,64,0.04); }
+  .choice-label { font-size: 13.5px; font-weight: 500; color: var(--white); line-height: 1.4; }
+  .choice-sub { font-size: 12px; font-weight: 300; color: var(--white-dim); margin-top: 2px; line-height: 1.5; }
+
+  /* ── CONDITIONAL BLOCKS ── */
+  .conditional { display: none; }
+  .conditional.show { display: block; animation: fadeUp 0.4s ease forwards; }
+
+  .cond-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(224,168,62,0.3);
+    background: var(--gold-dim);
+    padding: 4px 10px;
+    border-radius: 1px;
+    margin-bottom: 18px;
   }
 
-  .badge-duration {
-    background: var(--crimson-dim);
-    color: #2C6B54;
-    border: 1px solid var(--border-accent);
+  /* ── SUBMIT ── */
+  .submit-row {
+    border: 1px solid var(--border);
+    border-top: none;
+    background: var(--deep);
+    border-radius: 0 0 2px 2px;
+    padding: 26px 34px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
   }
-
-  .badge-price {
+  .submit-note {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--white-dim);
+    line-height: 1.6;
+    max-width: 340px;
+  }
+  .btn-submit {
     background: var(--gold);
     color: var(--white);
-    border: 1px solid var(--gold);
-    font-weight: 500;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: background 0.2s ease;
   }
+  .btn-submit:hover { background: #C48F2E; }
+  .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; }
 
-  .badge-day {
-    background: var(--white-faint);
-    color: var(--white-dim);
-    border: 1px solid var(--border);
+  /* honeypot */
+  .hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+
+  /* error line */
+  .form-error {
+    display: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--pulse);
+    margin-top: 14px;
+    letter-spacing: 0.02em;
   }
+  .form-error.show { display: block; }
 
-  .badge-open {
-    background: var(--gold-dim);
-    color: var(--gold);
-    border: 1px solid rgba(224,168,62,0.25);
+  /* ── CONFIRMATION ── */
+  .confirm {
+    display: none;
+    border: 1px solid var(--border-accent);
+    border-left: 2px solid var(--crimson);
+    background: var(--deep);
+    border-radius: 2px;
+    padding: 44px 40px;
+    text-align: left;
+    opacity: 0;
   }
-
-  .session-desc {
+  .confirm.show { display: block; animation: fadeUp 0.6s ease forwards; }
+  .confirm h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .confirm p {
     font-size: 14px;
     font-weight: 300;
     line-height: 1.8;
     color: var(--white-dim);
-    margin-bottom: 18px;
-    max-width: 560px;
+    margin-bottom: 12px;
+    max-width: 480px;
   }
-
-  .session-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-bottom: 22px;
-  }
-
-  .tag {
-    font-size: 12px;
-    font-weight: 300;
-    font-style: italic;
+  .confirm p a { color: var(--crimson); text-decoration: underline; }
+  .confirm-sig {
+    margin-top: 20px;
     font-family: 'Cormorant Garamond', serif;
-    color: var(--white-dim);
-    padding: 3px 10px;
-    border: 1px solid var(--border);
-    border-radius: 1px;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold);
   }
-
-  .cta-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--gold);
-    color: var(--white);
-    font-family: 'DM Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 1px;
-    transition: background 0.2s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-primary:hover { background: #C48F2E; }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    color: var(--white-dim);
-    font-family: 'DM Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 11px 24px;
-    text-decoration: none;
-    border-radius: 1px;
-    border: 1px solid var(--border);
-    transition: all 0.2s ease;
-    cursor: pointer;
-  }
-
-  .btn-secondary:hover {
-    border-color: rgba(61,65,66,0.3);
-    color: var(--white);
-  }
-
-  /* ── PREP NOTE ── */
-  .prep {
-    border: 1px solid var(--border);
-    padding: 30px 32px;
-    margin-bottom: 56px;
-    background: var(--deep);
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.95s forwards;
-  }
-
-  .prep-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--white-dim);
-    opacity: 0.5;
-    margin-bottom: 18px;
-  }
-
-  .prep ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .prep li {
-    font-size: 13.5px;
-    font-weight: 300;
-    color: var(--white-dim);
-    line-height: 1.7;
-    display: flex;
-    gap: 14px;
-  }
-
-  .prep li::before {
-    content: '—';
-    color: var(--crimson);
-    font-family: 'DM Mono', monospace;
-    flex-shrink: 0;
-  }
-
-  .prep li strong { color: var(--white); font-weight: 500; }
 
   /* ── FOOTER ── */
   .ccd-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding-top: 36px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 24px; padding-top: 40px; margin-top: 48px;
     border-top: 1px solid var(--border);
-    opacity: 0;
-    animation: fadeUp 0.8s ease 1.05s forwards;
+    opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
   }
-
   .ccd-footer-col { display: flex; flex-direction: column; gap: 9px; min-width: 140px; }
-
-  .ccd-footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 2px;
-  }
+  .ccd-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
   .ccd-footer-brand span { color: var(--crimson); }
-
-  .ccd-footer-meta {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--white-dim);
-    text-transform: uppercase;
-    opacity: 0.5;
-  }
-
-  .ccd-footer-heading {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 2px;
-  }
-
-  .ccd-footer-col a {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--white-dim);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: color 0.2s ease;
-    opacity: 0.7;
-  }
-
+  .ccd-footer-meta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--white-dim); text-transform: uppercase; opacity: 0.5; }
+  .ccd-footer-heading { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+  .ccd-footer-col a { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--white-dim); text-decoration: none; letter-spacing: 0.04em; opacity: 0.7; transition: color 0.2s ease; }
   .ccd-footer-col a:hover { color: var(--crimson); opacity: 1; }
-
   .ccd-footer-bottom {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 8px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.06em;
-    color: var(--white-dim);
-    opacity: 0.55;
+    width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--border);
+    font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--white-dim); opacity: 0.55;
   }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; opacity: 1 !important; } }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.4; transform: scale(0.8); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; opacity: 1 !important; }
-  }
-
-  /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     .container { padding: 0 18px 70px; }
-    .header { padding: 44px 0 40px; }
-    .session-card { padding: 24px 20px; }
-    .session-title { max-width: 100%; }
-    .prep { padding: 22px 20px; }
+    .header { padding: 40px 0 32px; }
+    .section { padding: 24px 20px; }
+    .submit-row { padding: 22px 20px; flex-direction: column; align-items: stretch; }
+    .btn-submit { width: 100%; }
+    .confirm { padding: 32px 22px; }
     .ccd-footer { flex-direction: column; align-items: flex-start; }
-    .session-top { flex-direction: column; }
   }
 </style>
 </head>
@@ -553,19 +430,6 @@
     <a href="https://chaundacdallas.com/book" class="nav-book">Book a Session</a>
   </div>
 </nav>
-<style>
-  .ccd-nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:14px 28px;background:rgba(243,236,221,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,80,64,0.18);font-family:'DM Mono',ui-monospace,monospace;}
-  .ccd-nav-brand{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:600;letter-spacing:0.01em;color:#3D4142;text-decoration:none;white-space:nowrap;}
-  .ccd-nav-dot{color:#1E5040;}
-  .ccd-nav-links{display:flex;gap:24px;flex-wrap:wrap;}
-  .ccd-nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(61,65,66,0.6);text-decoration:none;padding:4px 0;position:relative;transition:color .2s ease;}
-  .ccd-nav-links a:hover{color:#3D4142;}
-  .ccd-nav-links a.active{color:#1E5040;}
-  .ccd-nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:#1E5040;}
-  .nav-book{background:#E0A83E;color:#3D4142!important;padding:8px 14px;border-radius:2px;transition:background .2s ease;}
-  .nav-book:hover{background:#C48F2E;color:#3D4142!important;}
-  @media (max-width:600px){.ccd-nav{padding:12px 18px;gap:10px;}.ccd-nav-brand{font-size:16px;}.ccd-nav-links{gap:16px;width:100%;}.ccd-nav-links a{font-size:10px;letter-spacing:0.12em;}}
-</style>
 <!-- ===== END CCD NAV BAR ===== -->
 
 <div class="ecg-bar"></div>
@@ -574,155 +438,207 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-eyebrow">connect@chaundacdallas.com</div>
-    <h1>Book a <em>Session</em><br>with <span class="accent">Chaunda.</span></h1>
-    <p class="header-sub">Healthcare Cybersecurity Strategist · Digital First Responder<br>Featured Defender — <em>Midnight in the War Room</em>, Black Hat USA 2026</p>
+    <div class="header-eyebrow">Engagement Intake</div>
+    <h1>Let's scope <span class="accent">it.</span></h1>
+    <p class="header-sub">A few direct questions so I walk into our first call already knowing your environment, your urgency, and what "done" looks like for you. No fluff — just what I need to give you a real answer.</p>
   </div>
 
   <!-- STATUS BANNER -->
   <div class="status-banner">
     <div class="pulse-dot"></div>
     <div class="status-text">
-      BOOKING OPEN &nbsp;·&nbsp; <span>Limited 1:1 slots before Black Hat, Aug 5 — HIPAA assessments available for immediate start</span>
+      TAKING ENGAGEMENTS &nbsp;·&nbsp; <span>HIPAA assessments available for immediate start · 5-day delivery</span>
     </div>
   </div>
 
-  <!-- BIO -->
-  <div class="bio">
-    <p>I spent <strong>28 years in clinical emergency medicine</strong> — and I never left it. I learned to defend it. My approach mirrors how I worked in the ER: <strong>assess, stabilize, treat, recover.</strong> We figure out where you are, address what's urgent, and build a plan that fits your real life.</p>
-    <p style="margin-top:14px;">I also offer <strong>HIPAA Security Risk Assessments</strong> for small healthcare practices — 5-day delivery, $2,500 flat fee.</p>
-    <div class="bio-signature">"I didn't leave healthcare. I learned to defend it."</div>
-  </div>
+  <!-- ============ FORM ============ -->
+  <form id="intakeForm" novalidate>
 
-  <!-- ════════ PAID SESSIONS ════════ -->
-  <div class="section-label zone">Work With Me — 1:1</div>
+    <!-- honeypot -->
+    <div class="hp" aria-hidden="true">
+      <label>Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+    </div>
 
-  <div class="sessions">
+    <!-- SECTION 1 -->
+    <fieldset class="section">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Contact &amp; Organization</div>
+      <div class="section-hint">Who I'll be working with, and the scale of what we're protecting.</div>
 
-    <!-- STRATEGY SESSION (FEATURED / PAID) -->
-    <div class="session-card featured">
-      <div class="session-top">
-        <div class="session-title">ER-to-Cyber: 1:1 Strategy Session</div>
-        <div class="session-badges">
-          <span class="badge badge-duration">30 min</span>
-          <span class="badge badge-price">$60</span>
+      <div class="field">
+        <label class="q" for="fullName">Full Name <span class="req">*</span></label>
+        <input type="text" id="fullName" name="fullName" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label class="q" for="title">Professional Title <span class="req">*</span></label>
+        <input type="text" id="title" name="title" required autocomplete="organization-title" placeholder="e.g. Practice Administrator, CISO, Founder">
+      </div>
+      <div class="field">
+        <label class="q" for="email">Work Email <span class="req">*</span></label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label class="q" for="org">Organization / Practice Name <span class="req">*</span></label>
+        <input type="text" id="org" name="org" required autocomplete="organization">
+      </div>
+      <div class="field">
+        <label class="q" for="website">Website</label>
+        <input type="url" id="website" name="website" placeholder="https://">
+      </div>
+      <div class="field">
+        <label class="q">Organization Size <span class="req">*</span></label>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="size" value="Small Practice / Startup (1–15)" required>
+            <span class="choice-body"><span class="choice-label">Small Practice / Startup</span><span class="choice-sub">1–15 employees</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="size" value="Mid-Sized Group / Facility (16–99)">
+            <span class="choice-body"><span class="choice-label">Mid-Sized Group / Facility</span><span class="choice-sub">16–99 employees</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="size" value="Enterprise Health System / Manufacturer (100+)">
+            <span class="choice-body"><span class="choice-label">Enterprise Health System / Manufacturer</span><span class="choice-sub">100+ employees</span></span>
+          </label>
         </div>
       </div>
-      <p class="session-desc">Resume, LinkedIn positioning, cert roadmap, healthcare cyber career path, or job-search strategy — for clinicians and healthcare professionals moving into cybersecurity. Payment collected at booking. Bring your resume or LinkedIn URL and a specific goal; we leave with a clear next step.</p>
-      <div class="session-tags">
-        <span class="tag">Clinical-to-cyber translation</span>
-        <span class="tag">Resume &amp; LinkedIn positioning</span>
-        <span class="tag">Cert roadmap</span>
-        <span class="tag">Healthcare cyber path</span>
-        <span class="tag">Job search strategy</span>
+    </fieldset>
+
+    <!-- SECTION 2 -->
+    <fieldset class="section">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">What You're Scoping</div>
+      <div class="section-hint">Pick one — the next section adapts to your choice.</div>
+
+      <div class="field">
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="service" value="Emergency HIPAA Security Risk Assessment" required data-branch="hipaa">
+            <span class="choice-body"><span class="choice-label">Emergency HIPAA Security Risk Assessment</span><span class="choice-sub">5-day turnaround · $2,500 flat fee</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="service" value="Professional Consultation / Advisory" data-branch="consult">
+            <span class="choice-body"><span class="choice-label">Professional Consultation / Advisory</span><span class="choice-sub">IoMT · Healthcare GRC · Clinical AI risk · Fractional retainer</span></span>
+          </label>
+        </div>
       </div>
-      <div class="cta-row">
-        <a href="https://calendar.app.google/8zjP5oartL5pDTU38" class="btn-primary" target="_blank" rel="noopener">Book &amp; Pay — $60 ↗</a>
+    </fieldset>
+
+    <!-- SECTION 3A — HIPAA (conditional) -->
+    <fieldset class="section conditional" id="partA">
+      <div class="section-num">Section 03 · A</div>
+      <div class="section-title">HIPAA Assessment Scope</div>
+      <span class="cond-tag">Shown because you chose the HIPAA assessment</span>
+
+      <div class="field">
+        <label class="q" for="providers">Clinical providers + administrative staff (estimate) <span class="req">*</span></label>
+        <input type="text" id="providers" name="providers" data-cond="hipaa" placeholder="e.g. 6 providers, 12 staff">
+      </div>
+      <div class="field">
+        <label class="q" for="endpoints">Network endpoints / connected medical devices (estimate)</label>
+        <input type="text" id="endpoints" name="endpoints" placeholder="Rough count is fine — workstations, tablets, infusion pumps, monitors, etc.">
+      </div>
+      <div class="field">
+        <label class="q">Is a deadline or audit driving this? <span class="req">*</span></label>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="deadline" value="Hard deadline — under 30 days" data-cond="hipaa">
+            <span class="choice-body"><span class="choice-label">Yes — hard deadline</span><span class="choice-sub">Under 30 days</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="deadline" value="Standard window — 30–90 days" data-cond="hipaa">
+            <span class="choice-body"><span class="choice-label">Yes — standard window</span><span class="choice-sub">30–90 days</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="deadline" value="No deadline — proactive risk management" data-cond="hipaa">
+            <span class="choice-body"><span class="choice-label">No active deadline</span><span class="choice-sub">Proactive risk management</span></span>
+          </label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- SECTION 3B — CONSULTATION (conditional) -->
+    <fieldset class="section conditional" id="partB">
+      <div class="section-num">Section 03 · B</div>
+      <div class="section-title">Consultation Focus</div>
+      <span class="cond-tag">Shown because you chose advisory / consultation</span>
+
+      <div class="field">
+        <label class="q">Primary challenge right now <span class="req">*</span> <span style="text-transform:none;letter-spacing:0;color:var(--white-dim);font-weight:400;">— select all that apply</span></label>
+        <div class="choices">
+          <label class="choice"><input type="checkbox" name="challenges" value="IoMT / Medical Device Vulnerability Management" data-cond="consult"><span class="choice-body"><span class="choice-label">IoMT / Medical Device Vulnerability Management</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Clinical AI Risk & Governance Architecture"><span class="choice-body"><span class="choice-label">Clinical AI Risk &amp; Governance Architecture</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Workforce Security Awareness / Simulation Training"><span class="choice-body"><span class="choice-label">Workforce Security Awareness / Simulation Training</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Healthcare GRC Strategy & Framework Implementation"><span class="choice-body"><span class="choice-label">Healthcare GRC Strategy &amp; Framework Implementation</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Strategic Advisory / Fractional Retainer Support"><span class="choice-body"><span class="choice-label">Strategic Advisory / Fractional Retainer Support</span></span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="q" for="environment">Current environment or project goals <span class="req">*</span></label>
+        <textarea id="environment" name="environment" data-cond="consult" placeholder="What's the situation, and what does a good outcome look like?"></textarea>
+      </div>
+    </fieldset>
+
+    <!-- SECTION 4 -->
+    <fieldset class="section conditional" id="partFinal">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">Timeline &amp; Anything Else</div>
+      <div class="section-hint">So I know how fast we're moving and what I shouldn't walk in blind on.</div>
+
+      <div class="field">
+        <label class="q">Target timeline to kick off <span class="req">*</span></label>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="timeline" value="Immediately — within 2 weeks" data-cond="final">
+            <span class="choice-body"><span class="choice-label">Immediately</span><span class="choice-sub">Within the next 2 weeks</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="timeline" value="Within 30 days" data-cond="final">
+            <span class="choice-body"><span class="choice-label">Within the next 30 days</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="timeline" value="Preliminary scoping (Q3/Q4)" data-cond="final">
+            <span class="choice-body"><span class="choice-label">Just gathering info</span><span class="choice-sub">Preliminary scoping for later this year</span></span>
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="q" for="referralSource">How did you hear about me?</label>
+        <select id="referralSource" name="referralSource">
+          <option value="" disabled selected>Select one…</option>
+          <option value="LinkedIn">LinkedIn</option>
+          <option value="Referral">Referral</option>
+          <option value="Conference / Speaking Event">Conference / Speaking Event</option>
+          <option value="Podcast">Podcast</option>
+          <option value="Google Search">Google Search</option>
+          <option value="Documentary">Documentary</option>
+          <option value="Returning Visitor">Returning Visitor</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="q" for="notes">Anything crucial about your clinical or operational environment?</label>
+        <textarea id="notes" name="notes" placeholder="Optional — anything I should know before we connect."></textarea>
+      </div>
+    </fieldset>
+
+    <!-- SUBMIT -->
+    <div class="submit-row" id="submitRow">
+      <div class="submit-note">Your details go straight to me. I reply personally, usually within one business day.</div>
+      <div style="text-align:right;">
+        <button type="submit" class="btn-submit" id="submitBtn">Send &amp; Scope It</button>
+        <div class="form-error" id="formError">Please complete the required fields above.</div>
       </div>
     </div>
 
-    <!-- DEEP DIVE SESSION (60 MIN) -->
-    <div class="session-card">
-      <div class="session-top">
-        <div class="session-title">Deep Dive: 1:1 Strategy Session</div>
-        <div class="session-badges">
-          <span class="badge badge-duration">60 min</span>
-          <span class="badge badge-price">$120</span>
-        </div>
-      </div>
-      <p class="session-desc">Extended session for a full career roadmap, resume overhaul, cert strategy, or job-search planning — for clinicians and healthcare professionals who need more time to dig deep. Payment collected at booking.</p>
-      <div class="session-tags">
-        <span class="tag">Resume overhaul</span>
-        <span class="tag">Career roadmap</span>
-        <span class="tag">Cert strategy</span>
-        <span class="tag">Job search planning</span>
-        <span class="tag">LinkedIn optimization</span>
-      </div>
-      <div class="cta-row">
-        <a href="https://calendar.app.google/id5gP6HPxrwBRvtw8" class="btn-primary" target="_blank" rel="noopener">Book &amp; Pay — $120 ↗</a>
-      </div>
-    </div>
+  </form>
 
-    <!-- PROFESSIONAL CONSULTATION (ORG TIER → INTAKE FORM) -->
-    <div class="session-card">
-      <div class="session-top">
-        <div class="session-title">Professional Consultation</div>
-        <div class="session-badges">
-          <span class="badge badge-day">By Request</span>
-        </div>
-      </div>
-      <p class="session-desc">For organizations and teams navigating healthcare cybersecurity risk — IoMT security, clinical AI governance, HIPAA posture, or strategic advisory. Scoped to your need: advisory call, assessment, or retainer. Tell me what your team is up against and we'll find the right format.</p>
-      <div class="session-tags">
-        <span class="tag">IoMT / Medical Devices</span>
-        <span class="tag">Healthcare GRC</span>
-        <span class="tag">Clinical AI Risk</span>
-        <span class="tag">HIPAA posture</span>
-        <span class="tag">Security strategy</span>
-      </div>
-      <div class="cta-row">
-        <a href="https://chaundacdallas.com/intake?service=consult" class="btn-primary">Scope Your Engagement ↗</a>
-      </div>
-    </div>
-
-    <!-- HIPAA ASSESSMENT CARD (ORG TIER → INTAKE FORM) -->
-    <div class="session-card" style="border-color: rgba(224,168,62,0.4);">
-      <div class="session-top">
-        <div class="session-title">Emergency HIPAA Security Risk Assessment</div>
-        <div class="session-badges">
-          <span class="badge badge-open">5-Day Delivery</span>
-          <span class="badge badge-price" style="background: var(--crimson); border-color: var(--crimson); color: var(--black);">$2,500</span>
-        </div>
-      </div>
-      <p class="session-desc">For small-to-mid-size healthcare practices, dental groups, and health-tech startups that need a HIPAA Security Risk Assessment — fast. I assess your gaps, deliver a report, and give you a remediation roadmap. No fluff. No jargon. Just what you need to fix.</p>
-      <div class="session-tags">
-        <span class="tag">Gap analysis</span>
-        <span class="tag">Risk analysis (HHS methodology)</span>
-        <span class="tag">Remediation roadmap</span>
-        <span class="tag">90-minute walkthrough</span>
-      </div>
-      <div class="cta-row">
-        <a href="https://chaundacdallas.com/intake?service=hipaa" class="btn-primary" style="background: var(--gold); border-color: var(--gold); color: var(--black);">Start Your Assessment ↗</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ════════ FREE & COMMUNITY → /wicys ════════ -->
-  <div class="section-label zone free">Free &amp; Community</div>
-
-  <div class="sessions">
-
-    <div class="session-card">
-      <div class="session-top">
-        <div class="session-title">WiCyS Mentees &amp; Free Community Study</div>
-        <div class="session-badges">
-          <span class="badge badge-open">Cohort 3 · Free</span>
-        </div>
-      </div>
-      <p class="session-desc">Assigned WiCyS mentees and free drop-in community study live on a dedicated page — booking, the standing Meet room, and your start-here roadmap are all there. The Saturday Study Hall is open to anyone who wants to show up, WiCyS mentee or not.</p>
-      <div class="session-tags">
-        <span class="tag">WiCyS mentees</span>
-        <span class="tag">Saturday Study Hall</span>
-        <span class="tag">TryHackMe · Security+</span>
-        <span class="tag">Accountability</span>
-      </div>
-      <div class="cta-row">
-        <a href="https://chaundacdallas.com/wicys" class="btn-primary" target="_blank" rel="noopener">Go to the WiCyS Page ↗</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- PREP NOTE -->
-  <div class="prep">
-    <div class="prep-label">How to make the most of our time</div>
-    <ul>
-      <li>For the <strong>strategy or Deep Dive session</strong>: bring your current resume or LinkedIn. We work from what's real.</li>
-      <li>Need a <strong>HIPAA assessment or advisory engagement</strong>? Use the intake form to scope it — takes about two minutes, and it lands with me right away.</li>
-      <li><strong>WiCyS mentees &amp; free study:</strong> head to <strong>chaundacdallas.com/wicys</strong> for the Saturday Study Hall and your roadmap.</li>
-      <li>Paid sessions are booked and paid through the calendar link; you'll get a confirmation email with the Google Meet details automatically.</li>
-      <li>Can't find a time? Email <strong>connect@chaundacdallas.com</strong> and we'll sort it out.</li>
-    </ul>
+  <!-- CONFIRMATION -->
+  <div class="confirm" id="confirm">
+    <h2>Got it — I'm on it.</h2>
+    <p>Thanks for the detail. It goes a long way toward making our first conversation useful instead of a scoping call disguised as a discovery call.</p>
+    <p>I'll review what you sent and reply personally, usually within one business day. If you don't hear from me, email me directly at <a href="mailto:connect@chaundacdallas.com">connect@chaundacdallas.com</a> and reference your organization name.</p>
+    <div class="confirm-sig">"I didn't leave healthcare. I learned to defend it."</div>
   </div>
 
   <!-- FOOTER -->
@@ -749,11 +665,6 @@
       <a href="https://chaundacdallas.com/playbook">Playbook</a>
       <a href="https://chaundacdallas.com/documentary">Documentary</a>
     </div>
-    <div class="ccd-footer-col">
-      <div class="ccd-footer-heading">Community &amp; Tools</div>
-      <a href="https://chaundacdallas.com/wicys">WiCyS</a>
-      <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>
-    </div>
     <div class="ccd-footer-bottom">
       <span>© 2026 Chaunda C. Dallas LLC</span>
       <span>connect@chaundacdallas.com</span>
@@ -761,5 +672,153 @@
   </footer>
 
 </div>
+
+<script>
+  /* ============================================================
+     WHERE SUBMISSIONS GO — set this ONE value.
+     Paste your Google Apps Script Web App URL below.
+     (Deploy the companion Apps Script as a Web App, "Anyone" access,
+      then paste the /exec URL here.)
+     Until it's set, the form falls back to opening an email to you.
+  ============================================================ */
+  const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxnjO2_L_pbylxwf950LCVtf2KnJzWpjaYqbYed_xL5kCLGT_7Akd_SPTUlIAPFSBM6wQ/exec";
+
+  const form = document.getElementById('intakeForm');
+  const partA = document.getElementById('partA');
+  const partB = document.getElementById('partB');
+  const partFinal = document.getElementById('partFinal');
+  const confirmBox = document.getElementById('confirm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formError = document.getElementById('formError');
+
+  // --- conditional branching ---
+  function updateBranch() {
+    const choice = form.querySelector('input[name="service"]:checked');
+    const branch = choice ? choice.dataset.branch : null;
+    partA.classList.toggle('show', branch === 'hipaa');
+    partB.classList.toggle('show', branch === 'consult');
+    partFinal.classList.toggle('show', !!branch);
+  }
+  form.querySelectorAll('input[name="service"]').forEach(r => r.addEventListener('change', updateBranch));
+
+  // --- validation that respects hidden branches ---
+  function activeBranch() {
+    const choice = form.querySelector('input[name="service"]:checked');
+    return choice ? choice.dataset.branch : null;
+  }
+
+  function validate() {
+    const branch = activeBranch();
+    // base required text/email/org inputs
+    const baseRequired = ['fullName','title','email','org'];
+    for (const id of baseRequired) {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) return el;
+    }
+    if (!form.querySelector('input[name="size"]:checked')) return form.querySelector('input[name="size"]');
+    if (!branch) return form.querySelector('input[name="service"]');
+
+    if (branch === 'hipaa') {
+      if (!document.getElementById('providers').value.trim()) return document.getElementById('providers');
+      if (!form.querySelector('input[name="deadline"]:checked')) return form.querySelector('input[name="deadline"]');
+    }
+    if (branch === 'consult') {
+      if (!form.querySelector('input[name="challenges"]:checked')) return form.querySelector('input[name="challenges"]');
+      if (!document.getElementById('environment').value.trim()) return document.getElementById('environment');
+    }
+    if (!form.querySelector('input[name="timeline"]:checked')) return form.querySelector('input[name="timeline"]');
+
+    // simple email sanity
+    const email = document.getElementById('email');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim())) return email;
+
+    return null;
+  }
+
+  function collect() {
+    const data = {};
+    const fd = new FormData(form);
+    for (const [k, v] of fd.entries()) {
+      if (k === 'challenges') { (data.challenges = data.challenges || []).push(v); }
+      else { data[k] = v; }
+    }
+    // drop the branch we didn't use so the sheet stays clean
+    const branch = activeBranch();
+    if (branch !== 'hipaa') { delete data.providers; delete data.endpoints; delete data.deadline; }
+    if (branch !== 'consult') { delete data.challenges; delete data.environment; }
+    data.submittedAt = new Date().toISOString();
+    return data;
+  }
+
+  function mailtoFallback(data) {
+    const lines = Object.entries(data)
+      .filter(([k]) => k !== '_gotcha')
+      .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`)
+      .join('%0D%0A');
+    const subject = encodeURIComponent(`Engagement Intake — ${data.org || 'New inquiry'}`);
+    window.location.href = `mailto:connect@chaundacdallas.com?subject=${subject}&body=${lines}`;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formError.classList.remove('show');
+
+    const bad = validate();
+    if (bad) {
+      formError.classList.add('show');
+      bad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (bad.focus) bad.focus();
+      return;
+    }
+
+    const data = collect();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    // No endpoint set yet → graceful email fallback so nothing is lost.
+    if (!FORM_ENDPOINT) {
+      mailtoFallback(data);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send & Scope It';
+      return;
+    }
+
+    try {
+      await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors', // Apps Script write succeeds; response is opaque by design
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      });
+      form.style.display = 'none';
+      confirmBox.classList.add('show');
+      confirmBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (err) {
+      // network failure → don't lose the lead, fall back to email
+      formError.textContent = "Couldn't reach the server — opening an email to me instead so nothing gets lost.";
+      formError.classList.add('show');
+      setTimeout(() => mailtoFallback(data), 900);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send & Scope It';
+    }
+  });
+
+  // pre-select service from URL (?service=hipaa | ?service=consult)
+  (function () {
+    const svc = new URLSearchParams(window.location.search).get('service');
+    const map = {
+      hipaa:   'Emergency HIPAA Security Risk Assessment',
+      consult: 'Professional Consultation / Advisory'
+    };
+    if (svc && map[svc]) {
+      const target = Array.from(form.querySelectorAll('input[name="service"]'))
+        .find(r => r.value === map[svc]);
+      if (target) target.checked = true;
+    }
+  })();
+
+  updateBranch();
+</script>
+
 </body>
 </html>
