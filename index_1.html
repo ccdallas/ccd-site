@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chaunda C. Dallas | Healthcare Cybersecurity Strategist</title>
+<meta name="description" content="Patient-side security for clinical AI and medical technology. Clinical AI Harm Reviews, the 3 A.M. Downtime Drill, and fractional clinical safety advising.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1E5040; --green-deep:#153a2e; --amber:#E0A83E; --crimson:#8B1E24;
+    --cream:#F3ECDD; --cream-2:#EAE0CB; --slate:#3D4142; --ink:#23282a;
+    --line:rgba(61,65,66,.18);
+    --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+  .btn{display:inline-block;padding:14px 26px;border-radius:4px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .15s ease,background .15s ease}
+  .btn-amber{background:var(--amber);color:var(--green-deep)}
+  .btn-amber:hover{transform:translateY(-1px);background:#e8b552}
+  .btn-ghost{border:1.5px solid rgba(243,236,221,.5);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--cream)}
+  :focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:10;background:var(--green-deep);color:var(--cream);border-bottom:1px solid rgba(243,236,221,.1)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--serif);font-size:20px;font-weight:600;text-decoration:none}
+  .nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+  .nav ul a{text-decoration:none;font-size:15px;opacity:.85}
+  .nav ul a:hover{opacity:1}
+  .nav .btn{padding:9px 18px;font-size:14px}
+
+  /* hero */
+  .hero{background:var(--green);color:var(--cream);padding:96px 0 0;overflow:hidden}
+  .hero h1{font-size:clamp(38px,5.6vw,64px);max-width:15ch;margin:18px 0 22px}
+  .hero p.lede{font-size:20px;max-width:58ch;opacity:.9}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 64px}
+  .pulse{display:block;width:100%;height:56px}
+  .pulse path{fill:none;stroke:var(--crimson);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+
+  /* proof bar */
+  .proof{background:var(--green-deep);color:var(--cream)}
+  .proof .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{padding:28px 20px;border-left:1px solid rgba(243,236,221,.12)}
+  .stat:first-child{border-left:0;padding-left:0}
+  .stat b{display:block;font-family:var(--serif);font-size:32px;color:var(--amber);font-weight:600}
+  .stat span{font-size:14px;opacity:.8}
+
+  section{padding:96px 0}
+  .section-head{max-width:720px;margin-bottom:48px}
+  .section-head h2{font-size:clamp(30px,3.6vw,42px);margin-top:10px}
+  .section-head p{margin-top:16px;font-size:18px;color:var(--slate)}
+
+  /* problem */
+  .problem{border-bottom:1px solid var(--line)}
+  .problem .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start}
+  .quote{font-family:var(--serif);font-size:clamp(24px,2.6vw,30px);line-height:1.3;color:var(--green);border-left:3px solid var(--amber);padding-left:24px}
+  .problem p+p{margin-top:16px}
+
+  /* offers */
+  .offers{background:var(--cream-2)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:32px 28px;display:flex;flex-direction:column}
+  .card .for{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+  .card h3{font-size:26px;margin:10px 0 14px}
+  .card p{color:var(--slate);font-size:16px}
+  .card ul{margin:18px 0 24px 18px;font-size:15px;color:var(--slate)}
+  .card li+li{margin-top:6px}
+  .card .price{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-weight:600;color:var(--green)}
+  .partner{margin-top:28px;font-size:16px;color:var(--slate)}
+  .partner strong{color:var(--green)}
+
+  /* approach */
+  .approach .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px}
+  .q3{font-family:var(--serif);font-size:30px;color:var(--green);line-height:1.25}
+  .types{margin-top:28px;display:grid;gap:14px}
+  .type{padding:16px 18px;border:1px solid var(--line);border-radius:6px;background:#f7f2e7}
+  .type b{color:var(--green)}
+  .lenses{list-style:none;counter-reset:l}
+  .lenses li{counter-increment:l;display:grid;grid-template-columns:44px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .lenses li:first-child{padding-top:0}
+  .lenses li::before{content:counter(l,decimal-leading-zero);font-family:var(--serif);font-size:22px;color:var(--amber)}
+  .lenses b{display:block;color:var(--ink)}
+  .lenses span{color:var(--slate);font-size:15px}
+
+  /* about */
+  .about{background:var(--green);color:var(--cream)}
+  .about .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  .about h2{font-size:clamp(30px,3.6vw,42px)}
+  .about p{opacity:.9}
+  .about p+p{margin-top:16px}
+  .record{list-style:none;border-top:1px solid rgba(243,236,221,.2)}
+  .record li{padding:14px 0;border-bottom:1px solid rgba(243,236,221,.2);display:flex;justify-content:space-between;gap:16px;font-size:16px}
+  .record li span:last-child{color:var(--amber);text-align:right;white-space:nowrap}
+  .tagline{margin-top:28px;font-family:var(--serif);font-size:22px;color:var(--amber)}
+
+  /* film */
+  .film .box{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:48px;background:#f7f2e7}
+  .film h2{font-size:34px;margin:10px 0 14px}
+  .film p{color:var(--slate)}
+  .cities{font-size:15px;color:var(--slate);line-height:1.9}
+  .cities b{color:var(--green)}
+
+  /* lab */
+  .lab{padding-top:0}
+  .lab .row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:40px}
+  .lab p{color:var(--slate);max-width:62ch}
+  .lab a.link{font-weight:600;color:var(--green);text-decoration:none;border-bottom:2px solid var(--amber);padding-bottom:2px}
+
+  /* contact */
+  .contact{background:var(--green-deep);color:var(--cream);text-align:center}
+  .contact h2{font-size:clamp(32px,4vw,46px);max-width:20ch;margin:12px auto 18px}
+  .contact p{opacity:.85;max-width:56ch;margin:0 auto 32px}
+  .contact .mail{display:block;margin-top:22px;opacity:.8;font-size:15px}
+
+  footer{background:var(--ink);color:rgba(243,236,221,.7);font-size:14px;padding:28px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--cream)}
+  footer nav{display:flex;gap:20px;flex-wrap:wrap}
+
+  @media (max-width:900px){
+    .nav ul li:not(:last-child){display:none}
+    .proof .wrap{grid-template-columns:repeat(2,1fr)}
+    .stat{border-left:0;padding-left:0}
+    .problem .grid,.approach .grid,.about .grid,.film .box{grid-template-columns:1fr;gap:36px}
+    .cards{grid-template-columns:1fr}
+    .film .box{padding:32px 24px}
+    section{padding:72px 0}
+    .hero{padding-top:64px}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 16px}
+    .record li{flex-direction:column;gap:2px}
+    .record li span:last-child{text-align:left}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Chaunda C. Dallas</a>
+    <ul>
+      <li><a href="#offers">Services</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#film">The Film</a></li>
+      <li><a class="btn btn-amber" href="https://chaundacdallas.com/book">Book a Fit Call</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div class="eyebrow">Healthcare Cybersecurity Strategist</div>
+    <h1 id="hero-h">What does the failure do to the patient?</h1>
+    <p class="lede">I assess clinical AI and medical technology the way an emergency department experiences it: by the harm at the bedside. It's evidence your hospital buyers, clinical leaders and safety committees can act on.</p>
+    <div class="ctas">
+      <a class="btn btn-amber" href="https://chaundacdallas.com/book">Book a 20-minute Fit Call</a>
+      <a class="btn btn-ghost" href="#offers">See the three services</a>
+    </div>
+  </div>
+  <svg class="pulse" viewBox="0 0 1200 56" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 36 H470 L490 36 L502 18 L514 50 L530 4 L546 44 L558 36 H1200"/>
+  </svg>
+</section>
+
+<div class="proof">
+  <div class="wrap">
+    <div class="stat"><b>28+ yrs</b><span>in healthcare</span></div>
+    <div class="stat"><b>23 yrs</b><span>in the emergency department, on nights</span></div>
+    <div class="stat"><b>200+</b><span>clinicians trained as Epic Super User</span></div>
+    <div class="stat"><b>1 of 52</b><span>Featured Defenders, <i>Midnight in the War Room</i></span></div>
+  </div>
+</div>
+
+<section class="problem" aria-labelledby="prob-h">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow" style="color:var(--crimson)">The gap</div>
+      <h2 id="prob-h" style="font-size:clamp(30px,3.6vw,42px);margin:10px 0 24px">Security teams measure the data. Clinicians live with the consequences.</h2>
+      <p>Most cyber and AI risk work stops at the system: what was exposed, what went down, how fast it came back. Hospitals, regulators and AI governance committees now ask a harder question: what happened to the patient in between?</p>
+      <p>Answering that takes someone who has worked the floor when the systems go dark. I've done both.</p>
+    </div>
+    <p class="quote">"At 3 a.m. the downtime plan is 'figure it out' unless someone made you write one first."</p>
+  </div>
+</section>
+
+<section class="offers" id="offers" aria-labelledby="off-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--green)">Services</div>
+      <h2 id="off-h">Three services, each one fixed in scope.</h2>
+      <p>Every engagement is scoped in writing before it starts, and none of them requires access to patient data.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="for">For digital health &amp; AI vendors</div>
+        <h3>Clinical AI Harm Review</h3>
+        <p>An independent review of your ambient scribe, patient-facing chatbot or prior-authorization AI, with every finding scored by what it would do to a patient.</p>
+        <ul>
+          <li>Adversarial testing against clinical workflows</li>
+          <li>Findings mapped to OWASP LLM Top 10 and NIST AI RMF</li>
+          <li>A Bedside Impact Report written for hospital security and AI governance reviewers</li>
+        </ul>
+        <div class="price">Fixed-scope engagements from $12,000</div>
+      </article>
+      <article class="card">
+        <div class="for">For hospitals &amp; health systems</div>
+        <h3>The 3 A.M. Downtime Drill</h3>
+        <p>A clinical ransomware exercise for ED leaders, nursing and emergency management, built on what really happens when the EHR, alarms and neighbors all go down at once.</p>
+        <ul>
+          <li>Diversion cascades, unannounced arrivals, paper triage</li>
+          <li>Run virtually, led by a former trauma-center ER lead</li>
+          <li>After-action report with owners and dates</li>
+        </ul>
+        <div class="price">Virtual exercises from $7,500</div>
+      </article>
+      <article class="card">
+        <div class="for">For AI &amp; health tech teams</div>
+        <h3>Fractional Clinical Safety Advisor</h3>
+        <p>A clinical voice on your security, product and customer calls each month. It's for teams selling into hospitals who need someone who speaks both languages.</p>
+        <ul>
+          <li>Hospital security reviews and AI governance questions</li>
+          <li>Clinical risk input on roadmap and release decisions</li>
+          <li>Standing monthly review plus on-call questions</li>
+        </ul>
+        <div class="price">Retainers from $3,500/month</div>
+      </article>
+    </div>
+    <p class="partner"><strong>Medical device manufacturers:</strong> the PSTM Clinical Harm Assessment, the clinical-consequence layer of your premarket cybersecurity threat model, is available through regulatory and engineering partners. <a href="mailto:connect@chaundacdallas.com">Ask about partnering.</a></p>
+  </div>
+</section>
+
+<section class="approach" id="approach" aria-labelledby="app-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--green)">The approach</div>
+      <h2 id="app-h">Patient-Side Threat Modeling&trade;</h2>
+      <p>My framework, PSTM, scores cyber and AI risk the way a clinician triages: by how fast harm arrives and whether anyone at the bedside would notice.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <p class="q3">First question: what fails, the therapy, the data, or the truth?</p>
+        <div class="types">
+          <div class="type"><b>Therapy loss.</b> The device stops or changes treatment. Harm can arrive in minutes.</div>
+          <div class="type"><b>Data loss.</b> Information stops flowing while treatment continues. Harm depends on staffing and detection.</div>
+          <div class="type"><b>Integrity loss.</b> Something is wrong but looks normal. It's the hardest to catch at the bedside.</div>
+        </div>
+      </div>
+      <ol class="lenses">
+        <li><div><b>Physiological dependency</b><span>How much the patient's body relies on the system right now.</span></div></li>
+        <li><div><b>Latency to harm</b><span>Minutes, hours or days between failure and injury.</span></div></li>
+        <li><div><b>Bedside detectability</b><span>Whether the care team would notice, and how.</span></div></li>
+        <li><div><b>Workaround pressure</b><span>What staff will do to keep care moving, and the new risk that creates.</span></div></li>
+        <li><div><b>Downtime survivability</b><span>How long safe care can continue without the system.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-h">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">About</div>
+      <h2 id="about-h" style="margin:10px 0 24px">Twenty-three years of night shifts, then cybersecurity.</h2>
+      <p>I spent 23 years in the emergency department, all of them on nights, as Lead ER Technician and clinical preceptor at two Level II trauma centers. I trained 200+ clinicians through an Epic implementation, then coordinated interventional radiology cases and their referrals.</p>
+      <p>I moved into cybersecurity with an MS in Information Technology and onboarded clinicians onto ambient AI at DeepScribe. Now I bring the bedside into every security and AI decision.</p>
+      <p class="tagline">I didn't leave healthcare. I learned to defend it.</p>
+    </div>
+    <ul class="record">
+      <li><span>Lead ER Technician &amp; Clinical Preceptor</span><span>Two Level II trauma EDs</span></li>
+      <li><span>Epic Super User</span><span>200+ clinicians</span></li>
+      <li><span>Lead Clinical Coordinator</span><span>Interventional radiology</span></li>
+      <li><span>Customer Success Engineer</span><span>DeepScribe, ambient AI</span></li>
+      <li><span>vCISO Advisor</span><span>Healthcare security platform</span></li>
+      <li><span>MS, Information Technology</span><span>Kennesaw State University</span></li>
+      <li><span>Creator</span><span>Patient-Side Threat Modeling&trade;</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="film" id="film" aria-labelledby="film-h">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <div class="eyebrow" style="color:var(--crimson)">Featured Defender</div>
+        <h2 id="film-h"><i>Midnight in the War Room</i></h2>
+        <p>Semperis' documentary on the people who defend critical systems when attacks hit. I'm one of 52 defenders featured. It premiered at Black Hat USA in August 2026 and is now screening around the world.</p>
+      </div>
+      <p class="cities"><b>International tour, ~30 cities:</b> Frankfurt &middot; London &middot; Singapore &middot; Mumbai &middot; Ireland &middot; Mexico &middot; Australia &middot; Brazil &middot; and more</p>
+    </div>
+  </div>
+</section>
+
+<section class="lab" aria-labelledby="lab-h">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <h3 id="lab-h" style="font-size:24px;margin-bottom:8px">See the work</h3>
+        <p>The DFR Lab holds IoMT failure scenarios, clinical-AI red-team scenarios and healthcare ransomware threat briefs, all scored with PSTM.</p>
+      </div>
+      <a class="link" href="https://lab.chaundacdallas.com">Open the DFR Lab &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="c-h">
+  <div class="wrap">
+    <div class="eyebrow">Start here</div>
+    <h2 id="c-h">Tell me the patient-facing system you're worried about.</h2>
+    <p>A 20-minute Fit Call tells us both whether one of the three services fits. You'll leave with a scope and a price, not a sales pitch.</p>
+    <a class="btn btn-amber" href="https://chaundacdallas.com/book">Book a Fit Call</a>
+    <a class="mail" href="mailto:connect@chaundacdallas.com">connect@chaundacdallas.com</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Chaunda C. Dallas LLC &middot; Remote, United States</span>
+    <nav aria-label="Footer">
+      <a href="https://www.linkedin.com/in/chaundacdallas">LinkedIn</a>
+      <a href="https://lab.chaundacdallas.com">DFR Lab</a>
+      <a href="mailto:connect@chaundacdallas.com?subject=Federal%20Subcontract%20Inquiry">Federal &amp; subcontract inquiries</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
