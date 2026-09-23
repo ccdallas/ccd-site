@@ -442,7 +442,7 @@
   <div class="status-banner">
     <div class="pulse-dot"></div>
     <div class="status-text">
-      TAKING ENGAGEMENTS &nbsp;·&nbsp; <span>HIPAA assessments available for immediate start · 5-day delivery</span>
+      TAKING ENGAGEMENTS &nbsp;·&nbsp; <span>Scoped in writing · No patient data required</span>
     </div>
   </div>
 
@@ -508,12 +508,20 @@
       <div class="field">
         <div class="choices">
           <label class="choice">
-            <input type="radio" name="service" value="Emergency HIPAA Security Risk Assessment" required data-branch="hipaa">
-            <span class="choice-body"><span class="choice-label">Emergency HIPAA Security Risk Assessment</span><span class="choice-sub">5-day turnaround · $2,500 flat fee</span></span>
+            <input type="radio" name="service" value="Clinical AI Harm Review" required data-branch="consult">
+            <span class="choice-body"><span class="choice-label">Clinical AI Harm Review</span><span class="choice-sub">For digital health &amp; AI vendors · from $12,000</span></span>
           </label>
           <label class="choice">
-            <input type="radio" name="service" value="Professional Consultation / Advisory" data-branch="consult">
-            <span class="choice-body"><span class="choice-label">Professional Consultation / Advisory</span><span class="choice-sub">IoMT · Healthcare GRC · Clinical AI risk · Fractional retainer</span></span>
+            <input type="radio" name="service" value="The 3 A.M. Downtime Drill" required data-branch="consult">
+            <span class="choice-body"><span class="choice-label">The 3 A.M. Downtime Drill</span><span class="choice-sub">For hospitals &amp; health systems · from $7,500</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="service" value="Fractional Clinical Safety Advisor" required data-branch="consult">
+            <span class="choice-body"><span class="choice-label">Fractional Clinical Safety Advisor</span><span class="choice-sub">For AI &amp; health tech teams · from $3,500/month</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="service" value="PSTM Clinical Harm Assessment (device makers &amp; partners)" required data-branch="consult">
+            <span class="choice-body"><span class="choice-label">PSTM Clinical Harm Assessment (device makers &amp; partners)</span><span class="choice-sub">Delivered with regulatory and engineering partners</span></span>
           </label>
         </div>
       </div>
@@ -555,17 +563,19 @@
     <!-- SECTION 3B — CONSULTATION (conditional) -->
     <fieldset class="section conditional" id="partB">
       <div class="section-num">Section 03 · B</div>
-      <div class="section-title">Consultation Focus</div>
-      <span class="cond-tag">Shown because you chose advisory / consultation</span>
+      <div class="section-title">Your Situation</div>
+      <span class="cond-tag">Helps me come to our call prepared</span>
 
       <div class="field">
-        <label class="q">Primary challenge right now <span class="req">*</span> <span style="text-transform:none;letter-spacing:0;color:var(--white-dim);font-weight:400;">— select all that apply</span></label>
+        <label class="q">What are you dealing with? <span class="req">*</span> <span style="text-transform:none;letter-spacing:0;color:var(--white-dim);font-weight:400;">— select all that apply</span></label>
         <div class="choices">
-          <label class="choice"><input type="checkbox" name="challenges" value="IoMT / Medical Device Vulnerability Management" data-cond="consult"><span class="choice-body"><span class="choice-label">IoMT / Medical Device Vulnerability Management</span></span></label>
-          <label class="choice"><input type="checkbox" name="challenges" value="Clinical AI Risk & Governance Architecture"><span class="choice-body"><span class="choice-label">Clinical AI Risk &amp; Governance Architecture</span></span></label>
-          <label class="choice"><input type="checkbox" name="challenges" value="Workforce Security Awareness / Simulation Training"><span class="choice-body"><span class="choice-label">Workforce Security Awareness / Simulation Training</span></span></label>
-          <label class="choice"><input type="checkbox" name="challenges" value="Healthcare GRC Strategy & Framework Implementation"><span class="choice-body"><span class="choice-label">Healthcare GRC Strategy &amp; Framework Implementation</span></span></label>
-          <label class="choice"><input type="checkbox" name="challenges" value="Strategic Advisory / Fractional Retainer Support"><span class="choice-body"><span class="choice-label">Strategic Advisory / Fractional Retainer Support</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Ambient scribe or clinical documentation AI" data-cond="consult"><span class="choice-body"><span class="choice-label">Ambient scribe or clinical documentation AI</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Patient-facing chatbot or AI agent"><span class="choice-body"><span class="choice-label">Patient-facing chatbot or AI agent</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Prior-authorization or utilization AI"><span class="choice-body"><span class="choice-label">Prior-authorization or utilization AI</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="A hospital security review or AI governance questions from a buyer"><span class="choice-body"><span class="choice-label">A hospital security review or AI governance questions from a buyer</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Ransomware or EHR downtime readiness"><span class="choice-body"><span class="choice-label">Ransomware or EHR downtime readiness</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Connected medical device risk"><span class="choice-body"><span class="choice-label">Connected medical device risk</span></span></label>
+          <label class="choice"><input type="checkbox" name="challenges" value="Security training for clinical staff"><span class="choice-body"><span class="choice-label">Security training for clinical staff</span></span></label>
         </div>
       </div>
       <div class="field">
@@ -792,12 +802,14 @@
     }
   });
 
-  // pre-select service from URL (?service=hipaa | ?service=consult)
+  // pre-select service from URL (?service=ai-review | drill | advisor | pstm-snapshot)
   (function () {
     const svc = new URLSearchParams(window.location.search).get('service');
     const map = {
-      hipaa:   'Emergency HIPAA Security Risk Assessment',
-      consult: 'Professional Consultation / Advisory'
+      'ai-review':     'Clinical AI Harm Review',
+      drill:           'The 3 A.M. Downtime Drill',
+      advisor:         'Fractional Clinical Safety Advisor',
+      'pstm-snapshot': 'PSTM Clinical Harm Assessment (device makers & partners)'
     };
     if (svc && map[svc]) {
       const target = Array.from(form.querySelectorAll('input[name="service"]'))
