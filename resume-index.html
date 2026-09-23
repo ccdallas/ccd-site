@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaunda C. Dallas, MSIT &mdash; Healthcare Cybersecurity Strategist | R&eacute;sum&eacute;</title>
+    <!-- Google Fonts Injections -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Locked Brand Tokens */
+            --green: #1E5040;
+            --amber: #E0A83E;
+            --crimson: #8B1E24;
+            --cream: #F3ECDD;
+            --slate: #3D4142;
+            
+            /* Structural Rules */
+            --bg: var(--cream);
+            --text: var(--slate);
+            --primary: var(--green);
+            --accent: var(--amber);
+            --pulse: var(--crimson);
+            
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'DM Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: var(--font-body); 
+            line-height: 1.6; 
+            padding: 40px 20px;
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: #ffffff; 
+            padding: 40px; 
+            border-radius: 4px; 
+            box-shadow: 0 4px 20px rgba(61,65,66,0.06);
+            border-left: 6px solid var(--primary); /* Left identity accent bar */
+        }
+        
+        /* Typography Layout Mappings */
+        header { border-bottom: 2px solid rgba(30,80,64,0.15); padding-bottom: 20px; margin-bottom: 25px; }
+        h1 { font-family: var(--font-display); font-size: 32px; color: var(--primary); font-weight: 700; letter-spacing: -0.01em; }
+        .subtitle { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--text); margin-top: 4px; }
+        .contact-info { font-family: var(--font-mono); font-size: 12px; color: var(--primary); margin-top: 8px; display: flex; flex-wrap: wrap; gap: 15px; }
+        .contact-info a { color: inherit; text-decoration: none; }
+        .contact-info a:hover { text-decoration: underline; }
+        
+        h2 { font-family: var(--font-display); font-size: 20px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin: 25px 0 12px; padding-bottom: 4px; border-bottom: 1px solid rgba(61,65,66,0.1); }
+        .summary-text { font-size: 14.5px; font-weight: 400; }
+        
+        /* Competencies Chips */
+        .grid-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .chip { font-family: var(--font-mono); font-size: 11px; background: rgba(30,80,64,0.07); color: var(--primary); padding: 4px 10px; border-radius: 4px; font-weight: 500; }
+        
+        /* Experience List Layout */
+        .job { margin-bottom: 20px; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 15px; color: var(--primary); }
+        .job-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+        .job-meta { font-family: var(--font-mono); font-size: 12px; color: var(--text); font-weight: 400; }
+        .job-bullets { margin: 6px 0 0 18px; font-size: 14px; }
+        .job-bullets li { margin-bottom: 4px; }
+        
+        /* Recognition & Education */
+        .recog-item, .edu-item { font-size: 14px; margin-bottom: 6px; }
+        .eyebrow-label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); font-weight: 500; }
+        
+        /* ECG Visual Module - Crimson Pulse Only */
+        .ecg-container { display: flex; align-items: center; gap: 12px; margin: 30px 0 10px; opacity: 0.85; }
+        .ecg-svg { width: 140px; height: 24px; }
+        .ecg-line { stroke: var(--pulse); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>CHAUNDA C. DALLAS, MSIT</h1>
+        <div class="subtitle">Healthcare Cybersecurity Strategist | Clinical AI Safety | Medical Device &amp; IoMT Risk</div>
+        <div class="contact-info">
+            <a href="mailto:connect@chaundacdallas.com">connect@chaundacdallas.com</a>
+            <span>|</span>
+            <span>US-based, remote</span>
+            <span>|</span>
+            <a href="https://linkedin.com/in/chaundacdallas" target="_blank">linkedin.com/in/chaundacdallas</a>
+            <span>|</span>
+            <a href="https://chaundacdallas.com/Chaunda_Dallas_Resume.pdf" target="_blank">Download PDF</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p class="summary-text">
+            Healthcare cybersecurity strategist who assesses what cyber and AI failures do to patients. 28+ years in healthcare, including 23 years in emergency departments as Lead Emergency Department Technician, clinical preceptor and Epic Super User for 200+ clinicians at two Level II trauma centers, then clinical coordination for interventional radiology. Onboarded clinicians onto ambient AI documentation at DeepScribe. Creator of Patient-Side Threat Modeling (PSTM), which scores clinical AI and medical device risk by patient harm. Featured Defender in Semperis&rsquo; <em>Midnight in the War Room</em> (Black Hat USA 2026; ~30-city international tour).
+        </p>
+    </section>
+
+    <section>
+        <h2>Core Competencies</h2>
+        <div class="grid-chips">
+            <span class="chip">Clinical AI Risk Assessment</span>
+            <span class="chip">AI Red Teaming (OWASP LLM Top 10, MITRE ATLAS)</span>
+            <span class="chip">Ambient &amp; Clinical AI Adoption</span>
+            <span class="chip">Medical Device &amp; IoMT Security</span>
+            <span class="chip">Clinical Threat Modeling (PSTM)</span>
+            <span class="chip">FDA Premarket Cybersecurity Guidance</span>
+            <span class="chip">Clinical Downtime &amp; Ransomware Readiness</span>
+            <span class="chip">Tabletop Exercise Design</span>
+            <span class="chip">Clinical Workflow &amp; EHR (Epic)</span>
+            <span class="chip">Clinical-Technical Liaison</span>
+            <span class="chip">HIPAA Security Rule</span>
+            <span class="chip">NIST AI RMF</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Founder &amp; Principal | Chaunda C. Dallas Consulting</span>
+                <span class="job-meta">2022&ndash;Present</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Created Patient-Side Threat Modeling (PSTM), a framework that scores clinical AI and medical device risk by patient consequence: physiological dependency, latency to harm, bedside detectability, workaround pressure and downtime survivability.</li>
+                <li>Built the DFR Lab: 9 IoMT failure scenarios and 3 clinical-AI red-team scenarios (prompt injection, PHI leakage, agentic chain attack), mapped to NIST CSF, HIPAA, FDA guidance, IEC 62443 and the OWASP LLM Top 10.</li>
+                <li>Designed the 3 A.M. Downtime Drill, a clinical ransomware tabletop for ED and nursing leaders built on regional diversion-cascade dynamics.</li>
+                <li>Publish healthcare ransomware threat intelligence: Healthcare Ransomware Intelligence Tracker and a Qilin/Agenda threat brief with MITRE ATT&amp;CK mapping and PSTM scoring.</li>
+                <li>Founding security engagement for a startup platform (Koalesce Studios / Desivity, Aug&ndash;Dec 2025): Zero Trust architecture, threat model, and SOC 2 Type I / ISO 27001 readiness frameworks.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Virtual CISO (vCISO) Advisor | MyCyberIQ</span>
+                <span class="job-meta">Apr 2024&ndash;Dec 2025</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Hired as CISO, then retained as vCISO advisor (420+ documented advisory hours): set security strategy, human-risk and awareness programs, and compliance-informed product direction for an early-stage healthcare cybersecurity platform.</li>
+                <li>Designed role-based security content for clinical, operational and executive audiences; ran phishing-simulation strategy (KnowBe4) and advised on ransomware defense.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Customer Success Engineer &mdash; Clinical AI &amp; EHR (Contract) | DeepScribe</span>
+                <span class="job-meta">Dec 2021&ndash;Mar 2022</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Onboarded and trained clinicians adopting ambient AI documentation across multi-site practices; configured workflows in athenahealth, Kareo and eClinicalWorks.</li>
+                <li>Served as clinical-technical liaison between physicians, engineering and product, turning provider workflow friction into product fixes.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Lead Clinical Coordinator | Azura Vascular Care</span>
+                <span class="job-meta">Apr 2016&ndash;Oct 2021</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Directed clinical operations across interventional radiology and surgical suites where documentation integrity directly affected patient outcomes.</li>
+                <li>Managed all surgical referrals and payer authorizations for specialty IR cases (uterine fibroid embolization, peripheral arterial disease, hemorrhoid artery, varicocele and ovarian vein embolization).</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Operations Manager &amp; Cybersecurity Strategist | HeartLove Place Ministries</span>
+                <span class="job-meta">Jun 2023&ndash;Apr 2024</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Detected and shut down a website-spoofing campaign targeting donations, preventing about $30K in fraud; deployed SIEM monitoring and incident-response procedures.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Graduate Research Assistant &mdash; Wearable Health Technology | Kennesaw State University</span>
+                <span class="job-meta">Jan&ndash;May 2020</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Researched adoption, security and privacy risks, and ethical issues of wearable health technology for older adults. The project was paused by COVID-19; the research contributed to a faculty-published paper.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Lead Emergency Department Technician &amp; Clinical Preceptor | Epic Super User | Piedmont Healthcare</span>
+                <span class="job-meta">1999&ndash;2016</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Trusted with high autonomy in high-volume Level II trauma EDs (Eastside Medical Center, now Piedmont Eastside; Piedmont Atlanta); coordinated operations during trauma activations, Code Blue events and mass-casualty responses.</li>
+                <li>Selected as ER Epic Super User for Piedmont Atlanta&rsquo;s implementation: trained and supported 200+ clinicians through go-live, upgrades, downtime readiness and troubleshooting.</li>
+                <li>Ran manual downtime protocols during EHR outages to keep patient care moving, the origin of the downtime-survivability work in PSTM.</li>
+                <li>Earlier: emergency department registration and referral coordination, including Emory Healthcare.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section>
+        <h2>Mentorship &amp; Recognition</h2>
+        <div class="recog-item"><strong>Featured Defender</strong> (one of 52) &mdash; <em>Midnight in the War Room</em> (Semperis) | Premiered Black Hat USA, Aug 2026 | ~30-city international tour</div>
+        <div class="recog-item"><strong>Technical Mentor</strong> &mdash; Women in CyberSecurity (WiCyS), May 2024&ndash;Present | Co-mentored 600+ learners across three grant-funded Google Cybersecurity Certificate cohorts</div>
+        <div class="recog-item"><strong>Panelist</strong> &mdash; WiCyS 2026 Virtual Conference | <strong>Podcast Guest</strong> &mdash; Halcyon <em>Last Month in Security</em> (Ep. 006)</div>
+    </section>
+
+    <section>
+        <h2>Education &amp; Training</h2>
+        <div class="edu-item"><strong>M.S., Information Technology</strong> (Cybersecurity concentration) &mdash; Kennesaw State University</div>
+        <div class="edu-item"><strong>Graduate Certificate, Healthcare Technology</strong> &middot; <strong>B.S., Criminal Justice</strong> &mdash; Kennesaw State University</div>
+        <div class="edu-item"><strong>MiC LEAD Builders Program</strong> &mdash; year-long SOC apprenticeship: Splunk alert triage, MITRE ATT&amp;CK-mapped investigation, ransomware incident simulation (2024&ndash;2025)</div>
+        <div class="edu-item"><strong>In progress:</strong> Microsoft SC-900 (exam Oct 2026) &middot; CompTIA SecAI+</div>
+    </section>
+
+    <!-- Crimson Pulse Graphic Motif Only -->
+    <div class="ecg-container">
+        <span class="eyebrow-label">Clinical Continuity Integrity</span>
+        <svg class="ecg-svg" viewBox="0 0 140 24" aria-hidden="true">
+            <path class="ecg-line" d="M0,12 L50,12 L55,4 L60,20 L65,9 L70,12 L140,12" />
+        </svg>
+    </div>
+</div>
+
+</body>
+</html>
