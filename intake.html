@@ -527,38 +527,8 @@
       </div>
     </fieldset>
 
-    <!-- SECTION 3A — HIPAA (conditional) -->
-    <fieldset class="section conditional" id="partA">
-      <div class="section-num">Section 03 · A</div>
-      <div class="section-title">HIPAA Assessment Scope</div>
-      <span class="cond-tag">Shown because you chose the HIPAA assessment</span>
-
-      <div class="field">
-        <label class="q" for="providers">Clinical providers + administrative staff (estimate) <span class="req">*</span></label>
-        <input type="text" id="providers" name="providers" data-cond="hipaa" placeholder="e.g. 6 providers, 12 staff">
-      </div>
-      <div class="field">
-        <label class="q" for="endpoints">Network endpoints / connected medical devices (estimate)</label>
-        <input type="text" id="endpoints" name="endpoints" placeholder="Rough count is fine — workstations, tablets, infusion pumps, monitors, etc.">
-      </div>
-      <div class="field">
-        <label class="q">Is a deadline or audit driving this? <span class="req">*</span></label>
-        <div class="choices">
-          <label class="choice">
-            <input type="radio" name="deadline" value="Hard deadline — under 30 days" data-cond="hipaa">
-            <span class="choice-body"><span class="choice-label">Yes — hard deadline</span><span class="choice-sub">Under 30 days</span></span>
-          </label>
-          <label class="choice">
-            <input type="radio" name="deadline" value="Standard window — 30–90 days" data-cond="hipaa">
-            <span class="choice-body"><span class="choice-label">Yes — standard window</span><span class="choice-sub">30–90 days</span></span>
-          </label>
-          <label class="choice">
-            <input type="radio" name="deadline" value="No deadline — proactive risk management" data-cond="hipaa">
-            <span class="choice-body"><span class="choice-label">No active deadline</span><span class="choice-sub">Proactive risk management</span></span>
-          </label>
-        </div>
-      </div>
-    </fieldset>
+    <!-- Section 3A retired; empty element kept so the form script keeps working -->
+    <fieldset class="section conditional" id="partA"></fieldset>
 
     <!-- SECTION 3B — CONSULTATION (conditional) -->
     <fieldset class="section conditional" id="partB">
