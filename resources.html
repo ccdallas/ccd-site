@@ -1,724 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="js-off">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Resource Hub — Chaunda C. Dallas</title>
-<meta name="description" content="Free healthcare cybersecurity resources — cert roadmaps, clinical-to-cyber positioning guides, IoMT risk self-checks, and interactive tools. Built by Chaunda C. Dallas, MSIT, Healthcare Cybersecurity Strategist.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Tools — Chaunda C. Dallas</title>
+<meta name="description" content="Free healthcare cybersecurity tools that work in your browser: a career path quiz, a PSTM device risk self-check, a clinical-to-cyber translator and a free study stack.">
+<link rel="canonical" href="https://chaundacdallas.com/resources">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chaundacdallas.com/resources">
+<meta property="og:title" content="Free Tools — Chaunda C. Dallas">
+<meta property="og:description" content="Free healthcare cybersecurity tools that work in your browser: a career path quiz, a PSTM device risk self-check, a clinical-to-cyber translator and a free study stack.">
+<meta property="og:image" content="https://chaundacdallas.com/chaunda-headshot.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/ccd.css">
 <style>
-  :root {
-    --crimson: #1E5040;
-    --crimson-dim: rgba(30,80,64,0.12);
-    --crimson-glow: rgba(224,168,62,0.2);
-    --pulse: #8B1E24;
-    --black: #F3ECDD;
-    --deep: #EAE0C8;
-    --surface: #FFFFFF;
-    --surface-raised: #FFFFFF;
-    --white: #3D4142;
-    --white-dim: rgba(61,65,66,0.6);
-    --white-faint: rgba(61,65,66,0.15);
-    --gold: #E0A83E;
-    --gold-dim: rgba(224,168,62,0.15);
-    --border: rgba(61,65,66,0.14);
-    --border-accent: rgba(30,80,64,0.3);
-  }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+.picker{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+.picker button{display:flex;flex-direction:column;gap:6px;text-align:left;padding:20px 18px;border-radius:var(--r-l);border:1px solid var(--line);background:#fff;cursor:pointer;transition:all .3s var(--ease)}
+.picker button .ic{font-size:22px}
+.picker button b{font-family:var(--disp);font-size:clamp(21px,2vw,25px);line-height:1.1}
+.picker button small{font-size:13.5px;color:var(--dim)}
+.picker button .t{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-text)}
+.picker button:hover{border-color:var(--green);transform:translateY(-3px)}
+.picker button[aria-selected="true"]{background:var(--green);border-color:var(--green);color:var(--cream)}
+.picker button[aria-selected="true"] small{color:rgba(243,236,221,.8)}
+.picker button[aria-selected="true"] .t{color:var(--amber)}
+.tool{background:#fff;border:1px solid var(--line);border-radius:var(--r-l);padding:clamp(22px,3vw,36px)}
+.tool-h{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-bottom:22px}
+.tool-h .h-m{max-width:30ch}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden;min-width:160px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--amber));width:0;transition:width .5s var(--ease)}
+.qn{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.qq{font-family:var(--disp);font-size:clamp(26px,3vw,36px);font-weight:700;line-height:1.1;margin-bottom:20px;animation:sw .4s var(--ease)}
+@keyframes sw{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts button{text-align:left;padding:15px 16px;border-radius:14px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:15.5px;line-height:1.4;transition:all .2s var(--ease)}
+.opts button:hover{border-color:var(--green);transform:translateX(3px)}
+.opts button[aria-pressed="true"]{border-color:var(--green);background:#eef3ef;box-shadow:inset 0 0 0 1px var(--green)}
+.navq{display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:10px}
+.navq button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.navq button:disabled{opacity:.35;cursor:default}
+.result{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;animation:sw .5s var(--ease)}
+.res-main{padding:26px;border-radius:var(--r-l);background:var(--green-deep);color:var(--cream)}
+.res-main .k{color:var(--amber)}
+.res-main h3{font-family:var(--disp);font-size:clamp(30px,3.4vw,42px);line-height:1;margin:10px 0 12px}
+.res-main p{color:rgba(243,236,221,.85)}
+.res-side{padding:26px;border-radius:var(--r-l);background:var(--paper);border:1px solid var(--line)}
+.res-side .ticks li{font-size:15.5px}
+.res-side a{color:var(--green)}
+.also-fit{margin-top:14px;font-size:14px;color:rgba(243,236,221,.7)}
+.band-score{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:8px 12px;border-radius:999px;margin-top:4px}
+.band-score.low{background:rgba(30,80,64,.25);color:var(--cream)}
+.band-score.mid{background:rgba(224,168,62,.25);color:var(--amber)}
+.band-score.high{background:rgba(139,30,36,.45);color:#fff}
+.meter{position:relative;height:10px;border-radius:10px;background:linear-gradient(90deg,#2b6b56,var(--amber),var(--crimson));margin:22px 0 8px}
+.meter .mk{position:absolute;top:-6px;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--ink);transform:translateX(-50%);transition:left .9s var(--ease)}
+.meter-l{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:rgba(243,236,221,.6);text-transform:uppercase;letter-spacing:.1em}
+.dev-name{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;font:16px var(--sans);background:var(--paper);margin-bottom:20px}
+.lensq{display:grid;gap:14px}
+.lq{padding:18px;border-radius:14px;border:1px solid var(--line);background:var(--paper)}
+.lq .ln{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+.lq p{font-weight:500;margin-bottom:10px}
+.lq .seg{background:#fff}
+.lq .seg button{font-size:10.5px;padding:9px 12px}
+.note-s{font-size:13.5px;color:var(--dim);margin-top:14px}
+.copyrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.flipgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.flip{--fh:250px}
+.sec-card .flip-front .ft{font-family:var(--mono);font-size:20px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.stack{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.lk{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:18px;border-radius:14px;border:1px solid var(--line);background:var(--paper);text-decoration:none;transition:all .25s var(--ease)}
+.lk:hover{border-color:var(--green);transform:translateX(4px);background:#fff}
+.lk .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--green);color:var(--cream);white-space:nowrap}
+.lk b{display:block;font-weight:500}
+.lk small{font-size:13.5px;color:var(--dim)}
+.lk .ar{font-family:var(--mono);color:var(--faint)}
+.fn{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fn a{text-decoration:none}
+@media (max-width:1000px){.picker,.flipgrid{grid-template-columns:1fr 1fr}.fn{grid-template-columns:1fr}}
+@media (max-width:700px){.opts,.result,.stack{grid-template-columns:1fr}.picker button small{display:none}}
+@media (max-width:480px){.flipgrid{grid-template-columns:1fr}}
 
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 70% 50% at 15% 12%, rgba(30,80,64,0.07) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 70% at 85% 88%, rgba(224,168,62,0.04) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* ===== CCD UNIVERSAL NAV BAR ===== */
-  .ccd-nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:14px 28px;background:rgba(243,236,221,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,80,64,0.18);font-family:'DM Mono',ui-monospace,monospace;}
-  .ccd-nav-brand{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:600;letter-spacing:0.01em;color:#3D4142;text-decoration:none;white-space:nowrap;}
-  .ccd-nav-dot{color:#1E5040;}
-  .ccd-nav-links{display:flex;gap:24px;flex-wrap:wrap;}
-  .ccd-nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(61,65,66,0.6);text-decoration:none;padding:4px 0;position:relative;transition:color .2s ease;}
-  .ccd-nav-links a:hover{color:#3D4142;}
-  .ccd-nav-links a.active{color:#1E5040;}
-  .ccd-nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:#1E5040;}
-  .nav-book{background:#E0A83E;color:#3D4142!important;padding:8px 14px;border-radius:2px;transition:background .2s ease;}
-  .nav-book:hover{background:#C48F2E;color:#3D4142!important;}
-  @media (max-width:600px){.ccd-nav{padding:12px 18px;gap:10px;}.ccd-nav-brand{font-size:16px;}.ccd-nav-links{gap:16px;width:100%;}.ccd-nav-links a{font-size:10px;letter-spacing:0.12em;}}
-
-  .ecg-bar {
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, var(--pulse), transparent 60%);
-    opacity: 0;
-    animation: fadeIn 1s ease 0.1s forwards;
-  }
-
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 0 28px 100px;
-  }
-
-  /* ===== HEADER ===== */
-  .header {
-    padding: 60px 0 44px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.2s forwards;
-  }
-
-  .header-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--crimson);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .header-eyebrow .idx { color: var(--white-dim); opacity: 0.5; }
-
-  .header-eyebrow::after {
-    content: '';
-    flex: 1;
-    max-width: 60px;
-    height: 1px;
-    background: var(--crimson);
-    opacity: 0.4;
-  }
-
-  .header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 22px;
-    letter-spacing: -0.01em;
-    max-width: 720px;
-  }
-
-  .header h1 em { font-style: italic; font-weight: 600; color: var(--crimson); }
-
-  .header-intro {
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--white-dim);
-    line-height: 1.85;
-    max-width: 600px;
-    margin-bottom: 18px;
-  }
-
-  .header-byline {
-    font-family: 'DM Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--white-dim);
-    opacity: 0.55;
-    margin-bottom: 30px;
-  }
-
-  .header-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--gold);
-    color: var(--white);
-    font-family: 'DM Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 13px 26px;
-    text-decoration: none;
-    border-radius: 1px;
-    transition: background 0.2s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-primary:hover { background: #C48F2E; }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    color: var(--white-dim);
-    font-family: 'DM Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 12px 26px;
-    text-decoration: none;
-    border-radius: 1px;
-    border: 1px solid var(--border);
-    transition: all 0.2s ease;
-    cursor: pointer;
-  }
-
-  .btn-secondary:hover { border-color: rgba(61,65,66,0.3); color: var(--white); }
-
-  /* ===== PROFILE / CREDIBILITY STRIP ===== */
-  .profile {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 26px 0;
-    margin-bottom: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.4s forwards;
-  }
-
-  .profile-id { max-width: 360px; }
-  .profile-id .pname { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-  .profile-id .prole { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-dim); opacity: 0.55; line-height: 1.6; }
-
-  .profile-feat { display: flex; flex-direction: column; gap: 8px; }
-  .profile-feat-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--white-dim); opacity: 0.45; }
-  .profile-feat-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  .feat-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.04em; color: var(--white-dim); padding: 5px 11px; border: 1px solid var(--border); border-radius: 1px; }
-
-  /* ===== SECTION LABELS ===== */
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--crimson);
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 8px;
-  }
-
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .section-label .sub { color: var(--white-dim); opacity: 0.45; letter-spacing: 0.2em; }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.5rem, 3.4vw, 2.1rem);
-    font-weight: 300;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .section-title em { font-style: italic; font-weight: 600; }
-
-  .section-blurb {
-    font-size: 13.5px;
-    font-weight: 300;
-    color: var(--white-dim);
-    line-height: 1.8;
-    max-width: 540px;
-    margin-bottom: 30px;
-  }
-
-  /* ===== TOOLKIT (FEATURED 3) ===== */
-  .toolkit { margin-bottom: 64px; }
-  .toolkit-head { margin-bottom: 30px; opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards; }
-
-  .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-
-  .feat-card {
-    border: 1px solid var(--border);
-    background: linear-gradient(150deg, rgba(30,80,64,0.05) 0%, var(--deep) 55%);
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    transition: border-color 0.25s ease, transform 0.25s ease;
-    position: relative;
-    opacity: 0;
-  }
-  .feat-card:nth-child(1){ animation: fadeUp 0.7s ease 0.58s forwards; }
-  .feat-card:nth-child(2){ animation: fadeUp 0.7s ease 0.68s forwards; }
-  .feat-card:nth-child(3){ animation: fadeUp 0.7s ease 0.78s forwards; }
-  .feat-card:hover { border-color: var(--border-accent); transform: translateY(-3px); }
-
-  .feat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--crimson);
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-  }
-
-  .feat-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
-  }
-
-  .feat-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.25;
-    margin-bottom: 12px;
-  }
-
-  .feat-desc {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--white-dim);
-    line-height: 1.7;
-    margin-bottom: 22px;
-    flex: 1;
-  }
-
-  .feat-foot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-  }
-  .feat-cat { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-dim); opacity: 0.5; }
-  .feat-get { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crimson); }
-
-  /* ===== LIBRARY ===== */
-  .library { opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards; }
-  .cat-block { margin-bottom: 40px; }
-  .cat-name {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--white-dim);
-    opacity: 0.5;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .res-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    padding: 18px 20px;
-    border: 1px solid var(--border);
-    border-radius: 1px;
-    background: var(--deep);
-    text-decoration: none;
-    margin-bottom: 8px;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
-  .res-row:hover { border-color: var(--border-accent); background: var(--surface); }
-
-  .res-left { display: flex; align-items: flex-start; gap: 16px; min-width: 0; }
-  .res-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 8.5px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(224,168,62,0.25);
-    background: var(--gold-dim);
-    padding: 4px 8px;
-    border-radius: 1px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .res-type.tool { color: #6db8e0; border-color: rgba(109,184,224,0.25); background: rgba(109,184,224,0.1); }
-
-  .res-info { min-width: 0; }
-  .res-name { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--white); line-height: 1.3; margin-bottom: 3px; }
-  .res-desc { font-size: 12.5px; font-weight: 300; color: var(--white-dim); line-height: 1.6; }
-
-  .res-get { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crimson); white-space: nowrap; flex-shrink: 0; }
-
-  /* ===== CLOSING CTA ===== */
-  .closing {
-    margin-top: 64px;
-    border: 1px solid rgba(30,80,64,0.25);
-    border-left: 2px solid var(--crimson);
-    background: linear-gradient(135deg, rgba(30,80,64,0.05) 0%, var(--deep) 60%);
-    padding: 44px 40px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.7s forwards;
-  }
-  .closing-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--crimson); margin-bottom: 16px; }
-  .closing h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 300; color: var(--white); margin-bottom: 14px; line-height: 1.2; }
-  .closing h2 em { font-style: italic; font-weight: 600; }
-  .closing p { font-size: 14px; font-weight: 300; color: var(--white-dim); line-height: 1.8; max-width: 540px; margin-bottom: 28px; }
-  .closing-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-
-  /* ===== FOOTER ===== */
-  .ccd-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin-top: 60px;
-    padding-top: 36px;
-    border-top: 1px solid var(--border);
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.8s forwards;
-  }
-  .ccd-footer-col { display: flex; flex-direction: column; gap: 9px; min-width: 140px; }
-  .ccd-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
-  .ccd-footer-brand span { color: var(--crimson); }
-  .ccd-footer-meta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--white-dim); text-transform: uppercase; opacity: 0.5; }
-  .ccd-footer-heading { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
-  .ccd-footer-col a { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--white-dim); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s ease; opacity: 0.7; }
-  .ccd-footer-col a:hover { color: var(--crimson); opacity: 1; }
-  .ccd-footer-bottom {
-    width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-    margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--border);
-    font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--white-dim); opacity: 0.55;
-  }
-
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; opacity: 1 !important; } }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 720px) {
-    .featured-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 600px) {
-    .container { padding: 0 18px 70px; }
-    .header { padding: 44px 0 36px; }
-    .profile { flex-direction: column; align-items: flex-start; }
-    .closing { padding: 32px 24px; }
-    .ccd-footer { flex-direction: column; align-items: flex-start; }
-    .res-row { flex-direction: column; align-items: flex-start; gap: 14px; }
-    .res-get { align-self: flex-end; }
-  }
 </style>
 </head>
 <body>
-
-<!-- ===== CCD UNIVERSAL NAV BAR ===== -->
-<nav class="ccd-nav">
-    <a class="ccd-nav-brand" href="https://chaundacdallas.com">Chaunda C. Dallas<span class="ccd-nav-dot">.</span></a>
-    <div class="ccd-nav-links">
-      <a href="https://chaundacdallas.com/#offers">Services</a>
-      <a href="https://chaundacdallas.com/#approach">Approach</a>
-      <a href="https://chaundacdallas.com/#about">About</a>
-      <a href="https://chaundacdallas.com/documentary">The Film</a>
-      <a href="https://chaundacdallas.com/contact">Contact</a>
-      <a href="https://chaundacdallas.com/book" class="nav-book">Book a Fit Call</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/">Chaunda C. Dallas<span class="pulse" aria-hidden="true"></span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#three-am">The 3 A.M.</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/expertise">Expertise</a></li>
+      <li><a href="https://lab.chaundacdallas.com">DFR Lab</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a class="btn btn-amber" href="/book">Book a Fit Call</a></li>
+    </ul>
+  </div>
+  <div class="prog" aria-hidden="true"></div>
+</header>
+<main id="main">
+<section class="phead" data-hero aria-labelledby="ph-h">
+  <div class="wrap phead-grid">
+    <div>
+      <div class="k"><b>Free tools</b> · no email, no signup</div>
+      <h1 id="ph-h" class="h-xl" style="margin:16px 0 18px">Free tools that work <span class="alt">right here.</span></h1>
     </div>
-  </nav>
-<!-- ===== END CCD NAV BAR ===== -->
-
-<div class="ecg-bar"></div>
-
-<div class="container">
-
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-eyebrow">Free Resource Hub <span class="idx">· Index 001</span></div>
-    <h1>Free tools for the people <em>defending healthcare.</em></h1>
-    <p class="header-intro">Cheat sheets, cert roadmaps, and self-checks to help you map your path, translate clinical experience into cyber language, and understand where connected medical devices actually fail. No fluff, no gatekeeping — every resource is built from real clinical and security work. Grab one, then book a session when you're ready to build your plan.</p>
-    <div class="header-byline">Built by Chaunda C. Dallas, MSIT · Healthcare Cybersecurity Strategist · Digital First Responder</div>
-    <div class="header-ctas">
-      <a href="#library" class="btn-primary">Browse all resources ↓</a>
-      <a href="https://chaundacdallas.com/book" class="btn-secondary">Book a Session ↗</a>
+    <div>
+      <p class="lead">Built from real clinical and security work for the people defending healthcare. <strong>Pick one and use it now.</strong> Nothing to download.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><a class="btn btn-amber" href="#tools">Start with a tool <span class="arr">&darr;</span></a></div>
     </div>
   </div>
+  <svg class="ecg" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><polyline class="base draw" points="0,38 470,38"/><polyline class="spike draw" points="470,38 492,38 504,18 516,56 532,4 548,48 560,38"/><polyline class="base draw" points="560,38 1200,38"/></svg>
+</section>
 
-  <!-- PROFILE / CREDIBILITY STRIP -->
-  <div class="profile">
-    <div class="profile-id">
-      <div class="pname">Chaunda C. Dallas</div>
-      <div class="prole">Healthcare Cybersecurity Strategist · IoMT, Medical Device Security & Clinical AI Risk</div>
+<section class="chap" id="tools" aria-labelledby="tools-h">
+  <div class="wrap">
+    <h2 id="tools-h" class="sr">Tools</h2>
+    <div class="picker" data-tabs role="tablist" aria-label="Choose a tool" data-stagger>
+      <button role="tab" id="t-quiz" aria-controls="p-quiz" aria-selected="true"><span class="t">Quiz · 2 min</span><span class="ic" aria-hidden="true">&#129517;</span><b>Which healthcare cyber path fits you?</b><small>5 questions matched to 6 paths</small></button>
+      <button role="tab" id="t-dev" aria-controls="p-dev" aria-selected="false" tabindex="-1"><span class="t">Self-check · 2 min</span><span class="ic" aria-hidden="true">&#128137;</span><b>Device risk self-check</b><small>Score a device with PSTM&rsquo;s 5 lenses</small></button>
+      <button role="tab" id="t-tr" aria-controls="p-tr" aria-selected="false" tabindex="-1"><span class="t">Cards · tap to flip</span><span class="ic" aria-hidden="true">&#8644;</span><b>Clinical-to-cyber translator</b><small>Your floor skills in security language</small></button>
+      <button role="tab" id="t-st" aria-controls="p-st" aria-selected="false" tabindex="-1"><span class="t">Links · all free</span><span class="ic" aria-hidden="true">&#128218;</span><b>The free study stack</b><small>The sources worth your time</small></button>
     </div>
-    <div class="profile-feat">
-      <div class="profile-feat-label">As featured in</div>
-      <div class="profile-feat-row">
-        <span class="feat-tag">Midnight in the War Room · Semperis</span>
-        <span class="feat-tag">Black Hat USA 2026</span>
-        <span class="feat-tag">Halcyon · Last Month in Security</span>
-        <span class="feat-tag">WiCyS Technical Mentor</span>
+
+    <div class="tool" role="tabpanel" id="p-quiz" aria-labelledby="t-quiz"><div id="quiz" aria-live="polite"></div></div>
+
+    <div class="tool" role="tabpanel" id="p-dev" aria-labelledby="t-dev" hidden>
+      <div class="tool-h"><p class="h-m">What would this device&rsquo;s failure do to the patient?</p><span class="k">Patient-Side Threat Modeling&trade;</span></div>
+      <label class="sr" for="devName">Device name</label>
+      <input class="dev-name" id="devName" type="text" placeholder="Name the device (optional): infusion pump, telemetry monitor, CPAP…">
+      <div class="lensq" id="lensq"></div>
+      <div id="devOut" aria-live="polite"></div>
+      <p class="note-s">An educational self-check based on PSTM, not a formal risk assessment. Scores are qualitative. Your environment sets the real values.</p>
+    </div>
+
+    <div class="tool" role="tabpanel" id="p-tr" aria-labelledby="t-tr" hidden>
+      <div class="tool-h"><p class="h-m">Tap a card to translate it.</p><div class="seg" role="group" aria-label="Direction" id="trSeg"><button type="button" data-d="clin" aria-pressed="true">Floor &rarr; cyber</button><button type="button" data-d="sec" aria-pressed="false">Cyber &rarr; bedside</button></div></div>
+      <div class="flipgrid" id="flips"></div>
+      <p class="note-s">Use the floor-to-cyber side for your résumé and interviews: name the clinical skill, then the security skill it proves.</p>
+    </div>
+
+    <div class="tool" role="tabpanel" id="p-st" aria-labelledby="t-st" hidden>
+      <div class="tool-h"><p class="h-m">Free, official and worth your time.</p><span class="k">Opens in a new tab</span></div>
+      <div class="stack" data-stagger>
+        <a class="lk" href="https://www.professormesser.com/" target="_blank" rel="noopener"><span class="tag">Learn</span><span><b>Professor Messer</b><small>Free CompTIA training videos, including Security+</small></span><span class="ar">&nearr;</span></a>
+        <a class="lk" href="https://tryhackme.com/" target="_blank" rel="noopener"><span class="tag">Practice</span><span><b>TryHackMe</b><small>Guided, beginner-friendly hands-on labs</small></span><span class="ar">&nearr;</span></a>
+        <a class="lk" href="https://405d.hhs.gov/" target="_blank" rel="noopener"><span class="tag">Healthcare</span><span><b>HHS 405(d) &amp; HICP</b><small>Health Industry Cybersecurity Practices for protecting patients</small></span><span class="ar">&nearr;</span></a>
+        <a class="lk" href="https://www.hhs.gov/hipaa/for-professionals/security/index.html" target="_blank" rel="noopener"><span class="tag">Healthcare</span><span><b>The HIPAA Security Rule</b><small>Administrative, physical and technical safeguards, from HHS</small></span><span class="ar">&nearr;</span></a>
+        <a class="lk" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/cybersecurity-medical-devices-quality-system-considerations-and-content-premarket-submissions" target="_blank" rel="noopener"><span class="tag">Devices</span><span><b>FDA premarket cybersecurity guidance</b><small>What device makers are expected to document</small></span><span class="ar">&nearr;</span></a>
+        <a class="lk" href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener"><span class="tag">Framework</span><span><b>NIST Cybersecurity Framework 2.0</b><small>The common language for managing cyber risk</small></span><span class="ar">&nearr;</span></a>
+        <a class="lk" href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener"><span class="tag">AI</span><span><b>OWASP Top 10 for LLM Applications</b><small>The ten risks behind most AI failures</small></span><span class="ar">&nearr;</span></a>
+        <a class="lk" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener"><span class="tag">AI</span><span><b>NIST AI Risk Management Framework</b><small>How to govern, map, measure and manage AI risk</small></span><span class="ar">&nearr;</span></a>
+        <a class="lk" href="https://attack.mitre.org/" target="_blank" rel="noopener"><span class="tag">Threats</span><span><b>MITRE ATT&amp;CK</b><small>How attackers actually operate, technique by technique</small></span><span class="ar">&nearr;</span></a>
+        <a class="lk" href="https://lab.chaundacdallas.com" target="_blank" rel="noopener"><span class="tag">Scenarios</span><span><b>The DFR Lab</b><small>IoMT, clinical AI and ransomware scenarios scored with PSTM</small></span><span class="ar">&nearr;</span></a>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- TOOLKIT (FEATURED 3) -->
-  <div class="toolkit">
-    <div class="toolkit-head">
-      <div class="section-label">The Toolkit <span class="sub">· Featured 003</span></div>
-      <h2 class="section-title">Start <em>here.</em></h2>
-      <p class="section-blurb">Three of the most-used tools to get you moving. Open any resource, and when you're ready to map your next move, book a session.</p>
-    </div>
-
-    <div class="featured-grid">
-
-      <!-- 01 -->
-      <a class="feat-card" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Healthcare%20Cyber%20Role%20Quiz">
-        <div class="feat-num">01</div>
-        <div class="feat-type">Interactive · Quiz</div>
-        <div class="feat-title">What Healthcare Cyber Role Are You Built For?</div>
-        <div class="feat-desc">8 questions that match your clinical background to one of 6 healthcare cybersecurity paths — from GRC to IoMT to the SOC.</div>
-        <div class="feat-foot">
-          <span class="feat-cat">Interactive Tools</span>
-          <span class="feat-get">Get it free →</span>
-        </div>
-      </a>
-
-      <!-- 02 -->
-      <a class="feat-card" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Clinician%27s%20Cert%20Roadmap">
-        <div class="feat-num">02</div>
-        <div class="feat-type">PDF Guide</div>
-        <div class="feat-title">The Clinician's Cybersecurity Cert Roadmap</div>
-        <div class="feat-desc">The exact cert order from Security+ to HCISPP — built for healthcare, not generic IT. Free study resources for every step included.</div>
-        <div class="feat-foot">
-          <span class="feat-cat">Certifications</span>
-          <span class="feat-get">Get it free →</span>
-        </div>
-      </a>
-
-      <!-- 03 -->
-      <a class="feat-card" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Clinical-to-Cyber%20Positioning%20Guide">
-        <div class="feat-num">03</div>
-        <div class="feat-type">PDF Guide</div>
-        <div class="feat-title">I Didn't Leave Healthcare: The Positioning Guide</div>
-        <div class="feat-desc">How to translate years on the floor into the language hiring managers in cyber actually want to read — without ever calling it a "career change."</div>
-        <div class="feat-foot">
-          <span class="feat-cat">Career Growth</span>
-          <span class="feat-get">Get it free →</span>
-        </div>
-      </a>
-
+<section class="chap" style="background:var(--paper)" aria-labelledby="fn-h">
+  <div class="wrap">
+    <div class="chap-head"><div><div class="k" data-reveal><b>Read next</b></div><h2 id="fn-h" class="h-l" data-reveal style="margin-top:14px">Field notes <span class="alt">you can open.</span></h2></div><p class="lead" data-reveal>Real walkthroughs, run through the DFR Framework.</p></div>
+    <div class="fn" data-stagger>
+      <a class="card" href="/dfr-framework"><div class="ck">Incident response</div><h3>Anatomy of a Healthcare Ransomware Incident</h3><p>A composite hospital incident, phase by phase: Triage, Stabilize, Treat, Recover.</p></a>
+      <a class="card" href="/heartlove-case-study"><div class="ck">Case study</div><h3>Catching a Donation Scam Before Giving Season</h3><p>How a spoofed donation site was found and shut down in about a week.</p></a>
+      <a class="card" href="https://lab.chaundacdallas.com/ai-red-team"><div class="ck">Clinical AI</div><h3>The DFR AI Red Team</h3><p>Clinical AI failures traced from the OWASP LLM Top 10 to the patient.</p></a>
     </div>
   </div>
+</section>
+<section class="band" aria-labelledby="band-h"><div class="wrap"><div class="k">Next step</div><h2 id="band-h" class="h-xl">Want a plan, not just a tool?</h2><p class="lead">WiCyS mentees can book office hours and a 1:1. Organizations can bring a system to a free Fit Call.</p><div class="row"><a class="btn btn-amber" href="/wicys">Mentoring &amp; study hall <span class="arr">&rarr;</span></a><a class="btn btn-ghost" href="/book">Book a Fit Call</a></div></div></section>
 
-  <!-- LIBRARY -->
-  <div class="library" id="library">
-    <div class="section-label">Free Resource Library <span class="sub">· Library 012</span></div>
-    <h2 class="section-title">All <em>12 free resources.</em></h2>
-    <p class="section-blurb">Browse the full library by category. Each one is yours — just reach out and I'll send it over.</p>
-
-    <!-- INTERACTIVE TOOLS -->
-    <div class="cat-block">
-      <div class="cat-name">Interactive Tools</div>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Healthcare%20Cyber%20Role%20Quiz">
-        <div class="res-left">
-          <span class="res-type tool">Quiz</span>
-          <div class="res-info">
-            <div class="res-name">What Healthcare Cyber Role Are You Built For?</div>
-            <div class="res-desc">8 questions that match your clinical background to one of 6 healthcare cyber paths.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20IoMT%20Device%20Risk%20Self-Check">
-        <div class="res-left">
-          <span class="res-type tool">Tool</span>
-          <div class="res-info">
-            <div class="res-name">IoMT Device Risk Self-Check</div>
-            <div class="res-desc">Run your connected medical devices through a 10-point risk check in five minutes.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Clinical-to-Cyber%20Skills%20Translator">
-        <div class="res-left">
-          <span class="res-type tool">Tool</span>
-          <div class="res-info">
-            <div class="res-name">Clinical-to-Cyber Skills Translator</div>
-            <div class="res-desc">See how triage, charting, and code response map to real cybersecurity competencies.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><p class="sig">Red team mindset. Blue team heart. <span>All for the patient.</span></p></div>
+      <div><h4>Work with me</h4><ul><li><a href="/services">Services</a></li><li><a href="/book">Book a Fit Call</a></li><li><a href="/contact">Contact</a></li></ul></div>
+      <div><h4>The work</h4><ul><li><a href="https://lab.chaundacdallas.com">DFR Lab</a></li><li><a href="/expertise">Expertise</a></li><li><a href="/documentary">The film</a></li><li><a href="https://www.linkedin.com/in/chaundacdallas">LinkedIn</a></li></ul></div>
     </div>
-
-    <!-- CERTIFICATIONS -->
-    <div class="cat-block">
-      <div class="cat-name">Certifications</div>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Clinician%27s%20Cert%20Roadmap">
-        <div class="res-left">
-          <span class="res-type">PDF Guide</span>
-          <div class="res-info">
-            <div class="res-name">The Clinician's Cybersecurity Cert Roadmap</div>
-            <div class="res-desc">The exact cert order from Security+ to HCISPP — built for healthcare, not generic IT.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Free%20Study%20Stack">
-        <div class="res-left">
-          <span class="res-type">PDF Guide</span>
-          <div class="res-info">
-            <div class="res-name">The Free Study Stack</div>
-            <div class="res-desc">Every free resource I used — Professor Messer, TryHackMe, NIST, CISA, HHS — in one list.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-    </div>
-
-    <!-- CAREER GROWTH -->
-    <div class="cat-block">
-      <div class="cat-name">Career Growth &amp; Positioning</div>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Clinical-to-Cyber%20Positioning%20Guide">
-        <div class="res-left">
-          <span class="res-type">PDF Guide</span>
-          <div class="res-info">
-            <div class="res-name">I Didn't Leave Healthcare: The Positioning Guide</div>
-            <div class="res-desc">Translate years on the floor into language hiring managers in cyber actually want.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20LinkedIn%20Audit%20Checklist">
-        <div class="res-left">
-          <span class="res-type">PDF Guide</span>
-          <div class="res-info">
-            <div class="res-name">LinkedIn Audit Checklist for Healthcare Pros</div>
-            <div class="res-desc">A self-audit that shows recruiters you belong in cyber — sorted by what they check first.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Resume%20Translation%20Cheat%20Sheet">
-        <div class="res-left">
-          <span class="res-type">PDF Guide</span>
-          <div class="res-info">
-            <div class="res-name">Clinical-to-Cyber Résumé Translation Cheat Sheet</div>
-            <div class="res-desc">Word-for-word swaps that turn clinical duties into cybersecurity résumé bullets.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-    </div>
-
-    <!-- HEALTHCARE CYBER & IoMT -->
-    <div class="cat-block">
-      <div class="cat-name">Healthcare Cyber &amp; IoMT</div>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20DFR%20Framework%20One-Pager">
-        <div class="res-left">
-          <span class="res-type">PDF Guide</span>
-          <div class="res-info">
-            <div class="res-name">The DFR Framework One-Pager</div>
-            <div class="res-desc">Triage → Stabilize → Treat → Recover. The clinical method mapped to incident response.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Ransomware%20Tabletop%20Starter">
-        <div class="res-left">
-          <span class="res-type">PDF Guide</span>
-          <div class="res-info">
-            <div class="res-name">Healthcare Ransomware Tabletop Starter</div>
-            <div class="res-desc">A 30-minute tabletop you can run with your team — no outside facilitator required.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20HIPAA%20Security%20Rule%20Quick%20Reference">
-        <div class="res-left">
-          <span class="res-type">PDF Guide</span>
-          <div class="res-info">
-            <div class="res-name">HIPAA Security Rule Quick Reference</div>
-            <div class="res-desc">The Security Rule in plain language, sorted by what actually gets audited.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-    </div>
-
-    <!-- SPORTS TECH -->
-    <div class="cat-block">
-      <div class="cat-name">Sports Tech &amp; Wearables</div>
-
-      <a class="res-row" href="mailto:connect@chaundacdallas.com?subject=Resource%20Request%3A%20Wearable%20Security%20Primer">
-        <div class="res-left">
-          <span class="res-type">PDF Guide</span>
-          <div class="res-info">
-            <div class="res-name">Wearable &amp; Athlete Biometric Security Primer</div>
-            <div class="res-desc">Same methodology, new arena: where athlete data leaks and how to lock it down.</div>
-          </div>
-        </div>
-        <span class="res-get">Get it free →</span>
-      </a>
-    </div>
-
+    <div class="foot-base"><span>&copy; 2026 Chaunda C. Dallas LLC · Remote, United States</span><a href="mailto:connect@chaundacdallas.com?subject=Federal%20Subcontract%20Inquiry">Federal &amp; subcontract inquiries</a></div>
   </div>
+</footer>
+<script src="/ccd.js"></script>
+<script>
+(function(){var $=CCD.$,$$=CCD.$$,esc=CCD.esc;
+/* ---------------- ROLE QUIZ ---------------- */
+var PATHS={
+ grc:{n:'Healthcare GRC & risk',d:'You like order, evidence and knowing the rules before the surveyor walks in. GRC turns that into risk assessments, policies and audit readiness.',s:['Earn CompTIA Security+ as your foundation','Read the HIPAA Security Rule overview from HHS','Learn the NIST Cybersecurity Framework 2.0']},
+ iomt:{n:'Medical device & IoMT security',d:'You were the one who figured out the pump, the monitor, the machine nobody else understood. Device security needs exactly that.',s:['Earn CompTIA Security+ as your foundation','Skim the FDA premarket cybersecurity guidance','Work through the IoMT scenarios in the DFR Lab']},
+ soc:{n:'Security operations & incident response',d:'Codes didn&rsquo;t rattle you. Incident response is the same instinct: sort fast, act calmly, document everything.',s:['Earn CompTIA Security+, then consider CySA+','Practice on TryHackMe&rsquo;s beginner paths','Learn how attacks work with MITRE ATT&CK']},
+ training:{n:'Security awareness & clinical enablement',d:'You precepted, you taught, you made new staff confident. Security awareness programs fail without people like you.',s:['Earn CompTIA Security+ as your foundation','Read HHS 405(d) HICP, written for healthcare','Build a 10-minute phishing talk for clinical staff']},
+ healthit:{n:'Health IT & EHR security',d:'You lived inside the EHR and helped others do it too. Securing clinical systems starts with understanding how people actually use them.',s:['Earn CompTIA Security+ as your foundation','Learn identity and access basics','Read the HIPAA Security Rule technical safeguards']},
+ ai:{n:'Clinical AI risk',d:'You notice when something sounds confident but is wrong. That is the core skill of clinical AI risk work.',s:['Earn CompTIA Security+ as your foundation','Read the OWASP Top 10 for LLM Applications','Study the NIST AI RMF, then the DFR AI Red Team']}
+};
+var Q=[
+ {q:'On shift, what did you get pulled into most?',o:[['Charting audits, policies and compliance','grc'],['The pump or monitor nobody could figure out','iomt'],['Codes and rapid responses','soc'],['Precepting and training new staff','training'],['The EHR, as the go-to person','healthit'],['Pilots of new tools and tech','ai']]},
+ {q:'What frustrates you most?',o:[['Rules nobody follows','grc'],['Devices nobody really understands','iomt'],['Slow response when things go wrong','soc'],['People who were never properly trained','training'],['Systems that don&rsquo;t talk to each other','healthit'],['Tools that sound sure but are wrong','ai']]},
+ {q:'Pick your ideal workday.',o:[['Reviewing risks and writing policy','grc'],['Testing how a device behaves','iomt'],['Investigating what just happened','soc'],['Running a class or workshop','training'],['Configuring and supporting systems','healthit'],['Stress-testing something brand new','ai']]},
+ {q:'Which question do you ask first?',o:[['&ldquo;Are we compliant?&rdquo;','grc'],['&ldquo;What happens if this device fails?&rdquo;','iomt'],['&ldquo;What&rsquo;s happening right now?&rdquo;','soc'],['&ldquo;Does everyone know what to do?&rdquo;','training'],['&ldquo;Where does this data go?&rdquo;','healthit'],['&ldquo;Can we trust this output?&rdquo;','ai']]},
+ {q:'Which pace fits you?',o:[['Steady, structured, well documented','grc'],['Hands-on and technical','iomt'],['Fast, urgent, high stakes','soc'],['People-facing, every day','training'],['Behind the scenes, keeping things running','healthit'],['New and always changing','ai']]}
+];
+var qEl=$('#quiz'),ans=[],cur=0;
+function drawQ(){var x=Q[cur];
+ qEl.innerHTML='<div class="tool-h"><div><div class="qn">Question '+(cur+1)+' of '+Q.length+'</div></div><div class="bar" aria-hidden="true"><i style="width:'+(cur/Q.length*100)+'%"></i></div></div>'+
+  '<p class="qq">'+x.q+'</p><div class="opts">'+x.o.map(function(o,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(ans[cur]===i)+'">'+o[0]+'</button>'}).join('')+'</div>'+
+  '<div class="navq"><button type="button" id="qBack"'+(cur===0?' disabled':'')+'>&larr; Back</button><span class="k">Pick one to continue</span></div>';
+ $$('.opts button',qEl).forEach(function(b){b.addEventListener('click',function(){ans[cur]=+b.dataset.i;b.setAttribute('aria-pressed','true');setTimeout(function(){if(cur<Q.length-1){cur++;drawQ();}else result();},220);})});
+ $('#qBack').addEventListener('click',function(){if(cur>0){cur--;drawQ();}});}
+function result(){var sc={};Object.keys(PATHS).forEach(function(k){sc[k]=0});
+ ans.forEach(function(a,i){sc[Q[i].o[a][1]]++});
+ var order=Object.keys(sc).sort(function(a,b){return sc[b]-sc[a]||Object.keys(PATHS).indexOf(a)-Object.keys(PATHS).indexOf(b)});
+ var top=PATHS[order[0]],second=sc[order[1]]>0?PATHS[order[1]]:null;
+ qEl.innerHTML='<div class="result"><div class="res-main"><div class="k">Your best fit</div><h3>'+top.n+'</h3><p>'+top.d+'</p>'+(second?'<p class="also-fit">Also a strong fit: <b>'+second.n+'</b></p>':'')+'</div>'+
+  '<div class="res-side"><div class="k">Three first steps</div><ul class="ticks" style="margin-top:12px">'+top.s.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul>'+
+  '<p class="note-s">The study stack tab has free links for each of these.</p><div class="copyrow"><button class="btn btn-green" type="button" id="qAgain">Take it again</button><a class="btn btn-line" href="/wicys">Talk it through</a></div></div></div>';
+ $('#qAgain').addEventListener('click',function(){ans=[];cur=0;drawQ();});}
+drawQ();
 
-  <!-- CLOSING CTA -->
-  <div class="closing">
-    <div class="closing-label">Next Step</div>
-    <h2>Ready to build <em>your</em> roadmap?</h2>
-    <p>The resources get you moving. A 1:1 session gets you a plan built around your background, your goals, and your timeline — the same way I triaged in the ER. Assess, stabilize, treat, recover.</p>
-    <div class="closing-ctas">
-      <a href="https://chaundacdallas.com/book" class="btn-primary">Book a Session ↗</a>
-      <a href="mailto:connect@chaundacdallas.com" class="btn-secondary">Email me ↗</a>
-    </div>
-  </div>
+/* ---------------- DEVICE SELF-CHECK ---------------- */
+var L=[
+ {n:'Dependency',q:'How much does the patient&rsquo;s body depend on it right now?',o:['Convenience','Supports care','Life-sustaining'],tip:'Treat it as life-sustaining in your downtime plan, and know the manual fallback by heart.'},
+ {n:'Latency to harm',q:'If it failed, how fast could harm arrive?',o:['Days','Hours','Minutes'],tip:'Set the response priority in minutes, not tickets.'},
+ {n:'Detectability',q:'Would the bedside team notice a wrong value or a silent failure?',o:['Obvious','Maybe','Invisible'],tip:'Add a human check: verify its readings against the patient.'},
+ {n:'Workaround pressure',q:'If it went down, how hard would staff push to keep care moving?',o:['Low','Some','High'],tip:'Write the safe workaround down before staff have to invent one.'},
+ {n:'Downtime survivability',q:'Could care continue safely without it for a full shift?',o:['Easily','With effort','Barely'],tip:'Practice the downtime procedure on this unit, on this shift.'}
+];
+var lq=$('#lensq'),out=$('#devOut'),vals=[null,null,null,null,null];
+lq.innerHTML=L.map(function(l,i){return '<div class="lq"><div class="ln">0'+(i+1)+' · '+l.n+'</div><p>'+l.q+'</p><div class="seg" role="group" aria-label="'+l.n+'">'+l.o.map(function(o,j){return '<button type="button" data-l="'+i+'" data-v="'+(j+1)+'" aria-pressed="false">'+o+'</button>'}).join('')+'</div></div>'}).join('');
+lq.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var i=+b.dataset.l;vals[i]=+b.dataset.v;
+ $$('button[data-l="'+i+'"]',lq).forEach(function(x){x.setAttribute('aria-pressed',x===b)});draw();});
+function draw(){var n=vals.filter(function(v){return v}).length;
+ if(n<5){out.innerHTML='<p class="note-s" style="margin-top:18px">'+n+' of 5 lenses answered.</p>';return;}
+ var sum=vals.reduce(function(a,b){return a+b},0),pct=(sum-5)/10;
+ var band=sum<=8?['low','Lower patient-side risk','Worth documenting, but it isn&rsquo;t where harm arrives first.']:sum<=11?['mid','Elevated patient-side risk','Plan for this device specifically: who notices, how fast, and what the fallback is.']:['high','High patient-side risk','Protect and rehearse this one first. A failure here reaches the patient fast.'];
+ var high=L.filter(function(l,i){return vals[i]===3});
+ var name=$('#devName').value.trim()||'This device';
+ out.innerHTML='<div class="result" style="margin-top:22px"><div class="res-main"><div class="k">'+esc(name)+'</div><span class="band-score '+band[0]+'">'+band[1]+'</span><div class="meter" aria-hidden="true"><span class="mk" style="left:0%"></span></div><div class="meter-l"><span>Lower</span><span>Higher</span></div><p style="margin-top:14px">'+band[2]+'</p></div>'+
+  '<div class="res-side"><div class="k">What to do next</div><ul class="ticks" style="margin-top:12px">'+(high.length?high.map(function(l){return '<li><span><b>'+l.n+':</b> '+l.tip+'</span></li>'}).join(''):'<li>No lens scored at the top of the scale. Keep it on your inventory and re-check after changes.</li>')+'</ul><div class="copyrow"><button class="btn btn-green" type="button" id="devCopy">Copy my results</button><a class="btn btn-line" href="/book">Review it with me</a></div><span class="toast" id="devToast"></span></div></div>';
+ requestAnimationFrame(function(){requestAnimationFrame(function(){var m=$('.mk',out);if(m)m.style.left=(pct*100)+'%';})});
+ $('#devCopy').addEventListener('click',function(){var t=name+' — PSTM self-check: '+band[1]+'\n'+L.map(function(l,i){return l.n+': '+l.o[vals[i]-1]}).join('\n')+'\nchaundacdallas.com/resources';CCD.copy(t,function(ok){$('#devToast').textContent=ok?'Copied.':'Select and copy by hand.'})});}
+$('#devName').addEventListener('input',function(){if(vals.every(function(v){return v}))draw();});
+draw();
 
-  <!-- FOOTER -->
-  <footer class="ccd-footer">
-    <div class="ccd-footer-col">
-      <div class="ccd-footer-brand">Chaunda C<span>.</span> Dallas</div>
-      <div class="ccd-footer-meta">Healthcare Cybersecurity Strategist</div>
-    </div>
-    <div class="ccd-footer-col">
-      <div class="ccd-footer-heading">Work With Me</div>
-      <a href="https://chaundacdallas.com/#offers">Services</a>
-      <a href="https://chaundacdallas.com/book">Book a Fit Call</a>
-      <a href="https://chaundacdallas.com/contact">Contact</a>
-    </div>
-    <div class="ccd-footer-col">
-      <div class="ccd-footer-heading">The Work</div>
-      <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>
-      <a href="https://chaundacdallas.com/documentary">The Film</a>
-      <a href="https://www.linkedin.com/in/chaundacdallas" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-    <div class="ccd-footer-bottom">
-      <span>&copy; 2026 Chaunda C. Dallas LLC</span>
-      <span>Remote, United States</span>
-    </div>
-  </footer>
-
-</div>
+/* ---------------- TRANSLATOR ---------------- */
+var CLIN=[['Triage','Who gets seen first, and who can wait.','Incident triage','Which problem hurts patients first, and fix that one first.'],['Downtime binder','Paper forms when the computers go down.','Continuity planning','Keeping care safe when systems are offline for days, not hours.'],['Mock codes','Practicing before the real one rolls in.','Tabletop exercises','Rehearsing an attack with the people who&rsquo;ll actually live it.'],['Alarm fatigue','So many alarms nobody hears the one that matters.','Medical device security','Making sure devices can be trusted and real warnings get noticed.'],['Two identifiers','Check the band before every med.','Data integrity','Making sure what&rsquo;s on the screen is true and belongs to the right patient.'],['Epic go-live','Teaching tired staff a new system mid-shift.','Security awareness','Getting people to change habits under pressure.'],['Chain of custody','Specimens and evidence handled by the book.','Forensics &amp; logging','Preserving what happened so it can be proven later.'],['Charting','If it wasn&rsquo;t documented, it didn&rsquo;t happen.','Audit &amp; compliance','Evidence that controls actually ran.']];
+var SEC=[['Asset','What depends on it clinically, and which patients are downstream.'],['Vulnerability','What could actually happen to the patient if it&rsquo;s exploited.'],['Availability','How long care can safely survive without it.'],['Integrity','Whether the wrong information would look believable at the bedside.'],['Incident','Which clinical workflows break first, and in what order.'],['Recovery','Whether the workaround is actually safe, or just fast.'],['AI model','What happens when a tired clinician trusts the output.'],['Medical device','What happens to the body when therapy becomes unreliable.']];
+function card(fk,ft,fd,bk,bt,bd,cls){return '<button type="button" class="flip '+(cls||'')+'" aria-pressed="false" aria-label="'+ft.replace(/&[^;]+;/g,'')+'. Tap to translate."><span class="flip-in"><span class="flip-face flip-front"><span class="fk">'+fk+'</span><span class="hint">Flip</span><span class="ft">'+ft+'</span>'+(fd?'<span class="fd">'+fd+'</span>':'')+'</span><span class="flip-face flip-back"><span class="fk">'+bk+'</span><span class="hint">Back</span><span class="ft">'+bt+'</span><span class="fd">'+bd+'</span></span></span></button>';}
+function drawT(d){$('#flips').innerHTML=d==='clin'?CLIN.map(function(c){return card('On the floor',c[0],c[1],'In cybersecurity',c[2],c[3])}).join(''):SEC.map(function(c){return card('Security sees',c[0],'','At the bedside',c[0],c[1],'sec-card')}).join('');CCD.flip($('#flips'));}
+$('#trSeg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;$$('#trSeg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});drawT(b.dataset.d);});
+drawT('clin');
+})();
+</script>
 </body>
 </html>
