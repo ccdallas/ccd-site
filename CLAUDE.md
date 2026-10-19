@@ -44,7 +44,6 @@ Lab: lab.chaundacdallas.com (Digital First Responder Lab — IoMT scenarios + He
 
 ## Current booking + intake wiring (canonical links)
 - Fit Call (20 min, free): https://calendar.app.google/Hg3nHphttRmC37AN6
-- Deep Dive Strategy Session (60 min, $120): https://calendar.app.google/id5gP6HPxrwBRvtw8
 - 1:1 Mentor Session (free, WiCyS grant): https://calendar.app.google/S7HAL9PbuCJGh6MN8
 - WiCyS Office Hours (free): https://calendar.app.google/spo67aTHk6M7Ld6g7
 - Saturday Study Hall standing room: https://meet.google.com/jey-dwbf-hvr
