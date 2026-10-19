@@ -43,7 +43,7 @@ Main site (GitHub Pages): Home, About, Expertise, Services, DFR Framework, Playb
 Lab: lab.chaundacdallas.com (Digital First Responder Lab — IoMT scenarios + Healthcare Ransomware Intelligence Tracker). Always link the lab by this subdomain, never a raw github.io URL.
 
 ## Current booking + intake wiring (canonical links)
-- ER-to-Cyber Strategy Session (30 min, $60): https://calendar.app.google/8zjP5oartL5pDTU38
+- Fit Call (20 min, free): https://calendar.app.google/Hg3nHphttRmC37AN6
 - Deep Dive Strategy Session (60 min, $120): https://calendar.app.google/id5gP6HPxrwBRvtw8
 - 1:1 Mentor Session (free, WiCyS grant): https://calendar.app.google/S7HAL9PbuCJGh6MN8
 - WiCyS Office Hours (free): https://calendar.app.google/spo67aTHk6M7Ld6g7
