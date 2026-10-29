@@ -3,7 +3,7 @@
 This file briefs any AI agent working in this repo. Read it before making changes.
 
 ## Who this is for
-Chaunda C. Dallas, MSIT — Healthcare Cybersecurity Strategist and Digital First Responder.
+Chaunda C. Dallas, MSIT — Healthcare Cyber Resilience & Incident Management (ED-first). Digital First Responder is a facet. The locked copy in the Jarvis project instructions wins over anything here.
 The NAME leads everywhere. "Digital First Responder (DFR)" is a facet of her identity, not the headline.
 Chaunda C. Dallas LLC is infrastructure — it appears ONLY in footers and the Federal Credentials section, never in public-facing hero copy or positioning.
 
@@ -43,8 +43,8 @@ Main site (GitHub Pages): Home, About, Expertise, Services, DFR Framework, Playb
 Lab: lab.chaundacdallas.com (Digital First Responder Lab — IoMT scenarios + Healthcare Ransomware Intelligence Tracker). Always link the lab by this subdomain, never a raw github.io URL.
 
 ## Current booking + intake wiring (canonical links)
-- ER-to-Cyber Strategy Session (30 min, $60): https://calendar.app.google/8zjP5oartL5pDTU38
-- Deep Dive Strategy Session (60 min, $120): https://calendar.app.google/id5gP6HPxrwBRvtw8
+- Fit Call (free, 20 min, clients and paid prospects only): https://calendar.app.google/umQdxXa6yuYqqXfd9
+- No prices on any public page. Each service is 'Scoped on a Fit Call'.
 - 1:1 Mentor Session (free, WiCyS grant): https://calendar.app.google/S7HAL9PbuCJGh6MN8
 - WiCyS Office Hours (free): https://calendar.app.google/spo67aTHk6M7Ld6g7
 - Saturday Study Hall standing room: https://meet.google.com/jey-dwbf-hvr
