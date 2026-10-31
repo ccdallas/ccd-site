@@ -143,6 +143,16 @@
     .record li span:last-child{text-align:left}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+  .ccd-footer{background:#153a2e;color:#F3ECDD;padding:28px 24px 36px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--sans)}
+  .ccd-footer-brand{font-family:var(--serif);font-size:20px;font-weight:600;color:#F3ECDD;text-decoration:none}
+  .ccd-footer-brand span{color:#E0A83E}
+  .ccd-footer-col{display:flex;flex-direction:column;gap:8px}
+  .ccd-footer-heading{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#E0A83E}
+  .ccd-footer-col a{color:#F3ECDD;opacity:.8;text-decoration:none;font-size:14px}
+  .ccd-footer-col a:hover{color:#E0A83E;opacity:1}
+  .ccd-footer-meta,.ccd-footer-bottom{color:#F3ECDD;opacity:.7;font-size:13px}
+  .ccd-footer-bottom{display:flex;gap:16px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -155,6 +165,7 @@
       <li><a href="#approach">Approach</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#film">The Film</a></li>
+      <li><a href="https://chaundacdallas.com/contact">Contact</a></li>
       <li><a class="btn btn-amber" href="https://chaundacdallas.com/book">Book a Fit Call</a></li>
     </ul>
   </div>
@@ -278,7 +289,7 @@
     <p>I spent 17+ years in emergency medicine across two Level II trauma centers. Over those years, I became a clinical leader, preceptor, Epic Super User, and the person teams trusted when situations moved fast and there was no room for guesswork.</p>
     <p>I learned what it takes to keep patient care moving when the normal process breaks down: assess the situation, find the safest workaround, communicate clearly, and keep the patient at the center of the decision.</p>
     <p>During Epic implementation, I helped the trainers support more than 200 clinicians. Later, I moved into interventional radiology and vascular surgery, coordinating complex procedures and referrals across two surgical centers.</p>
-    <p>Then I took that clinical perspective into healthcare technology and cybersecurity. I earned my MSIT from Kennesaw State with an information security concentration, and joined DeepScribe, where I helped clinicians adopt ambient AI in real-world workflows. Today, I bring that same clinical perspective into cybersecurity, medical device, and clinical AI decisions.</p>
+    <p>Then I took that clinical perspective into healthcare technology and cybersecurity. I earned my MSIT from Kennesaw State with an information security concentration. I joined DeepScribe as a Customer Success Engineer, where I wrote the code behind each provider's charting preferences (JSON, SOAP API, Firebase) and helped clinicians adopt ambient AI in real-world workflows. Today, I bring that same clinical perspective into cybersecurity, medical device, and clinical AI decisions.</p>
     <p class="tagline">Same instinct. New frontline.</p>
   </div>
 
@@ -286,9 +297,9 @@
     <li><span>Emergency Medicine Leadership</span><span>17+ years | Level II Trauma | Clinical Preceptor</span></li>
     <li><span>Clinical Systems &amp; Workflow</span><span>Epic Super User | Helped Support 200+ Clinicians</span></li>
     <li><span>Surgical Care Coordination</span><span>Interventional Radiology &amp; Vascular Surgery</span></li>
-    <li><span>Clinical AI &amp; Health Technology</span><span>DeepScribe | Ambient AI Implementation</span></li>
+    <li><span>Clinical AI &amp; Health Technology</span><span>DeepScribe | Customer Success Engineer, Clinical AI &amp; EHR</span></li>
     <li><span>Healthcare Cyber Resilience</span><span>Clinical Risk &amp; Threat Defense</span></li>
-    <li><span>Education</span><span>MSIT (Information Security) | Kennesaw State University</span></li>
+    <li><span>Education</span><span>MSIT (Information Security) &amp; Health Tech Cert | Kennesaw State University</span></li>
     <li><span>Signature Framework</span><span>Patient-Side Threat Modeling&trade;</span></li>
   </ul>
 </div>
@@ -331,15 +342,28 @@
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <span>&copy; 2026 Chaunda C. Dallas Consulting &middot; Remote, United States</span>
-    <nav aria-label="Footer">
-      <a href="https://www.linkedin.com/in/chaundacdallas">LinkedIn</a>
-      <a href="https://lab.chaundacdallas.com">DFR Lab</a>
-    </nav>
-  </div>
-</footer>
+<footer class="ccd-footer">
+    <div class="ccd-footer-col">
+      <div class="ccd-footer-brand">Chaunda C<span>.</span> Dallas</div>
+      <div class="ccd-footer-meta">Healthcare Cyber Resilience &amp; Incident Management</div>
+    </div>
+    <div class="ccd-footer-col">
+      <div class="ccd-footer-heading">Work With Me</div>
+      <a href="https://chaundacdallas.com/#offers">Services</a>
+      <a href="https://chaundacdallas.com/book">Book a Fit Call</a>
+      <a href="https://chaundacdallas.com/contact">Contact</a>
+    </div>
+    <div class="ccd-footer-col">
+      <div class="ccd-footer-heading">The Work</div>
+      <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>
+      <a href="https://chaundacdallas.com/documentary">The Film</a>
+      <a href="https://www.linkedin.com/in/chaundacdallas" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="ccd-footer-bottom">
+      <span>&copy; 2026 Chaunda C. Dallas Consulting</span>
+      <span>Remote, United States</span>
+    </div>
+  </footer>
 
 </body>
 </html>

@@ -82,6 +82,16 @@
 @media (max-width:700px){.opts,.result,.stack{grid-template-columns:1fr}.picker button small{display:none}}
 @media (max-width:480px){.flipgrid{grid-template-columns:1fr}}
 
+
+  .ccd-footer{background:#153a2e;color:#F3ECDD;padding:28px 24px 36px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--sans)}
+  .ccd-footer-brand{font-family:var(--serif);font-size:20px;font-weight:600;color:#F3ECDD;text-decoration:none}
+  .ccd-footer-brand span{color:#E0A83E}
+  .ccd-footer-col{display:flex;flex-direction:column;gap:8px}
+  .ccd-footer-heading{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#E0A83E}
+  .ccd-footer-col a{color:#F3ECDD;opacity:.8;text-decoration:none;font-size:14px}
+  .ccd-footer-col a:hover{color:#E0A83E;opacity:1}
+  .ccd-footer-meta,.ccd-footer-bottom{color:#F3ECDD;opacity:.7;font-size:13px}
+  .ccd-footer-bottom{display:flex;gap:16px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -174,16 +184,28 @@
 <section class="band" aria-labelledby="band-h"><div class="wrap"><div class="k">Next step</div><h2 id="band-h" class="h-xl">Want a plan, not just a tool?</h2><p class="lead">WiCyS mentees can book office hours and a 1:1. Organizations can bring a system to a free Fit Call.</p><div class="row"><a class="btn btn-amber" href="/wicys">Mentoring &amp; study hall <span class="arr">&rarr;</span></a><a class="btn btn-ghost" href="/book">Book a Fit Call</a></div></div></section>
 
 </main>
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div><p class="sig">Red team mindset. Blue team heart. <span>All for the patient.</span></p></div>
-      <div><h4>Work with me</h4><ul><li><a href="/services">Services</a></li><li><a href="/book">Book a Fit Call</a></li><li><a href="/contact">Contact</a></li></ul></div>
-      <div><h4>The work</h4><ul><li><a href="https://lab.chaundacdallas.com">DFR Lab</a></li><li><a href="/expertise">Expertise</a></li><li><a href="/documentary">The film</a></li><li><a href="https://www.linkedin.com/in/chaundacdallas">LinkedIn</a></li></ul></div>
+<footer class="ccd-footer">
+    <div class="ccd-footer-col">
+      <div class="ccd-footer-brand">Chaunda C<span>.</span> Dallas</div>
+      <div class="ccd-footer-meta">Healthcare Cyber Resilience &amp; Incident Management</div>
     </div>
-    <div class="foot-base"><span>&copy; 2026 Chaunda C. Dallas LLC · Remote, United States</span><a href="mailto:connect@chaundacdallas.com?subject=Federal%20Subcontract%20Inquiry">Federal &amp; subcontract inquiries</a></div>
-  </div>
-</footer>
+    <div class="ccd-footer-col">
+      <div class="ccd-footer-heading">Work With Me</div>
+      <a href="https://chaundacdallas.com/#offers">Services</a>
+      <a href="https://chaundacdallas.com/book">Book a Fit Call</a>
+      <a href="https://chaundacdallas.com/contact">Contact</a>
+    </div>
+    <div class="ccd-footer-col">
+      <div class="ccd-footer-heading">The Work</div>
+      <a href="https://lab.chaundacdallas.com/" target="_blank" rel="noopener">DFR Lab</a>
+      <a href="https://chaundacdallas.com/documentary">The Film</a>
+      <a href="https://www.linkedin.com/in/chaundacdallas" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="ccd-footer-bottom">
+      <span>&copy; 2026 Chaunda C. Dallas Consulting</span>
+      <span>Remote, United States</span>
+    </div>
+  </footer>
 <script src="/ccd.js"></script>
 <script>
 (function(){var $=CCD.$,$$=CCD.$$,esc=CCD.esc;

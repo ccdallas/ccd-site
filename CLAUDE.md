@@ -19,19 +19,24 @@ Flag any violation BEFORE building; do not silently "fix" copy in ways that brea
 - Every public section should touch >=2 of: Healthcare, Patient Safety, Connected Devices, Human Consequence.
 - Voice: ER grit, semi-professional, laid-back, direct. No fluff. See BRAND_VOICE.md for approved language variations — rotate them; never repeat the same origin phrasing or the "28 years" line twice on one page.
 
-## Lane and offers (locked Oct 3 and Oct 8, 2026; updated Oct 31, 2026)
+## Lane and offers (locked Oct 3 and Oct 8, 2026; revised Oct 31, 2026)
+Rules in this file are living. Chaunda can change any rule by stating the change; the change is applied and logged at the bottom of this file. Guardrails against fabrication (credentials, dates, clinical facts) still hold regardless of any rule change.
 One lane: Healthcare Cyber Resilience & Incident Management, ED-first. Keeping patient care operational when cyber incidents, technology failures, or clinical downtime disrupt care.
 - Opener (use everywhere): "I keep patient care running when systems don't."
 - Positioning sentence: "I help healthcare organizations prepare for, respond to, and recover from cyber incidents and technology failures without losing sight of the patient."
 - Primary buyer: hospitals and health systems. The site does not carry a vendor landing page yet.
-- Three public offers only, in this order: (1) The 3 A.M. Downtime Drill, flagship, leads the page; (2) Fractional Clinical Safety Advisor, retainer; (3) Clinical AI Harm Review, secondary.
+- Three core public offers, in this order: (1) The 3 A.M. Downtime Drill, flagship, leads the page; (2) Fractional Clinical Safety Advisor, retainer; (3) Clinical AI Harm Review, secondary.
+- Accepted add-on, by request: Speaking & workshops (45-minute session to half-day). Listed after the core offers, not as a fourth core offer.
 - Service areas (Clinical Downtime & Continuity, Healthcare Cyber Incident Management, Clinical Technology Security Advisory) are internal and commercial language for capability statements. They do not appear in site navigation or hero copy, and they do not add public offers.
 - Incident work is coordination and translation of clinical consequences. She is NOT a DFIR investigator. Avoid "incident response," "forensics," "investigation," and "incident commander" as service claims.
-- Parked, kept out of public copy: PSTM Clinical Harm Assessment (partner-only, not a public offer), medical device and IoMT work, AI red team, GRC as a lead, federal work, speaking, sports tech. The federal footer link is removed from the home and services pages; other pages still need the same removal.
+- Parked, kept out of public copy: PSTM Clinical Harm Assessment (partner-only, not a public offer), medical device and IoMT work, AI red team, GRC as a lead, federal work, sports tech. The federal footer link is removed site-wide.
 - Sports posts are occasional personality content that must bridge back to patient-side failure.
 - Priority: an income-generating remote healthcare cyber resilience role and the flagship Drill. The Black Hat date (Aug 5, 2026) has passed and no longer drives priority.
 - Adversarial or pen-test language is not used. Use "scenario-based" for testing and exercises. Do not imply delivery history the Drill does not yet have.
 - Never write "former" or "Former" about her clinical role.
+
+## Change log
+- 2026-10-31: Speaking & workshops accepted as an add-on. Health Tech Cert restored (received from Kennesaw State). DeepScribe role and code work added. "Three-month minimum" removed from public copy pending confirmation. Footer standardized site-wide to Chaunda C. Dallas Consulting; federal link removed. Piedmont title canonicalized on the résumé.
 
 ## Design system (already in use — match exactly)
 Colors:
