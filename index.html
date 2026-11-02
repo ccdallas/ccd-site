@@ -151,6 +151,59 @@
     .card{transition:none}
     .card:hover{transform:none}
   }
+
+/* Cinematic editorial exploration · v2 */
+:root{--green:#102d28;--green-deep:#071713;--amber:#d5ad6b;--crimson:#9b2635;--cream:#f2eadb;--cream-2:#e8decb;--slate:#253630}
+body{background:var(--cream)}
+.wrap{max-width:1280px;padding-left:clamp(20px,4vw,64px);padding-right:clamp(20px,4vw,64px)}
+.ccd-nav{background:rgba(7,23,19,.96);border-color:rgba(242,234,219,.13)}
+.ccd-nav-brand{color:var(--cream);font-size:clamp(20px,2vw,27px)}
+.ccd-nav-links a{color:var(--cream)}
+.ccd-nav-links a:hover{color:var(--amber)}
+.ccd-nav-links .btn{color:var(--green-deep)}
+.hero{min-height:min(860px,calc(100svh - 68px));background:radial-gradient(ellipse at 76% 28%,#244b3d 0%,#102d28 35%,#071713 78%);padding:0;display:flex;align-items:center;isolation:isolate}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(233,223,203,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(233,223,203,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(90deg,transparent 30%,black)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:clamp(24px,5vw,88px);padding-top:90px;padding-bottom:110px}
+.hero .eyebrow{color:var(--amber);font-size:11px;letter-spacing:.19em}
+.hero h1{font-size:clamp(54px,6.8vw,106px);max-width:12ch;line-height:.91;letter-spacing:-.045em;margin:30px 0}
+.hero h1 em{color:var(--amber)}
+.hero .lede{max-width:53ch;font-size:clamp(16px,1.6vw,19px);line-height:1.75;color:#d9dfd7}
+.hero .ctas{margin-top:34px}
+.hero .btn{border-radius:0}
+.hero-visual{position:relative;min-height:510px;display:flex;align-items:center;justify-content:center}
+.system-panel{width:100%;max-width:510px;position:relative;background:linear-gradient(150deg,rgba(27,62,52,.93),rgba(5,20,17,.96));border:1px solid rgba(213,173,107,.36);padding:22px;box-shadow:24px 26px 0 rgba(213,173,107,.055),0 32px 80px rgba(0,0,0,.35)}
+.panel-top{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(242,234,219,.2);padding-bottom:17px;font:11px var(--mono);letter-spacing:.13em;color:#d5ad6b;text-transform:uppercase}
+.status-dot{display:inline-block;width:7px;height:7px;background:#d5ad6b;border-radius:50%;margin-right:8px}
+.panel-screen{margin-top:25px;position:relative;min-height:180px;border-left:1px solid rgba(242,234,219,.22);border-bottom:1px solid rgba(242,234,219,.22);background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(242,234,219,.065) 40px)}
+.panel-screen svg{display:block;width:100%;height:180px}
+.panel-screen polyline{stroke:#d5ad6b;stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.panel-readout{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.panel-readout div{border-top:1px solid rgba(242,234,219,.2);padding-top:13px}
+.panel-readout small{display:block;font:10px var(--mono);letter-spacing:.12em;color:#c7c9bd;text-transform:uppercase}
+.panel-readout strong{display:block;color:#f2eadb;font:600 24px var(--serif);margin-top:5px}
+.panel-tag{position:absolute;right:-16px;bottom:-24px;background:var(--amber);color:var(--green-deep);font:11px var(--mono);padding:16px 18px;letter-spacing:.07em;text-transform:uppercase;max-width:200px}
+.hero-index{position:absolute;bottom:25px;left:clamp(20px,4vw,64px);font:11px var(--mono);color:#b4bfb5;letter-spacing:.15em;text-transform:uppercase}
+.hero .pulse{display:none}
+.story-intro{background:var(--cream);padding:110px 0 120px}
+.story-grid{display:grid;grid-template-columns:.76fr 1.24fr;gap:clamp(28px,8vw,130px);align-items:start}
+.story-kicker{font:12px var(--mono);color:var(--green);text-transform:uppercase;letter-spacing:.17em;padding-top:15px;border-top:2px solid var(--green)}
+.story-intro h2{font-size:clamp(42px,5.4vw,82px);line-height:.99;letter-spacing:-.035em;margin:0 0 32px}
+.story-intro h2 em{color:#8b3b38;font-weight:500}
+.story-intro p{font-size:clamp(17px,1.6vw,21px);max-width:65ch;line-height:1.7}
+.story-note{margin-top:30px;padding-left:22px;border-left:3px solid var(--amber);font:13px var(--mono);letter-spacing:.02em;line-height:1.8}
+.arc{background:var(--cream);padding-top:0}
+.arc-head h2{font-size:clamp(36px,4vw,58px)}
+.offers{background:#e5dbca}
+.offers h2,.pstm h2,.about h2{letter-spacing:-.025em}
+.card{border-top-width:2px}
+.card.flagship{border-top-width:5px}
+.pstm{background:#071713}
+.final{padding:115px 0}
+.final h2{font-size:clamp(48px,6vw,90px);letter-spacing:-.035em}
+@media(max-width:950px){.hero-grid{grid-template-columns:1fr;gap:20px;padding-top:75px}.hero-visual{min-height:360px;justify-content:flex-start}.system-panel{max-width:610px}.hero h1{max-width:14ch}.story-grid{grid-template-columns:1fr;gap:24px}.story-intro{padding:75px 0}}
+@media(max-width:640px){.ccd-nav .wrap{flex-wrap:nowrap}.ccd-nav-brand{font-size:20px}.ccd-nav-links .btn{padding:10px;font-size:10px}.hero-grid{padding-top:58px;padding-bottom:100px}.hero h1{font-size:clamp(50px,12.3vw,75px)}.hero-visual{min-height:305px}.system-panel{padding:15px;margin-right:12px}.panel-screen,.panel-screen svg{min-height:125px;height:125px}.panel-tag{right:-12px;bottom:-16px;padding:11px;font-size:9px}.hero-index{bottom:20px}.story-intro h2{font-size:clamp(44px,10vw,64px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -172,25 +225,44 @@
 <main>
 
 <section class="hero" aria-labelledby="hero-h">
-  <div class="wrap">
-    <div class="eyebrow">Healthcare Cyber Resilience &amp; Incident Management</div>
-    <h1 id="hero-h">I keep patient care running when <em>systems</em> don't.</h1>
-    <p class="lede">I help healthcare organizations prepare for, respond to, and recover from cyber incidents and technology failures without losing sight of the patient.</p>
-    <div class="ctas">
-      <a class="btn btn-amber" href="https://chaundacdallas.com/book">Book a 20-minute Fit Call</a>
-      <a class="btn btn-line" href="https://chaundacdallas.com/drill">See the 3 A.M. Downtime Drill</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Chaunda C. Dallas, MSIT / Healthcare Cyber Resilience</div>
+      <h1 id="hero-h">I keep patient care running when <em>systems</em> don't.</h1>
+      <p class="lede">I help healthcare organizations prepare for, respond to, and recover from cyber incidents and technology failures without losing sight of the patient.</p>
+      <div class="ctas">
+        <a class="btn btn-amber" href="/book">Let's talk</a>
+        <a class="btn btn-line" href="#offers">Explore the work</a>
+      </div>
     </div>
+    <div class="hero-visual" aria-label="Illustrative clinical monitoring and technology resilience graphic">
+      <div class="system-panel">
+        <div class="panel-top"><span><span class="status-dot"></span>Clinical continuity</span><span>Scenario / 03:14 AM</span></div>
+        <div class="panel-screen">
+          <svg viewBox="0 0 460 180" role="img" aria-label="Illustrative monitoring signal showing a temporary interruption">
+            <polyline points="0,94 60,94 75,94 85,69 96,125 107,34 118,101 132,94 208,94 223,94 237,71 248,122 259,42 270,100 284,94 316,94" />
+            <polyline points="351,94 385,94 397,70 408,120 420,40 432,98 460,94" stroke-dasharray="4 7"/>
+            <rect x="317" y="85" width="34" height="18" fill="none" stroke="#9b2635" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="panel-readout">
+          <div><small>Technology event</small><strong>Systems disrupted</strong></div>
+          <div><small>Priority</small><strong>Patient care continues</strong></div>
+        </div>
+        <div class="panel-tag">What happens at the bedside?</div>
+      </div>
+    </div>
+    <div class="hero-index">From the trauma bay to the threat surface &nbsp; / &nbsp; Scroll to explore</div>
   </div>
-  <svg class="pulse" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="trace" d="M0,70 L420,70 L440,70 L452,40 L462,98 L474,20 L486,78 L498,70 L760,70 L780,70 L792,44 L802,94 L814,26 L826,74 L838,70 L1120,70 L1140,70 L1152,42 L1162,96 L1174,22 L1186,76 L1198,70 L1440,70"/>
-  </svg>
 </section>
-
-<section class="question" aria-labelledby="q-h">
-  <div class="wrap">
-    <div class="eyebrow">The question I start with</div>
-    <blockquote id="q-h">What happens to the patient when the technology fails?</blockquote>
-    <p>Security teams measure the data. Clinicians live with the consequences. I spent 17+ years in emergency departments making that gap smaller, and I bring that view to every cyber, technology, and downtime question I'm asked.</p>
+<section class="story-intro" aria-labelledby="story-h">
+  <div class="wrap story-grid">
+    <div class="story-kicker">01 / The perspective that changes everything</div>
+    <div>
+      <h2 id="story-h">The network goes dark. <em>The patient is still here.</em></h2>
+      <p>At 3:14 a.m., an outage isn't an abstract incident. It's a waiting room filling up, a medication history out of reach, and a clinical team making decisions without the systems they depend on. I know that side of downtime because I've worked it.</p>
+      <div class="story-note">The question isn't only whether the technology can recover. It's what happens to patient care until it does.</div>
+    </div>
   </div>
 </section>
 
